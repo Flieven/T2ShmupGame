@@ -33,6 +33,7 @@ void ShmupGame::Run()
 	while (isRunning)
 	{
 		EventHandler();
+		// Yoda rave
 	}
 }
 
