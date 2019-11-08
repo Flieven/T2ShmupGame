@@ -20,6 +20,5 @@ namespace T2
 		bool getKeyDown(SDL_Scancode key);
 		bool getKeyDownOnce(SDL_Scancode key);
 		void Update();
-
 	};
 }
