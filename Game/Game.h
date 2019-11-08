@@ -2,7 +2,10 @@
 
 #include <EngineApplication.h>
 
-class Input;
+namespace T2
+{
+	class Input;
+}
 
 class ShmupGame : public T2::Engine
 {
@@ -12,7 +15,7 @@ private:
 
 	void EventHandler();
 
-	Input* inputManager;
+	T2::Input* inputManager;
 
 public:
 	ShmupGame() : inputManager(nullptr) {}

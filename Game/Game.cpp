@@ -3,6 +3,8 @@
 #include <EngineEntry.h>
 #include <ServiceLocator.h>
 
+#include <InputManager.h>
+
 #include "StaticIncluder.h"			
 #include "Game.h"
 
@@ -14,7 +16,10 @@ bool ShmupGame::Initialize()
 	assert(Mix_Init(MIX_INIT_MP3) != 0 && "Mix_Init Failed to Initalize");
 	assert(TTF_Init() == 0 && "TTF_Init Failed to Initialize");;
 
-	ServiceLocator<Input>::setService(inputManager);
+	inputManager = new T2::Input();
+	inputManager->initialize();
+
+	ServiceLocator<T2::Input>::setService(inputManager);
 
 	return true;
 }
@@ -22,6 +27,11 @@ bool ShmupGame::Initialize()
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
+	inputManager->shutdown();
+	delete inputManager;
+	inputManager = nullptr;
+
+	std::cout << "===== Yeet SDL =====" << std::endl;
 	TTF_Quit();
 	Mix_Quit();
 	IMG_Quit();
@@ -32,6 +42,7 @@ void ShmupGame::Run()
 {
 	while (isRunning)
 	{
+		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
 	}
 }
@@ -43,6 +54,6 @@ void ShmupGame::EventHandler()
 	while (SDL_PollEvent(&event) == 1)
 	{
 		if (event.type == SDL_QUIT) { isRunning = false; }
-		else { /*inputManager->handleEvent(event);*/ }
+		else { inputManager->handleEvent(event); }
 	}
 }

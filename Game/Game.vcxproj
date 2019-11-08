@@ -62,15 +62,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)T2Engine\;$(SolutionDir)External\SDL2\include;$(SolutionDir)External\SDL2_img\include;$(SolutionDir)External\SDL2_mix\include;$(SolutionDir)External\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)T2Engine;$(SolutionDir)External\SDL2\include;$(SolutionDir)External\SDL2_img\include;$(SolutionDir)External\SDL2_mix\include;$(SolutionDir)External\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EntryPointSymbol>
       </EntryPointSymbol>
-      <AdditionalLibraryDirectories>$(SolutionDir)External\SDL2\lib\x64;$(SolutionDir)External\SDL2_img\lib\x64;$(SolutionDir)External\SDL2_mix\lib\x64;$(SolutionDir)External\SDL2_ttf\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\SDL2\lib\x64;$(SolutionDir)External\SDL2_img\lib\x64;$(SolutionDir)External\SDL2_mix\lib\x64;$(SolutionDir)External\SDL2_ttf\lib\x64;$(SolutionDir)binaries\Debug-x64\T2Engine;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>SDL2.lib;SDL2_image.lib;SDL2_mixer.lib;SDL2_ttf.lib;T2Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -84,7 +84,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)T2Engine\;$(SolutionDir)External\SDL2\include;$(SolutionDir)External\SDL2_img\include;$(SolutionDir)External\SDL2_mix\include;$(SolutionDir)External\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)T2Engine;$(SolutionDir)External\SDL2\include;$(SolutionDir)External\SDL2_img\include;$(SolutionDir)External\SDL2_mix\include;$(SolutionDir)External\SDL2_ttf\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -102,6 +102,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Game.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\T2Engine\T2Engine.vcxproj">
+      <Project>{a39cf124-e006-457e-93cd-5bd55ec92f15}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

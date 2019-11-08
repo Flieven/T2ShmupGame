@@ -107,12 +107,18 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ErrorLogger.cpp" />
+    <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="KeyboardManager.cpp" />
+    <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="T2Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
     <ClInclude Include="ErrorLogger.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="KeyboardManager.h" />
+    <ClInclude Include="MouseManager.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="StaticIncluder.h" />
   </ItemGroup>

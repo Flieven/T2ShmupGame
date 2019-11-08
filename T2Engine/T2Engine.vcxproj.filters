@@ -45,14 +45,23 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="T2Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ErrorLogger.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EngineEntry.h">
       <Filter>Header Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
+      <Filter>Source Files\Managers\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardManager.cpp">
+      <Filter>Source Files\Managers\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MouseManager.cpp">
+      <Filter>Source Files\Managers\InputManager</Filter>
+    </ClCompile>
+    <ClCompile Include="T2Engine.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -67,6 +76,15 @@
     </ClInclude>
     <ClInclude Include="EngineApplication.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>Header Files\Managers\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardManager.h">
+      <Filter>Header Files\Managers\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MouseManager.h">
+      <Filter>Header Files\Managers\InputManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
