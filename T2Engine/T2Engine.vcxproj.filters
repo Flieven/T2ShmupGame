@@ -43,6 +43,12 @@
     <Filter Include="Source Files\Managers\InputManager">
       <UniqueIdentifier>{61a05fbc-7b48-4762-a371-b1a85ae54ccf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers\DrawManager">
+      <UniqueIdentifier>{daa9ad6b-bf55-4b07-afeb-01d5508c6484}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers\DrawManager">
+      <UniqueIdentifier>{5b5f1d19-f1e3-4e5f-acfc-b8c1d13e4e45}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ErrorLogger.cpp">
@@ -62,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="T2Engine.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawManager.cpp">
+      <Filter>Source Files\Managers\DrawManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +94,9 @@
     </ClInclude>
     <ClInclude Include="MouseManager.h">
       <Filter>Header Files\Managers\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawManager.h">
+      <Filter>Header Files\Managers\DrawManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

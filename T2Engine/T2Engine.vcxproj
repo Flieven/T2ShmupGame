@@ -106,6 +106,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="ErrorLogger.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
@@ -113,6 +114,7 @@
     <ClCompile Include="T2Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DrawManager.h" />
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
     <ClInclude Include="ErrorLogger.h" />

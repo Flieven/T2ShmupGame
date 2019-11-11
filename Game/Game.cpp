@@ -44,6 +44,7 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
+		// Yoda rave
 	}
 }
 
