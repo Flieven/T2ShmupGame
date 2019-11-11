@@ -106,20 +106,26 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="ErrorLogger.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="MouseManager.cpp" />
+    <ClCompile Include="MusicClip.cpp" />
+    <ClCompile Include="SoundClip.cpp" />
     <ClCompile Include="T2Engine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AudioManager.h" />
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
     <ClInclude Include="ErrorLogger.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KeyboardManager.h" />
     <ClInclude Include="MouseManager.h" />
+    <ClInclude Include="MusicClip.h" />
     <ClInclude Include="ServiceLocator.h" />
+    <ClInclude Include="SoundClip.h" />
     <ClInclude Include="StaticIncluder.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

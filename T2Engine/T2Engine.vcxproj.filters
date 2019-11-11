@@ -43,11 +43,23 @@
     <Filter Include="Source Files\Managers\InputManager">
       <UniqueIdentifier>{61a05fbc-7b48-4762-a371-b1a85ae54ccf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers\DrawManager">
+      <UniqueIdentifier>{37acacbb-05a3-48cd-9cae-1d77e30a0194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\DrawManager">
+      <UniqueIdentifier>{d2960c2b-9d9b-48d1-91df-f3fa9c43ffd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers\AudioManager">
+      <UniqueIdentifier>{c52f5924-820a-445e-8ce9-66ddf4695c08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\AudioManager">
+      <UniqueIdentifier>{c16f8e01-d31f-4388-9465-f402e05b2145}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{e95a9f42-f5e0-403d-9971-fedf220dcad9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ErrorLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EngineEntry.h">
       <Filter>Header Files\Engine</Filter>
     </ClCompile>
@@ -60,8 +72,20 @@
     <ClCompile Include="MouseManager.cpp">
       <Filter>Source Files\Managers\InputManager</Filter>
     </ClCompile>
+    <ClCompile Include="SoundClip.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogger.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="T2Engine.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicClip.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +109,15 @@
     </ClInclude>
     <ClInclude Include="MouseManager.h">
       <Filter>Header Files\Managers\InputManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundClip.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicClip.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
