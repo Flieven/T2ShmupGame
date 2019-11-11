@@ -58,6 +58,12 @@
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{e95a9f42-f5e0-403d-9971-fedf220dcad9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers\TextManager">
+      <UniqueIdentifier>{864847de-bd3f-4333-ad75-697b37403d5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\TextManager">
+      <UniqueIdentifier>{f3c466ce-8399-40cb-a6f2-80d8c4b460f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -86,6 +92,9 @@
     </ClCompile>
     <ClCompile Include="AudioManager.cpp">
       <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TextManager.cpp">
+      <Filter>Source Files\Managers\TextManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -118,6 +127,9 @@
     </ClInclude>
     <ClInclude Include="AudioManager.h">
       <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TextManager.h">
+      <Filter>Header Files\Managers\TextManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
