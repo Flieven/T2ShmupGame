@@ -1,12 +1,1 @@
-﻿  DrawManager.cpp
-  ErrorLogger.cpp
-  InputManager.cpp
-  KeyboardManager.cpp
-  MouseManager.cpp
-  T2Engine.cpp
-  EngineEntry.h
-  Generating Code...
-SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-SDL2_mixer.lib(SDL2_mixer.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-  T2Engine.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\T2Engine\T2Engine.lib
+﻿  T2Engine.vcxproj -> C:\DEV\T2 SDL Shmup\binaries\Debug-x64\T2Engine\T2Engine.lib
