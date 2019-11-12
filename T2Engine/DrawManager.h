@@ -9,7 +9,7 @@ namespace T2
 		DrawManager() {}
 		~DrawManager() {}
 
-		void InitWindow(int width, int height);
+		void Initalize(int width, int height);
 
 		void Update();
 		void Render();

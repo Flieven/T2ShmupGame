@@ -176,5 +176,8 @@
     <ClInclude Include="Transform.h">
       <Filter>Header Files\System\Components</Filter>
     </ClInclude>
+    <ClInclude Include="EngineConfig.h">
+      <Filter>Header Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

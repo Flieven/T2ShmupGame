@@ -1,10 +1,12 @@
 #include "DrawManager.h"
 
-void T2::DrawManager::InitWindow(int width, int height)
+#include "EngineConfig.h"
+
+void T2::DrawManager::Initalize(int width, int height)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow("ShmupGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow(windowTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 		if (window)
 		{
 			// window created
@@ -13,7 +15,7 @@ void T2::DrawManager::InitWindow(int width, int height)
 		renderer = SDL_CreateRenderer(window, -1, 0);
 		if (renderer)
 		{
-			SDL_SetRenderDrawColor(renderer, 30, 30, 60, 255);
+			SDL_SetRenderDrawColor(renderer, backgroundColor.r, backgroundColor.g, backgroundColor.b, backgroundColor.a);
 		}
 	}
 }

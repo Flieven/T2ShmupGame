@@ -130,6 +130,7 @@
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
+    <ClInclude Include="EngineConfig.h" />
     <ClInclude Include="ErrorLogger.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KeyboardManager.h" />
