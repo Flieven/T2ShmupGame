@@ -49,11 +49,29 @@
     <Filter Include="Header Files\Managers\DrawManager">
       <UniqueIdentifier>{5b5f1d19-f1e3-4e5f-acfc-b8c1d13e4e45}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers\AudioManager">
+      <UniqueIdentifier>{49840d48-afb2-4bf1-b60a-6c33f8977e91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\AudioManager">
+      <UniqueIdentifier>{e04d76be-5b1b-4548-95c6-b025c6719b1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Engine\Components">
+      <UniqueIdentifier>{3c32e660-fc7e-4ddc-9af3-9162517b2855}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{3ca8c93a-c634-4dc4-a4e9-9555ed26e4e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Components">
+      <UniqueIdentifier>{a7d2df53-ab59-43ed-9e28-f1fe59872b3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Managers\TextManager">
+      <UniqueIdentifier>{be6f4ba5-01ef-4bc9-8a77-20ec3257872d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\TextManager">
+      <UniqueIdentifier>{9a63fb7e-342f-49ca-8f72-35ebf0cbb261}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="ErrorLogger.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EngineEntry.h">
       <Filter>Header Files\Engine</Filter>
     </ClCompile>
@@ -66,11 +84,38 @@
     <ClCompile Include="MouseManager.cpp">
       <Filter>Source Files\Managers\InputManager</Filter>
     </ClCompile>
-    <ClCompile Include="T2Engine.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="DrawManager.cpp">
       <Filter>Source Files\Managers\DrawManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AudioManager.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="MusicClip.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundClip.cpp">
+      <Filter>Source Files\Managers\AudioManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Source Files\Engine\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineEntry.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogger.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="T2Engine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="TextManager.cpp">
+      <Filter>Source Files\Managers\TextManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +142,27 @@
     </ClInclude>
     <ClInclude Include="DrawManager.h">
       <Filter>Header Files\Managers\DrawManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AudioManager.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MusicClip.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundClip.h">
+      <Filter>Header Files\Managers\AudioManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files\Engine\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="TextManager.h">
+      <Filter>Header Files\Managers\TextManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
