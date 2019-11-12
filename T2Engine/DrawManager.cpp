@@ -1,10 +1,10 @@
 #include "DrawManager.h"
 
-void T2::DrawManager::InitWindow(const char* title, int xPos, int yPos, int width, int height)
+void T2::DrawManager::InitWindow(int width, int height)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow(title, xPos, yPos, width, height, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow("ShmupGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 		if (window)
 		{
 			// window created

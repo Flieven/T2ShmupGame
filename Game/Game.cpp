@@ -4,6 +4,7 @@
 #include <ServiceLocator.h>
 
 #include <InputManager.h>
+#include <DrawManager.h>
 
 #include "StaticIncluder.h"			
 #include "Game.h"
@@ -19,7 +20,11 @@ bool ShmupGame::Initialize()
 	inputManager = new T2::Input();
 	inputManager->initialize();
 
+	drawManager = new T2::DrawManager();
+	drawManager->InitWindow(640, 480);
+
 	ServiceLocator<T2::Input>::setService(inputManager);
+	ServiceLocator<T2::DrawManager>::setService(drawManager);
 
 	return true;
 }
@@ -27,6 +32,11 @@ bool ShmupGame::Initialize()
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
+
+	drawManager->Shutdown();
+	delete drawManager;
+	drawManager = nullptr;
+
 	inputManager->shutdown();
 	delete inputManager;
 	inputManager = nullptr;
@@ -44,6 +54,7 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
+		drawManager->Render();
 		// Yoda rave
 	}
 }
