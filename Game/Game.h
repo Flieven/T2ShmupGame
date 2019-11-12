@@ -5,6 +5,7 @@
 namespace T2
 {
 	class Input;
+	class DrawManager;
 }
 
 class ShmupGame : public T2::Engine
@@ -16,9 +17,10 @@ private:
 	void EventHandler();
 
 	T2::Input* inputManager;
+	T2::DrawManager* drawManager;
 
 public:
-	ShmupGame() : inputManager(nullptr) {}
+	ShmupGame() : inputManager(nullptr), drawManager(nullptr) {}
 
 	// Inherited via Engine
 	virtual bool Initialize() override;
