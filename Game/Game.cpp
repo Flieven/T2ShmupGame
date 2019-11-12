@@ -21,10 +21,10 @@ bool ShmupGame::Initialize()
 	inputManager->initialize();
 
 	drawManager = new T2::DrawManager();
-	drawManager->InitWindow(640, 480);
+	drawManager->InitWindow(640, 480);	
 
 	ServiceLocator<T2::Input>::setService(inputManager);
-	ServiceLocator<T2::DrawManager>::setService(drawManager);
+	ServiceLocator<T2::DrawManager>::setService(drawManager);	
 
 	return true;
 }
@@ -55,7 +55,7 @@ void ShmupGame::Run()
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
 		drawManager->Render();
-		// Yoda rave
+		drawManager->Update();
 	}
 }
 
