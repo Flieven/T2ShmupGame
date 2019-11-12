@@ -70,6 +70,12 @@
     <Filter Include="Source Files\Managers\TextManager">
       <UniqueIdentifier>{9a63fb7e-342f-49ca-8f72-35ebf0cbb261}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Managers\CollisionManager">
+      <UniqueIdentifier>{b1dfe7a1-22fe-4e4f-be04-07cda3975ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\CollisionManager">
+      <UniqueIdentifier>{dbecded5-e757-4ea2-84ef-1780dcfedef9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -102,9 +108,6 @@
     <ClCompile Include="Collision.cpp">
       <Filter>Source Files\Engine\Components</Filter>
     </ClCompile>
-    <ClCompile Include="CollisionManager.cpp">
-      <Filter>Source Files\Engine\Components</Filter>
-    </ClCompile>
     <ClCompile Include="EngineEntry.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -116,6 +119,9 @@
     </ClCompile>
     <ClCompile Include="TextManager.cpp">
       <Filter>Source Files\Managers\TextManager</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Source Files\Managers\CollisionManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -158,11 +164,14 @@
     <ClInclude Include="Collision.h">
       <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
-    <ClInclude Include="CollisionManager.h">
-      <Filter>Header Files\Engine\Components</Filter>
-    </ClInclude>
     <ClInclude Include="TextManager.h">
       <Filter>Header Files\Managers\TextManager</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Header Files\Managers\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Header Files\Engine\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

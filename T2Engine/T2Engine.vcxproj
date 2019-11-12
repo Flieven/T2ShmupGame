@@ -138,6 +138,7 @@
     <ClInclude Include="SoundClip.h" />
     <ClInclude Include="StaticIncluder.h" />
     <ClInclude Include="TextManager.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />
