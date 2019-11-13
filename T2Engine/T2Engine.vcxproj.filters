@@ -73,6 +73,12 @@
     <Filter Include="Source Files\System\Components">
       <UniqueIdentifier>{a7d2df53-ab59-43ed-9e28-f1fe59872b3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\System\Objects">
+      <UniqueIdentifier>{62029910-237d-4e34-8793-e7bee2c874b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Objects">
+      <UniqueIdentifier>{c9268d36-b0f7-40cd-8064-3c7d9f354978}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -99,12 +105,6 @@
     <ClCompile Include="SoundClip.cpp">
       <Filter>Source Files\System\Managers\AudioManager</Filter>
     </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Source Files\System\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision.cpp">
-      <Filter>Source Files\System\Components</Filter>
-    </ClCompile>
     <ClCompile Include="EngineEntry.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
@@ -122,6 +122,27 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files\System\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Sprite.cpp">
+      <Filter>Source Files\System\Managers\DrawManager</Filter>
+    </ClCompile>
+    <ClCompile Include="IDrawable.cpp">
+      <Filter>Source Files\System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision.cpp">
+      <Filter>Source Files\System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Source Files\System\Managers\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="IObject.cpp">
+      <Filter>Source Files\System\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>Source Files\System\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Source Files\System\Objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -167,17 +188,32 @@
     <ClInclude Include="ErrorLogger.h">
       <Filter>Header Files\System\Tools</Filter>
     </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Header Files\System\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="Collision.h">
-      <Filter>Header Files\System\Components</Filter>
-    </ClInclude>
     <ClInclude Include="Transform.h">
       <Filter>Header Files\System\Components</Filter>
     </ClInclude>
     <ClInclude Include="EngineConfig.h">
       <Filter>Header Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Sprite.h">
+      <Filter>Header Files\System\Managers\DrawManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision.h">
+      <Filter>Header Files\System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Header Files\System\Managers\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>Header Files\System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="IObject.h">
+      <Filter>Header Files\System\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Header Files\System\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Header Files\System\Objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
