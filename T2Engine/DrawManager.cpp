@@ -1,4 +1,5 @@
 #include "DrawManager.h"
+#include "EngineConfig.h"
 
 #include "gameObject.h" // plm
 
@@ -10,7 +11,7 @@ void T2::DrawManager::InitWindow(int width, int height)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow("ShmupGame", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow(windowTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 		if (window)
 		{
 			// window created

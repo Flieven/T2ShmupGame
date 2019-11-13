@@ -112,15 +112,20 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="EngineEntry.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ErrorLogger.cpp" />
-    <ClCompile Include="gameObject.cpp" />
+    <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="IObject.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="MusicClip.cpp" />
+    <ClCompile Include="Object.cpp" />
     <ClCompile Include="SoundClip.cpp" />
+    <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="T2Engine.cpp" />
     <ClCompile Include="TextManager.cpp" />
+    <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioManager.h" />
@@ -130,16 +135,23 @@
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
+    <ClInclude Include="EngineConfig.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="ErrorLogger.h" />
-    <ClInclude Include="gameObject.h" />
+    <ClInclude Include="IDrawable.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="IObject.h" />
     <ClInclude Include="KeyboardManager.h" />
     <ClInclude Include="MouseManager.h" />
     <ClInclude Include="MusicClip.h" />
+    <ClInclude Include="Object.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="SoundClip.h" />
+    <ClInclude Include="Sprite.h" />
     <ClInclude Include="StaticIncluder.h" />
     <ClInclude Include="TextManager.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="Transform.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

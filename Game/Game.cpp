@@ -1,5 +1,7 @@
 #pragma once
 
+#include <EngineConfig.h>
+
 #include <EngineEntry.h>
 #include <ServiceLocator.h>
 
@@ -21,7 +23,7 @@ bool ShmupGame::Initialize()
 	inputManager->initialize();
 
 	drawManager = new T2::DrawManager();
-	drawManager->InitWindow(640, 480);	
+	drawManager->InitWindow(windowWidth, windowHeight);	
 
 	ServiceLocator<T2::Input>::setService(inputManager);
 	ServiceLocator<T2::DrawManager>::setService(drawManager);	
