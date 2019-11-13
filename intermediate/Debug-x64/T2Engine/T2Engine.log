@@ -1,30 +1,6 @@
-﻿  AudioManager.cpp
-  Collider.cpp
-  Collision.cpp
-  CollisionManager.cpp
-  DrawManager.cpp
-  EngineEntry.cpp
-  Entity.cpp
-  ErrorLogger.cpp
-  IDrawable.cpp
-  InputManager.cpp
-  IObject.cpp
-  KeyboardManager.cpp
-  MouseManager.cpp
-  MusicClip.cpp
+﻿  Entity.cpp
   Object.cpp
-  SoundClip.cpp
-  Sprite.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\T2Engine\DrawManager.cpp(38,34): warning C4244:  '=': conversion from 'double' to 'int', possible loss of data
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\T2Engine\Sprite.cpp(22,23): warning C4267:  '=': conversion from 'size_t' to 'int', possible loss of data
-  T2Engine.cpp
-  TextManager.cpp
-  Timer.cpp
   Generating Code...
-  Compiling...
-  EngineEntry.h
-  Generating Code...
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\T2Engine\Sprite.cpp(43,23): warning C4267:  'return': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\Leon.Andersson\source\repos\T2ShmupGame\intermediate\Debug-x64\T2Engine\EngineEntry.obj : warning LNK4042: object specified more than once; extras ignored
 SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
 SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored

@@ -1,4 +1,7 @@
 ﻿  Game.cpp
   Player.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Game.cpp(80,25): warning C4244:  '=': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(13,21): warning C4305:  '=': truncation from 'double' to 'float'
   Generating Code...
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(15,67): warning C4244:  'argument': conversion from 'float' to 'unsigned int', possible loss of data
   Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe
