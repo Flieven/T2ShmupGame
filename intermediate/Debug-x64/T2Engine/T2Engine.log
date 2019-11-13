@@ -1,6 +1,7 @@
 ﻿  DrawManager.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\intermediate\Debug-x64\T2Engine\EngineEntry.obj : warning LNK4042: object specified more than once; extras ignored
+C:\DEV\T2 SDL Shmup\T2Engine\DrawManager.cpp(38,34): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\DEV\T2 SDL Shmup\intermediate\Debug-x64\T2Engine\EngineEntry.obj : warning LNK4042: object specified more than once; extras ignored
 SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
 SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
 SDL2_mixer.lib(SDL2_mixer.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
-  T2Engine.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\T2Engine\T2Engine.lib
+  T2Engine.vcxproj -> C:\DEV\T2 SDL Shmup\binaries\Debug-x64\T2Engine\T2Engine.lib
