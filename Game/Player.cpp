@@ -10,8 +10,10 @@ Player::Player()
 {
 	setupPlayer();
 	inputManager = ServiceLocator<T2::Input>::getService();
-	movementSpeed = 0.1;
-	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
+	movementSpeed = 10;
+	transform.Scale.x = 2;
+	transform.Scale.y = 2;
+	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth * transform.Scale.x, enemyHeight * transform.Scale.y, 1);
 }
 
 Player::~Player()

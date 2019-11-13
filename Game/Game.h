@@ -9,6 +9,7 @@ namespace T2
 }
 
 class Player;
+class Cloud;
 
 class ShmupGame : public T2::Engine
 {
@@ -22,6 +23,7 @@ private:
 	T2::Input* inputManager;
 	T2::DrawManager* drawManager;
 	Player* player;
+	Cloud* cloud;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;

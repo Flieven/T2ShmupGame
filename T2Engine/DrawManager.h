@@ -21,6 +21,8 @@ namespace T2
 		void InitWindow(int width, int height, const char* title);
 		void Update();
 		void Render(Sprite* sprite, SDL_Rect rect);
+		void Present();
+		void Clear();
 		void Shutdown();
 
 		// Load textures

@@ -7,6 +7,7 @@
 #include <DrawManager.h>
 
 #include "Player.h"
+#include "Clouds.h"
 
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
@@ -30,6 +31,7 @@ bool ShmupGame::Initialize()
 	ServiceLocator<T2::DrawManager>::setService(drawManager);	
 
 	player = new Player();
+	cloud = new Cloud();
 
 	return true;
 }
@@ -59,8 +61,17 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
+		drawManager->Clear();
+
 		player->Update(deltaTime);
+		cloud->Update(deltaTime);
+
+		drawManager->Present();
+		SDL_Delay(10);
+
 	}
+	
+	
 }
 
 void ShmupGame::EventHandler()

@@ -27,6 +27,12 @@ static int enemyHeight = 23;
 static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===========================
 
+// ===== CLOUD SETTINGS =====
+static int cloudWidth = 32;
+static int cloudHeight = 8;
+static const char* cloudSprite = "../Assets/Sprites/Cloud.png";
+// ===========================
+
 // ===== UPGRADE SETTINGS =====
 // ============================
 

@@ -29,10 +29,17 @@ void T2::DrawManager::Update()
 
 void T2::DrawManager::Render(Sprite* sprite, SDL_Rect rect)
 {
-	SDL_RenderClear(renderer);
-	
 	SDL_RenderCopy(renderer, sprite->getTexture() , &sprite->getSource(0), &rect);
+}
+
+void T2::DrawManager::Present()
+{
 	SDL_RenderPresent(renderer);
+}
+
+void T2::DrawManager::Clear()
+{
+	SDL_RenderClear(renderer);
 }
 
 void T2::DrawManager::Shutdown()
