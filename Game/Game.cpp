@@ -6,6 +6,8 @@
 #include <InputManager.h>
 #include <DrawManager.h>
 
+#include "Player.h"
+
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
 #include "Game.h"
@@ -26,6 +28,8 @@ bool ShmupGame::Initialize()
 
 	ServiceLocator<T2::Input>::setService(inputManager);
 	ServiceLocator<T2::DrawManager>::setService(drawManager);	
+
+	player = new Player();
 
 	return true;
 }
@@ -55,8 +59,7 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		EventHandler();
-		drawManager->Render();
-		drawManager->Update();
+		player->Update(deltaTime);
 	}
 }
 
@@ -69,4 +72,10 @@ void ShmupGame::EventHandler()
 		if (event.type == SDL_QUIT) { isRunning = false; }
 		else { inputManager->handleEvent(event); }
 	}
+}
+
+void ShmupGame::CalcDeltaTime()
+{
+	deltaTime = 0.001f * (SDL_GetTicks() - lastTick);
+	lastTick = SDL_GetTicks();
 }

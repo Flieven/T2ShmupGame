@@ -1,9 +1,5 @@
 #include "DrawManager.h"
-
-//
-float testCounter;
-SDL_Texture* fireTexture;
-SDL_Rect sourceRect, destinationRect;
+#include "Sprite.h"
 
 void T2::DrawManager::InitWindow(int width, int height, const char* title)
 {
@@ -25,26 +21,17 @@ void T2::DrawManager::InitWindow(int width, int height, const char* title)
 	/*SDL_Surface* tempSurface = IMG_Load("../Assets/Sprites/CampFire.PNG");
 	fireTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
 	SDL_FreeSurface(tempSurface);*/ // using LoadTexture function istället...
-	fireTexture = LoadTexture("../Assets/Sprites/CampFire.PNG", renderer);
 }
 
 void T2::DrawManager::Update()
 {
-	testCounter++;
-	//scaling rectangle
-	destinationRect.w = 348; // 87
-	destinationRect.h = 92; // 23
-	
-	destinationRect.x = testCounter * 0.1;		
-
-	std::cout << testCounter << std::endl;
 }
 
-void T2::DrawManager::Render()
+void T2::DrawManager::Render(Sprite* sprite, SDL_Rect rect)
 {
 	SDL_RenderClear(renderer);
 	
-	SDL_RenderCopy(renderer, fireTexture, NULL, &destinationRect); 
+	SDL_RenderCopy(renderer, sprite->getTexture() , &sprite->getSource(0), &rect);
 	SDL_RenderPresent(renderer);
 }
 
@@ -56,13 +43,22 @@ void T2::DrawManager::Shutdown()
 	renderer = nullptr;
 }
 
-SDL_Texture* T2::DrawManager::LoadTexture(const char* texture, SDL_Renderer* ren)
+T2::Sprite* T2::DrawManager::LoadTexture(const char* texture, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames)
 {
-	SDL_Surface* tempSurface = IMG_Load(texture);
-	SDL_Texture* tex = SDL_CreateTextureFromSurface(ren, tempSurface);
-	SDL_FreeSurface(tempSurface);
+	auto it = textures.find(texture);
+	if (it == textures.end())
+	{
+		SDL_Surface* tempSurface = IMG_Load(texture);
+		SDL_Texture* tex = SDL_CreateTextureFromSurface(renderer, tempSurface);
+		SDL_FreeSurface(tempSurface);
+		textures.insert(std::pair<std::string, SDL_Texture*>(texture, tex));
+		it = textures.find(texture);
+	}
 
-	return tex;
+	Sprite* sprite = new Sprite(it->second, x, y, w, h, frames);
+	sprites.push_back(sprite);
+
+	return sprite;
 }
 
 

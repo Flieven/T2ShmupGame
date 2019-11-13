@@ -8,6 +8,8 @@ namespace T2
 	class DrawManager;
 }
 
+class Player;
+
 class ShmupGame : public T2::Engine
 {
 private:
@@ -15,9 +17,14 @@ private:
 	bool isRunning = true;
 
 	void EventHandler();
+	void CalcDeltaTime();
 
 	T2::Input* inputManager;
 	T2::DrawManager* drawManager;
+	Player* player;
+
+	float deltaTime = 0.0f;
+	float lastTick = 0.0f;
 
 public:
 	ShmupGame() : inputManager(nullptr), drawManager(nullptr) {}

@@ -3,7 +3,7 @@
 
 namespace T2
 {
-	class Entity
+	class Entity : public Object
 	{
 	public:
 
