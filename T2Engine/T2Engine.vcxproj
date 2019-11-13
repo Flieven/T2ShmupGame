@@ -113,6 +113,7 @@
     <ClCompile Include="DrawManager.cpp" />
     <ClCompile Include="EngineEntry.cpp" />
     <ClCompile Include="ErrorLogger.cpp" />
+    <ClCompile Include="gameObject.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="KeyboardManager.cpp" />
     <ClCompile Include="MouseManager.cpp" />
@@ -130,6 +131,7 @@
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
     <ClInclude Include="ErrorLogger.h" />
+    <ClInclude Include="gameObject.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="KeyboardManager.h" />
     <ClInclude Include="MouseManager.h" />

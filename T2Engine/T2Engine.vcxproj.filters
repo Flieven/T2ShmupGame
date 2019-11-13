@@ -70,6 +70,9 @@
     <Filter Include="Source Files\Managers\TextManager">
       <UniqueIdentifier>{9a63fb7e-342f-49ca-8f72-35ebf0cbb261}</UniqueIdentifier>
     </Filter>
+    <Filter Include="RichardoTest">
+      <UniqueIdentifier>{4e5babb0-f932-4836-879c-e299fc97fba6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -117,6 +120,9 @@
     <ClCompile Include="TextManager.cpp">
       <Filter>Source Files\Managers\TextManager</Filter>
     </ClCompile>
+    <ClCompile Include="gameObject.cpp">
+      <Filter>RichardoTest</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ErrorLogger.h">
@@ -163,6 +169,9 @@
     </ClInclude>
     <ClInclude Include="TextManager.h">
       <Filter>Header Files\Managers\TextManager</Filter>
+    </ClInclude>
+    <ClInclude Include="gameObject.h">
+      <Filter>RichardoTest</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

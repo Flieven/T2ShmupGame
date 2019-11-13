@@ -1,9 +1,10 @@
 #include "DrawManager.h"
 
-//
-float testCounter;
-SDL_Texture* fireTexture;
-SDL_Rect sourceRect, destinationRect;
+#include "gameObject.h" // plm
+
+//SDL_Texture* fireTexture; // plm
+//SDL_Rect sourceRect, destinationRect; // plm
+T2::GameObject* campfire;
 
 void T2::DrawManager::InitWindow(int width, int height)
 {
@@ -20,31 +21,29 @@ void T2::DrawManager::InitWindow(int width, int height)
 		{
 			SDL_SetRenderDrawColor(renderer, 30, 30, 60, 255);
 		}
-	}
+	}	
 
-	/*SDL_Surface* tempSurface = IMG_Load("../Assets/Sprites/CampFire.PNG");
-	fireTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	SDL_FreeSurface(tempSurface);*/ // using LoadTexture function istället...
-	fireTexture = LoadTexture("../Assets/Sprites/CampFire.PNG", renderer);
+	//fireTexture = LoadTexture("../Assets/Sprites/CampFire.PNG", renderer); // plm
+	campfire = new GameObject("..Assets/Sprites/CampFire.PNG", renderer);
 }
 
 void T2::DrawManager::Update()
 {
-	testCounter++;
 	//scaling rectangle
-	destinationRect.w = 348; // 87
-	destinationRect.h = 92; // 23
+	//destinationRect.w = 348; // 87 // plm
+	//destinationRect.h = 92; // 23 // plm
 	
-	destinationRect.x = testCounter * 0.1;		
+	//destinationRect.x = testCounter * 0.1;		
 
-	std::cout << testCounter << std::endl;
+	campfire->Update();
 }
 
 void T2::DrawManager::Render()
 {
 	SDL_RenderClear(renderer);
 	
-	SDL_RenderCopy(renderer, fireTexture, NULL, &destinationRect); 
+	campfire->Render();
+	//SDL_RenderCopy(renderer, fireTexture, NULL, &destinationRect); //plm
 	SDL_RenderPresent(renderer);
 }
 
