@@ -1,16 +1,15 @@
 #include "DrawManager.h"
-#include "EngineConfig.h"
 
 //
 float testCounter;
 SDL_Texture* fireTexture;
 SDL_Rect sourceRect, destinationRect;
 
-void T2::DrawManager::InitWindow(int width, int height)
+void T2::DrawManager::InitWindow(int width, int height, const char* title)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow(windowTitle, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
+		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
 		if (window)
 		{
 			// window created

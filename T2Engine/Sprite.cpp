@@ -40,7 +40,7 @@ SDL_Texture* T2::Sprite::getTexture()
 
 int T2::Sprite::getLength()
 {
-	return sources.size;
+	return sources.size();
 }
 
 int T2::Sprite::getFrame()
