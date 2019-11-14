@@ -5,7 +5,10 @@
 
 #include <InputManager.h>
 #include <DrawManager.h>
+#include <FactoryManager.h>
+#include <ObjectPool.h>
 
+#include "TestFactory.h"
 #include "Player.h"
 
 #include "GameConfig.h"
@@ -26,10 +29,19 @@ bool ShmupGame::Initialize()
 	drawManager = new T2::DrawManager();
 	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
 
-	ServiceLocator<T2::Input>::setService(inputManager);
-	ServiceLocator<T2::DrawManager>::setService(drawManager);	
+	factoryManager = new T2::FactoryManager();
 
-	player = new Player();
+	ServiceLocator<T2::Input>::setService(inputManager);
+	ServiceLocator<T2::DrawManager>::setService(drawManager);
+	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
+	ServiceLocator<T2::ObjectPool>::setService(objPool);
+
+	objPool = new T2::ObjectPool();
+
+	pFactory = new PlayerFactory();
+	factoryManager->addFactory(playerTag, pFactory);
+
+	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
 
 	return true;
 }
@@ -37,6 +49,12 @@ bool ShmupGame::Initialize()
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
+
+	delete pFactory;
+	pFactory = nullptr;
+
+	delete factoryManager;
+	factoryManager = nullptr;
 
 	drawManager->Shutdown();
 	delete drawManager;
@@ -58,8 +76,8 @@ void ShmupGame::Run()
 	while (isRunning)
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
-		EventHandler();
 		player->Update(deltaTime);
+		EventHandler();
 	}
 }
 

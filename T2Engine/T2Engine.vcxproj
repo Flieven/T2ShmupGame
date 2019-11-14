@@ -106,6 +106,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AFactory.cpp" />
     <ClCompile Include="AudioManager.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="Collision.cpp" />
@@ -114,6 +115,7 @@
     <ClCompile Include="EngineEntry.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="ErrorLogger.cpp" />
+    <ClCompile Include="FactoryManager.cpp" />
     <ClCompile Include="IDrawable.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="IObject.cpp" />
@@ -121,6 +123,7 @@
     <ClCompile Include="MouseManager.cpp" />
     <ClCompile Include="MusicClip.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="ObjectPool.cpp" />
     <ClCompile Include="SoundClip.cpp" />
     <ClCompile Include="Sprite.cpp" />
     <ClCompile Include="T2Engine.cpp" />
@@ -128,6 +131,7 @@
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AFactory.h" />
     <ClInclude Include="AudioManager.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Collision.h" />
@@ -137,6 +141,7 @@
     <ClCompile Include="EngineEntry.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ErrorLogger.h" />
+    <ClInclude Include="FactoryManager.h" />
     <ClInclude Include="IDrawable.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="IObject.h" />
@@ -144,6 +149,7 @@
     <ClInclude Include="MouseManager.h" />
     <ClInclude Include="MusicClip.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="ObjectPool.h" />
     <ClInclude Include="ServiceLocator.h" />
     <ClInclude Include="SoundClip.h" />
     <ClInclude Include="Sprite.h" />

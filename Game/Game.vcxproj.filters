@@ -44,5 +44,8 @@
     <ClInclude Include="GameConfig.h">
       <Filter>Header Files\Game</Filter>
     </ClInclude>
+    <ClInclude Include="TestFactory.h">
+      <Filter>Header Files\Objects/Entities</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

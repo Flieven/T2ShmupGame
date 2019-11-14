@@ -6,8 +6,11 @@ namespace T2
 {
 	class Input;
 	class DrawManager;
+	class FactoryManager;
+	class ObjectPool;
 }
 
+class PlayerFactory;
 class Player;
 
 class ShmupGame : public T2::Engine
@@ -21,6 +24,10 @@ private:
 
 	T2::Input* inputManager;
 	T2::DrawManager* drawManager;
+	T2::FactoryManager* factoryManager;
+	T2::ObjectPool* objPool;
+
+	PlayerFactory* pFactory;
 	Player* player;
 
 	float deltaTime = 0.0f;

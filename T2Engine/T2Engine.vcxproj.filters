@@ -79,6 +79,12 @@
     <Filter Include="Source Files\System\Objects">
       <UniqueIdentifier>{c9268d36-b0f7-40cd-8064-3c7d9f354978}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\System\Managers\FactoryManager">
+      <UniqueIdentifier>{d311c0cf-940a-4527-a798-2f31f7602470}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Managers\FactoryManager">
+      <UniqueIdentifier>{1ca5702e-5d66-4bf4-a92b-12c3484a2cec}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -143,6 +149,15 @@
     </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\System\Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectPool.cpp">
+      <Filter>Source Files\System\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="AFactory.cpp">
+      <Filter>Source Files\System\Managers\FactoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="FactoryManager.cpp">
+      <Filter>Source Files\System\Managers\FactoryManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +226,15 @@
     </ClInclude>
     <ClInclude Include="Entity.h">
       <Filter>Header Files\System\Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectPool.h">
+      <Filter>Header Files\System\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="FactoryManager.h">
+      <Filter>Header Files\System\Managers\FactoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="AFactory.h">
+      <Filter>Header Files\System\Managers\FactoryManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

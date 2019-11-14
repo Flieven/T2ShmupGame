@@ -8,6 +8,10 @@ T2::Object::~Object()
 {
 }
 
+void T2::Object::Reset()
+{
+}
+
 void T2::Object::Update(float dTime)
 {
 }

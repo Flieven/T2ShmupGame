@@ -8,10 +8,8 @@
 
 Player::Player()
 {
-	setupPlayer();
 	inputManager = ServiceLocator<T2::Input>::getService();
-	movementSpeed = 0.1;
-	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
+	setupPlayer();
 }
 
 Player::~Player()
@@ -20,6 +18,8 @@ Player::~Player()
 
 void Player::setupPlayer()
 {
+	movementSpeed = 0.1;
+	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
 }
 
 void Player::updateObject()
