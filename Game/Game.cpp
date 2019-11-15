@@ -88,10 +88,7 @@ void ShmupGame::Run()
 		enemy->Update(deltaTime);
 		EventHandler();
 
-		if(colManager->checkCollision(player->collider, enemy->collider))
-		{
-			std::cout << "Collision" << std::endl;
-		}
+		objPool->checkCollisions(player, enemyTag);
 
 		drawManager->Present();
 	}

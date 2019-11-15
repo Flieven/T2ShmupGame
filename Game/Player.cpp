@@ -59,4 +59,5 @@ void Player::Draw()
 
 void Player::onCollision(Collision* other)
 {
+	std::cout << "Player collided with something!" << std::endl;
 }

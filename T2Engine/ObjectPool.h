@@ -39,6 +39,8 @@ namespace T2
 {
 	class Object;
 	class FactoryManager;
+	class CollisionManager;
+	class Collision;
 
 	class ObjectPool
 	{
@@ -47,6 +49,7 @@ namespace T2
 		std::map<std::string, std::vector<Object*>> pool;
 
 		FactoryManager* factoryManager;
+		CollisionManager* colManager;
 
 	public:
 		ObjectPool();
@@ -55,6 +58,8 @@ namespace T2
 		void addNewPool(const std::string& tag);
 
 		T2::Object* getObject(const std::string& tag);
+
+		void checkCollisions(T2::Collision* col, const std::string& tag);
 
 	};
 }

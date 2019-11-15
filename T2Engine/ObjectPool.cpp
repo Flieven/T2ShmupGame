@@ -2,10 +2,12 @@
 #include "Object.h"
 #include "ServiceLocator.h"
 #include "FactoryManager.h"
+#include "CollisionManager.h"
 
 T2::ObjectPool::ObjectPool()
 {
 	factoryManager = ServiceLocator<FactoryManager>::getService();
+	colManager = ServiceLocator<CollisionManager>::getService();
 }
 
 T2::ObjectPool::~ObjectPool()
@@ -52,4 +54,21 @@ T2::Object* T2::ObjectPool::getObject(const std::string& tag)
 	}
 
 	return returnVal;
+}
+
+void T2::ObjectPool::checkCollisions(T2::Collision* col, const std::string& tag)
+{
+	auto it = pool.find(tag);
+	if (it == pool.end()) { std::cout << "Tag: " << tag << " No such pool found!" << std::endl; }
+	else
+	{
+		for (size_t i = 0; i < it->second.size(); i++)
+		{
+			if(it->second[i]->active)
+			{
+				colManager->checkCollision(col, it->second[i]);
+			}
+		}
+	}
+
 }
