@@ -21,7 +21,10 @@ namespace T2
 		void InitWindow(int width, int height, const char* title);
 		void Update();
 		void Render(Sprite* sprite, SDL_Rect rect);
+		void DebugRender(SDL_Rect deugRect);
 		void Shutdown();
+		void Clear();
+		void Present();
 
 		// Load textures
 		Sprite* LoadTexture(const char* fileName, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames);

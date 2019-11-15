@@ -1,16 +1,16 @@
 #include "Collision.h"
 
-Collision::Collision()
+T2::Collision::Collision()
 {
 	collider = new Collider();
 }
 
-Collision::Collision(Collider* col)
+T2::Collision::Collision(T2::Collider* col)
 {
 	collider = col;
 }
 
-Collision::~Collision()
+T2::Collision::~Collision()
 {
 	delete collider;
 	collider = nullptr;

@@ -7,8 +7,9 @@
 #include <DrawManager.h>
 #include <FactoryManager.h>
 #include <ObjectPool.h>
+#include <CollisionManager.h>
 
-#include "TestFactory.h"
+#include "ConcreteFactories.h"
 #include "Player.h"
 
 #include "GameConfig.h"
@@ -31,17 +32,23 @@ bool ShmupGame::Initialize()
 
 	factoryManager = new T2::FactoryManager();
 
+	colManager = new T2::CollisionManager();
+
 	ServiceLocator<T2::Input>::setService(inputManager);
 	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
 	ServiceLocator<T2::ObjectPool>::setService(objPool);
+	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
 	objPool = new T2::ObjectPool();
 
 	pFactory = new PlayerFactory();
+	eFactory = new EnemyFactory();
 	factoryManager->addFactory(playerTag, pFactory);
+	factoryManager->addFactory(enemyTag, eFactory);
 
 	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
+	enemy = dynamic_cast<TestEnemy*>(objPool->getObject(enemyTag));
 
 	return true;
 }
@@ -76,8 +83,17 @@ void ShmupGame::Run()
 	while (isRunning)
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
+		drawManager->Clear();
 		player->Update(deltaTime);
+		enemy->Update(deltaTime);
 		EventHandler();
+
+		if(colManager->checkCollision(player->collider, enemy->collider))
+		{
+			std::cout << "Collision" << std::endl;
+		}
+
+		drawManager->Present();
 	}
 }
 

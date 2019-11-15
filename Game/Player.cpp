@@ -25,13 +25,18 @@ void Player::setupPlayer()
 void Player::updateObject()
 {
 	Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w, sprite->getSource(0).h };
+	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 }
 
 void Player::Update(float dTime)
 {
-	checkInput();
-	updateObject();
-	Draw();
+	if(active)
+	{ 
+		checkInput();
+		updateObject();
+		UpdateColliders();
+		Draw();
+	}
 }
 
 bool Player::checkInput()
@@ -49,6 +54,7 @@ bool Player::checkInput()
 void Player::Draw()
 {
 	drawManager->Render(sprite, Obj_Rect);
+	drawManager->DebugRender(collider->rectangle);
 }
 
 void Player::onCollision(Collision* other)

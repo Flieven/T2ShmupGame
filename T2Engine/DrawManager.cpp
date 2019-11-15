@@ -28,11 +28,15 @@ void T2::DrawManager::Update()
 }
 
 void T2::DrawManager::Render(Sprite* sprite, SDL_Rect rect)
-{
-	SDL_RenderClear(renderer);
-	
+{	
 	SDL_RenderCopy(renderer, sprite->getTexture() , &sprite->getSource(0), &rect);
-	SDL_RenderPresent(renderer);
+}
+
+void T2::DrawManager::DebugRender(SDL_Rect deugRect)
+{
+	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+	SDL_RenderDrawRect(renderer, &deugRect);
+	SDL_SetRenderDrawColor(renderer, 30, 30, 60, 255);
 }
 
 void T2::DrawManager::Shutdown()
@@ -42,6 +46,10 @@ void T2::DrawManager::Shutdown()
 	SDL_DestroyRenderer(renderer);
 	renderer = nullptr;
 }
+
+void T2::DrawManager::Clear() { SDL_RenderClear(renderer); }
+
+void T2::DrawManager::Present() { SDL_RenderPresent(renderer); }
 
 T2::Sprite* T2::DrawManager::LoadTexture(const char* texture, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames)
 {

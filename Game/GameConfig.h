@@ -32,6 +32,10 @@ static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===== UPGRADE SETTINGS =====
 // ============================
 
+// ===== DEBUG SETTINGS =====
+static SDL_Color debugColor = { 0, 255, 0, 255 };
+// =========================
+
 // ===== MISC SETTINGS =====
 
 // =========================
