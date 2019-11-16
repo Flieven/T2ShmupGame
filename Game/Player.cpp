@@ -8,10 +8,8 @@
 
 Player::Player()
 {
-	setupPlayer();
 	inputManager = ServiceLocator<T2::Input>::getService();
-	movementSpeed = 0.1;
-	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
+	setupPlayer();
 }
 
 Player::~Player()
@@ -20,18 +18,25 @@ Player::~Player()
 
 void Player::setupPlayer()
 {
+	movementSpeed = 0.1;
+	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
 }
 
 void Player::updateObject()
 {
 	Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w, sprite->getSource(0).h };
+	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 }
 
 void Player::Update(float dTime)
 {
-	checkInput();
-	updateObject();
-	Draw();
+	if(active)
+	{ 
+		checkInput();
+		updateObject();
+		UpdateColliders();
+		Draw();
+	}
 }
 
 bool Player::checkInput()
@@ -49,6 +54,7 @@ bool Player::checkInput()
 void Player::Draw()
 {
 	drawManager->Render(sprite, Obj_Rect);
+	drawManager->DebugRender(collider->rectangle);
 }
 
 void Player::onCollision(Collision* other)

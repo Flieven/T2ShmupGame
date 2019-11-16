@@ -1,26 +1,29 @@
 #pragma once
 #include "StaticIncluder.h"
 
-class Collider
+namespace T2
 {
-private:
-
-	struct colliderSides
+	class Collider
 	{
-		int left;
-		int right;
-		int up;
-		int down;
+	private:
+
+		struct colliderSides
+		{
+			int left;
+			int right;
+			int up;
+			int down;
+		};
+
+
+	public:
+
+		Collider();
+		virtual ~Collider();
+
+		SDL_Rect rectangle;
+		colliderSides bounds;
+
 	};
-
-
-public:
-
-	Collider();
-	virtual ~Collider();
-
-	SDL_Rect rectangle;
-	colliderSides bounds;
-
-};
+}
 

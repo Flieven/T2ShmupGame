@@ -12,5 +12,6 @@ namespace T2
 
 		Entity();
 		virtual ~Entity();
+		void UpdateColliders();
 	};
 }

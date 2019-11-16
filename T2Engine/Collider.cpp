@@ -1,7 +1,7 @@
 #include "Collider.h"
 
 
-Collider::Collider()
+T2::Collider::Collider()
 {
 	bounds.left = rectangle.x;
 	bounds.right = rectangle.x + rectangle.w;
@@ -10,8 +10,6 @@ Collider::Collider()
 	bounds.down = rectangle.y + rectangle.h;
 }
 
-Collider::~Collider()
+T2::Collider::~Collider()
 {
-
-
 }

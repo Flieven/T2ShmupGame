@@ -6,9 +6,15 @@ namespace T2
 {
 	class Input;
 	class DrawManager;
+	class FactoryManager;
+	class ObjectPool;
+	class CollisionManager;
 }
 
+class PlayerFactory;
+class EnemyFactory;
 class Player;
+class TestEnemy;
 
 class ShmupGame : public T2::Engine
 {
@@ -21,7 +27,14 @@ private:
 
 	T2::Input* inputManager;
 	T2::DrawManager* drawManager;
+	T2::FactoryManager* factoryManager;
+	T2::ObjectPool* objPool;
+	T2::CollisionManager* colManager;
+
+	PlayerFactory* pFactory;
+	EnemyFactory* eFactory;
 	Player* player;
+	TestEnemy* enemy;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;

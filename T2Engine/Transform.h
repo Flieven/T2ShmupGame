@@ -14,6 +14,12 @@ namespace T2
 			float y = 0.0f;
 		};
 
+	public:
+
+		Vector2D Position;
+		Vector2D Scale;
+
+		//===== BASE SETS =====
 		Vector2D zero = { 0.0f, 0.0f };
 		Vector2D one = { 1.0f, 1.0f };
 
@@ -21,11 +27,7 @@ namespace T2
 		Vector2D down = { 0.0f, -1.0f };
 		Vector2D left = { -1.0f, 0.0f };
 		Vector2D right = { 1.0f, 0.0f };
-
-	public:
-
-		Vector2D Position;
-		Vector2D Scale;
+		//=====================
 
 		float Distance(Vector2D other)
 		{
