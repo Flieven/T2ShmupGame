@@ -9,8 +9,8 @@ ESSENTIALLY ALL FILEPATHS IN ASSETS, WINDOW SIZES, PLAYER SIZE, ETC.
 
 // ===== WINDOW SETTINGS =====
 static const char* windowTitle = "ShmupGame";
-static int windowWidth = 1920;
-static int windowHeight = 1080;
+static int windowWidth = 800;
+static int windowHeight = 600;
 
 static SDL_Color backgroundColor = { 30, 30, 60, 255 };
 // ===========================

@@ -1,1 +1,6 @@
-﻿  Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe
+﻿  Background.cpp
+  Game.cpp
+C:\DEV\T2_SDL_Shmup\Game\Background.cpp(12,21): warning C4305: '=': truncation from 'double' to 'float'
+  Generating Code...
+C:\DEV\T2_SDL_Shmup\Game\Game.cpp(114,25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+  Game.vcxproj -> C:\DEV\T2_SDL_Shmup\binaries\Debug-x64\Game\Game.exe
