@@ -6,6 +6,7 @@ class Cloud : public T2::Entity
 {
 private:
 	void setupCloud();
+	void setupFarCloud();
 	void updateObject();
 
 public:
