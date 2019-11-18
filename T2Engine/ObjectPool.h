@@ -58,6 +58,10 @@ namespace T2
 		void addNewPool(const std::string& tag);
 
 		T2::Object* getObject(const std::string& tag);
+		T2::Object* getRandomObject(const std::string& tag);
+		void addObjectToPool(T2::Object* obj, const std::string& tag);
+
+		void Update(float dTime);
 
 		void checkCollisions(T2::Collision* col, const std::string& tag);
 
