@@ -84,8 +84,7 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		drawManager->Clear();
-		player->Update(deltaTime);
-		enemy->Update(deltaTime);
+		objPool->Update(deltaTime);
 		EventHandler();
 
 		objPool->checkCollisions(player, enemyTag);

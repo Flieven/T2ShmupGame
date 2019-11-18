@@ -5,6 +5,7 @@
 #include <DrawManager.h>
 #include <Sprite.h>
 #include <InputManager.h>
+#include <iostream>
 
 TestEnemy::TestEnemy()
 {
@@ -34,4 +35,5 @@ void TestEnemy::Draw()
 
 void TestEnemy::onCollision(Collision* other)
 {
+
 }
