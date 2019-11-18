@@ -7,7 +7,7 @@
 #include <InputManager.h>
 
 TestEnemy::TestEnemy()
-{
+{	
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
 	Obj_Rect = { 100, 100, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };

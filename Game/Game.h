@@ -13,8 +13,10 @@ namespace T2
 
 class PlayerFactory;
 class EnemyFactory;
+class BackgroundFactory;
 class Player;
 class TestEnemy;
+class Background;
 
 class ShmupGame : public T2::Engine
 {
@@ -33,8 +35,10 @@ private:
 
 	PlayerFactory* pFactory;
 	EnemyFactory* eFactory;
+	BackgroundFactory* bgFactory;
 	Player* player;
 	TestEnemy* enemy;
+	Background* background;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;
