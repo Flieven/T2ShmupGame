@@ -1,7 +1,4 @@
-﻿  Entity.cpp
-  Object.cpp
-  ObjectPool.cpp
-  Generating Code...
+﻿  DrawManager.cpp
 C:\DEV\T2_SDL_Shmup\intermediate\Debug-x64\T2Engine\EngineEntry.obj : warning LNK4042: object specified more than once; extras ignored
 SDL2_image.lib(SDL2_image.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored
 SDL2_ttf.lib(SDL2_ttf.dll) : warning LNK4006: __NULL_IMPORT_DESCRIPTOR already defined in SDL2.lib(SDL2.dll); second definition ignored

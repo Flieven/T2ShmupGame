@@ -6,9 +6,9 @@ void T2::DrawManager::InitWindow(int width, int height, const char* title)
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
 		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
-		if (window)
+		if (!window)
 		{
-			// window created
+			std::cout << "Window creation error" << SDL_GetError;
 		}
 
 		renderer = SDL_CreateRenderer(window, -1, 0);
@@ -17,10 +17,6 @@ void T2::DrawManager::InitWindow(int width, int height, const char* title)
 			SDL_SetRenderDrawColor(renderer, 30, 30, 60, 255);
 		}
 	}
-
-	/*SDL_Surface* tempSurface = IMG_Load("../Assets/Sprites/CampFire.PNG");
-	fireTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	SDL_FreeSurface(tempSurface);*/ // using LoadTexture function istället...
 }
 
 void T2::DrawManager::Update()
