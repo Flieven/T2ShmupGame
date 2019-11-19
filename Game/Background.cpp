@@ -6,10 +6,9 @@
 #include <DrawManager.h>
 #include <Sprite.h>
 
-
 Background::Background()
 {
-	movementSpeed = 0.1;
+
 	sprite = drawManager->LoadTexture(backgroundSprite, 1, 1, backgroundWidth, backgroundHeight, 1);
 }
 
@@ -17,35 +16,30 @@ Background::~Background()
 {
 }
 
+float y2 = -windowHeight; // spawn 2 "one screen up"
 void Background::Update(float dTime)
 {	
-	float xScale = 5;
-	float yScale = 5;
-
-	float topY = 0;
-
 	Draw();	
 
-	Obj_RectTop = { (int)transform.Position.x , (int)topY * (int)yScale, sprite->getSource(0).w * (int)xScale, sprite->getSource(0).h * (int)yScale };
-	//Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w * (int)xScale, sprite->getSource(0).h * (int)yScale };
-	//Obj_RectBottom = { (int)transform.Position.x , ((int)transform.Position.y + backgroundHeight * (int)yScale), sprite->getSource(0).w * (int)xScale, sprite->getSource(0).h * (int)yScale };
-		
-	topY += movementSpeed;
-	
-	if (Obj_RectTop.y > windowHeight) topY -= windowHeight * 3;	
+	float xScale = 1; //1920x1080 x5
+	float yScale = 1; // 384x384
+	float scrollSpeed = 0.03f;
 
-	if (Obj_Rect.y > windowHeight) Obj_Rect.y -= windowHeight * 2;
+	fRect.y += scrollSpeed;
+	y2 += scrollSpeed;
 
-	if (Obj_RectBottom.y > windowHeight) Obj_RectBottom.y -= windowHeight * 2;
+	fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
+	if (fRect.y > windowHeight) { fRect.y -= windowHeight * 2; }	
 	
-	//transform.position kör vi istället om blabla
+	fRect2 = { fRect2.x, y2, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
+	if (y2 > windowHeight) { y2 -= windowHeight * 2; }
+	
 }
 
 void Background::Draw()
 {
-	drawManager->Render(sprite, Obj_RectTop);
-	drawManager->Render(sprite, Obj_Rect);
-	drawManager->Render(sprite, Obj_RectBottom);
+	drawManager->Render(sprite, fRect);
+	drawManager->Render(sprite, fRect2);
 }
 
 void Background::onCollision(Collision* other)

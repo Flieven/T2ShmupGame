@@ -9,8 +9,8 @@ ESSENTIALLY ALL FILEPATHS IN ASSETS, WINDOW SIZES, PLAYER SIZE, ETC.
 
 // ===== WINDOW SETTINGS =====
 static const char* windowTitle = "ShmupGame";
-static int windowWidth = 800;
-static int windowHeight = 600;
+static int windowWidth = 1920;
+static int windowHeight = 1080;
 
 static SDL_Color backgroundColor = { 30, 30, 60, 255 };
 // ===========================
@@ -30,10 +30,10 @@ static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===========================
 
 // ===== BACKGROUND SETTINGS =====
-static int backgroundWidth = 384;
-static int backgroundHeight = 384;
+static int backgroundWidth = 1920;
+static int backgroundHeight = 1080;
 static std::string backgroundTag = "Background";
-static const char* backgroundSprite = "../Assets/Sprites/Background.png";
+static const char* backgroundSprite = "../Assets/Sprites/yoda.jpg";
 // ===========================
 
 

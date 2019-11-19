@@ -32,6 +32,12 @@ void T2::DrawManager::Render(Sprite* sprite, SDL_Rect rect)
 	SDL_RenderCopy(renderer, sprite->getTexture() , &sprite->getSource(0), &rect);
 }
 
+void T2::DrawManager::Render(Sprite* sprite, SDL_FRect fRect)
+{
+	SDL_RenderCopyF(renderer, sprite->getTexture(), &sprite->getSource(0), &fRect);
+	
+}
+
 void T2::DrawManager::DebugRender(SDL_Rect deugRect)
 {
 	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);

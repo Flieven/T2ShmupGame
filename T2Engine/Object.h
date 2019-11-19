@@ -13,6 +13,8 @@ namespace T2
 		bool active = false;
 		Transform transform;
 		SDL_Rect Obj_Rect;
+		SDL_FRect fRect;
+		
 
 		Object();
 		virtual ~Object();
