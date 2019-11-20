@@ -119,6 +119,8 @@ void ShmupGame::Run()
 		objPool->Update(deltaTime);
 		EventHandler();
 
+		objPool->checkCollisions();
+
 		buttonManager->Update(deltaTime);
 		drawManager->Present();
 	}

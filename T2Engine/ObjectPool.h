@@ -64,6 +64,7 @@ namespace T2
 
 		void Update(float dTime);
 
+		void checkCollisions();
 		void checkCollisions(T2::Object* col, const int& tag);
 
 	};

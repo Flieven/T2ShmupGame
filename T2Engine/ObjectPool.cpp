@@ -126,6 +126,30 @@ void T2::ObjectPool::Update(float dTime)
 	}
 }
 
+//IT LOOKS WEIRD BUT IT WORKS AND I KNOW HOW OK!?
+void T2::ObjectPool::checkCollisions()
+{
+	for (auto& firstList : pool)
+	{
+		for (auto& firstIt : firstList.second)
+		{
+			if (firstIt->active)
+			{
+				for (auto& secondList : pool)
+				{
+					for (auto& secondIt : secondList.second)
+					{
+						if (firstIt != secondIt && secondIt->active)
+						{
+							colManager->checkCollision(firstIt, secondIt);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 void T2::ObjectPool::checkCollisions(T2::Object* col, const int& tag)
 {
 	auto it = pool.find(tag);
