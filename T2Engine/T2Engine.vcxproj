@@ -129,6 +129,8 @@
     <ClCompile Include="T2Engine.cpp" />
     <ClCompile Include="TextManager.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="UI_Button.cpp" />
+    <ClCompile Include="UI_ButtonManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AFactory.h" />
@@ -139,6 +141,7 @@
     <ClInclude Include="DrawManager.h" />
     <ClInclude Include="EngineApplication.h" />
     <ClCompile Include="EngineEntry.h" />
+    <ClInclude Include="EngineConfig.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="ErrorLogger.h" />
     <ClInclude Include="FactoryManager.h" />
@@ -157,6 +160,8 @@
     <ClInclude Include="TextManager.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="Transform.h" />
+    <ClInclude Include="UI_Button.h" />
+    <ClInclude Include="UI_ButtonManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets" />

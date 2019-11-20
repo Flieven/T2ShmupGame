@@ -11,9 +11,8 @@ namespace T2
 		Collision();
 		Collision(Collider* col);
 		virtual ~Collision();
-		virtual void onCollision(Collision* other) = 0;
+		virtual void onCollision(int other) = 0;
 		Collider* collider = nullptr;
-
 	};
 }
 

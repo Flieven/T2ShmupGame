@@ -9,6 +9,7 @@ namespace T2
 	class FactoryManager;
 	class ObjectPool;
 	class CollisionManager;
+	class UI_ButtonManager;
 }
 
 class PlayerFactory;
@@ -30,6 +31,7 @@ private:
 	T2::FactoryManager* factoryManager = nullptr;
 	T2::ObjectPool* objPool = nullptr;
 	T2::CollisionManager* colManager = nullptr;
+	T2::UI_ButtonManager* buttonManager = nullptr;
 
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
@@ -50,3 +52,5 @@ public:
 };
 
 T2::Engine* T2::createEngine() { return new ShmupGame(); }
+
+void testButton();

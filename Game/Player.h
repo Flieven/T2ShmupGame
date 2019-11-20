@@ -24,6 +24,9 @@ public:
 	void Update(float dTime);
 	bool checkInput();
 	void Draw();
-	void onCollision(Collision* other);
+	void onCollision(int other);
 
+	// Inherited via Entity
+	virtual void setupTextures(const char* texture) override;
+	virtual void setupObject(SDL_Rect rect) override;
 };

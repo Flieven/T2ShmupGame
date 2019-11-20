@@ -1,5 +1,7 @@
 #include "CollisionManager.h"
 
+#include "Object.h"
+
 T2::CollisionManager::CollisionManager()
 {
 }
@@ -20,12 +22,12 @@ bool T2::CollisionManager::checkCollision(T2::Collider* objectA, T2::Collider* o
 	return true;
 }
 
-bool T2::CollisionManager::checkCollision(T2::Collision* objectA, T2::Collision* objectB)
+bool T2::CollisionManager::checkCollision(T2::Object* objectA, T2::Object* objectB)
 {
 	if (T2::CollisionManager::checkCollision(objectA->collider, objectB->collider))
 	{
-		objectA->onCollision(objectB);
-		objectB->onCollision(objectB);
+		objectA->onCollision(objectB->tag);
+		objectB->onCollision(objectA->tag);
 		return true;
 	}
 	return false;

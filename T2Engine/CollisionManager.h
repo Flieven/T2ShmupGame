@@ -6,7 +6,7 @@
 namespace T2
 {
 	class Collider;
-	class Collision;
+	class Object;
 
 	class CollisionManager
 	{
@@ -15,7 +15,7 @@ namespace T2
 		~CollisionManager();
 
 		static bool checkCollision(T2::Collider* objectA, T2::Collider* objectB);
-		static bool checkCollision(T2::Collision* objectA, T2::Collision* objectB);
+		static bool checkCollision(T2::Object* objectA, T2::Object* objectB);
 
 	};
 }

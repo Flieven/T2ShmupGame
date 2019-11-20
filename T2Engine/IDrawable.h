@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 
 namespace T2
 {
@@ -10,6 +11,8 @@ namespace T2
 	protected:
 		Sprite* sprite = nullptr;
 		DrawManager* drawManager = nullptr;
+
+		std::vector<const char*> textureList;
 
 	public:
 		IDrawable();
