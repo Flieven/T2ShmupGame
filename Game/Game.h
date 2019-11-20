@@ -13,10 +13,8 @@ namespace T2
 
 class PlayerFactory;
 class EnemyFactory;
-class BackgroundFactory;
 class Player;
 class TestEnemy;
-class Background;
 
 class ShmupGame : public T2::Engine
 {
@@ -27,24 +25,22 @@ private:
 	void EventHandler();
 	void CalcDeltaTime();
 
-	T2::Input* inputManager;
-	T2::DrawManager* drawManager;
-	T2::FactoryManager* factoryManager;
-	T2::ObjectPool* objPool;
-	T2::CollisionManager* colManager;
+	T2::Input* inputManager = nullptr;
+	T2::DrawManager* drawManager = nullptr;
+	T2::FactoryManager* factoryManager = nullptr;
+	T2::ObjectPool* objPool = nullptr;
+	T2::CollisionManager* colManager = nullptr;
 
-	PlayerFactory* pFactory;
-	EnemyFactory* eFactory;
-	BackgroundFactory* bgFactory;
-	Player* player;
-	TestEnemy* enemy;
-	Background* background;
+	PlayerFactory* pFactory = nullptr;
+	EnemyFactory* eFactory = nullptr;
+	Player* player = nullptr;
+	TestEnemy* enemy = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;
 
 public:
-	ShmupGame() : inputManager(nullptr), drawManager(nullptr) {}
+	ShmupGame() {}
 
 	// Inherited via Engine
 	virtual bool Initialize() override;
