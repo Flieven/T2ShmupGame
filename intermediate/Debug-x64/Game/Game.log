@@ -1,3 +1,6 @@
 ﻿  Background.cpp
+  Game.cpp
 C:\DEV\T2_SDL_Shmup\Game\Background.cpp(18,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\DEV\T2_SDL_Shmup\Game\Game.cpp(114,25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
   Game.vcxproj -> C:\DEV\T2_SDL_Shmup\binaries\Debug-x64\Game\Game.exe

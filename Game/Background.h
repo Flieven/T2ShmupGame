@@ -14,5 +14,6 @@ public:
 	void Draw();
 	void onCollision(Collision* other);
 	SDL_FRect fRect2;
+	
 };
 
