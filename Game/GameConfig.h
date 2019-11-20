@@ -34,7 +34,7 @@ static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===== BACKGROUND SETTINGS =====
 static int backgroundWidth = 447;
 static int backgroundHeight = 900;
-static std::string backgroundTag = "Background";
+static const int backgroundTag = 3;
 static const char* backgroundSprite = "../Assets/Sprites/BgTest.png";
 // ===========================
 

@@ -19,6 +19,7 @@ float y2 = -windowHeight; // spawn 2 "one screen up"
 void Background::Update(float dTime)
 {	
 	Draw();	
+	
 
 	float xScale = 1;
 	float yScale = 1;
@@ -41,5 +42,13 @@ void Background::Draw()
 }
 
 void Background::onCollision(Collision* other)
+{
+}
+
+void Background::setupTextures(const char* texture)
+{
+}
+
+void Background::setupObject(SDL_Rect rect)
 {
 }

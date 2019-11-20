@@ -13,6 +13,7 @@
 
 #include "ConcreteFactories.h"
 #include "Player.h"
+#include "Background.h"
 
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
@@ -56,11 +57,14 @@ bool ShmupGame::Initialize()
 
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
+	bgFactory = new BackgroundFactory();
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
+	factoryManager->addFactory(backgroundTag, bgFactory);
 
-	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
-	enemy = dynamic_cast<TestEnemy*>(objPool->getObject(enemyTag));
+	objPool->getObject(playerTag);
+	objPool->getObject(enemyTag);
+	objPool->getObject(backgroundTag);
 
 	return true;
 }
@@ -100,8 +104,6 @@ void ShmupGame::Run()
 		EventHandler();
 
 		buttonManager->Update(deltaTime);
-
-		objPool->checkCollisions(player, enemyTag);
 
 		drawManager->Present();
 	}

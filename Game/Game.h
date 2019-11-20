@@ -35,8 +35,10 @@ private:
 
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
+	BackgroundFactory* bgFactory = nullptr;
 	Player* player = nullptr;
 	TestEnemy* enemy = nullptr;
+	Background* background = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;
