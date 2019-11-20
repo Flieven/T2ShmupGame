@@ -3,6 +3,7 @@
 
 #include "DrawManager.h"
 #include "InputManager.h"
+#include "TextManager.h"
 
 #include <iostream>
 
@@ -13,8 +14,10 @@ T2::UI_Button::UI_Button()
 T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT)
 {
 	Obj_rect = rect;
+	buttonText = buttonTxT;
 	drawManager = ServiceLocator<DrawManager>::getService();
 	inputManager = ServiceLocator<T2::Input>::getService();
+	textManager = ServiceLocator<T2::TextManager>::getService();
 }
 
 T2::UI_Button::~UI_Button()
@@ -32,6 +35,7 @@ void T2::UI_Button::Update(float dTime)
 		onClick();
 	}
 	Draw();
+	textManager->Update(dTime, buttonText, Obj_rect);
 }
 
 void T2::UI_Button::pairFunction(std::function<void()> func)

@@ -9,6 +9,7 @@
 namespace T2
 {
 	class Input;
+	class TextManager;
 
 	class UI_Button : public IDrawable
 	{
@@ -17,6 +18,7 @@ namespace T2
 		SDL_Rect Obj_rect = { 0,0,0,0 };
 
 		Input* inputManager = nullptr;
+		TextManager* textManager = nullptr;
 
 		UI_Button();
 		UI_Button(SDL_Rect rect, std::string buttonTxT);

@@ -1,7 +1,3 @@
 ﻿  Game.cpp
-  Player.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Game.cpp(124,25): warning C4244:  '=': conversion from 'Uint32' to 'float', possible loss of data
-  TestEnemy.cpp
-  Generating Code...
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(21,21): warning C4305:  '=': truncation from 'double' to 'float'
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Game.cpp(128,25): warning C4244:  '=': conversion from 'Uint32' to 'float', possible loss of data
   Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe

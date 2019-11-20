@@ -7,26 +7,25 @@
 namespace T2
 {
 
+	class DrawManager;
+
 	class TextManager
 	{
 	private:
 
 	public:
-
 		SDL_Texture* texture = nullptr;
 		SDL_Surface* surface = nullptr;
-		SDL_Rect display;
 
-		TextManager(std::string message);
+		TextManager();
 		~TextManager();
 
-		void setDisplay(int x, int y, int w, int h);
-		void Update(float dTime, std::string message);
-		void Draw();
+		void Update(float dTime, std::string message, SDL_Rect rect);
+		void Draw(SDL_Rect rect);
 
 	protected:
 
-		/*Needed: DrawManagerRef*/
+		DrawManager* drawManager = nullptr;
 
 		std::string text;
 

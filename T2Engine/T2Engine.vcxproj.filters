@@ -260,8 +260,5 @@
     <ClInclude Include="UI_Button.h">
       <Filter>Header Files\System\Managers\UIManager\UIComponents</Filter>
     </ClInclude>
-    <ClInclude Include="EngineConfig.h">
-      <Filter>Header Files\Engine</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

@@ -5,6 +5,7 @@
 
 #include <InputManager.h>
 #include <DrawManager.h>
+#include <TextManager.h>
 #include <FactoryManager.h>
 #include <ObjectPool.h>
 #include <CollisionManager.h>
@@ -32,18 +33,20 @@ bool ShmupGame::Initialize()
 	assert(TTF_Init() == 0 && "TTF_Init Failed to Initialize");;
 
 	inputManager = new T2::Input();
+	ServiceLocator<T2::Input>::setService(inputManager);
 	inputManager->initialize();
 
 	drawManager = new T2::DrawManager();
+	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
 
+	textManager = new T2::TextManager();
+	ServiceLocator<T2::TextManager>::setService(textManager);
+	
 	factoryManager = new T2::FactoryManager();
-
-	colManager = new T2::CollisionManager();
-
-	ServiceLocator<T2::Input>::setService(inputManager);
-	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
+	
+	colManager = new T2::CollisionManager();
 	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
 	objPool = new T2::ObjectPool();
@@ -51,7 +54,8 @@ bool ShmupGame::Initialize()
 
 	buttonManager = new T2::UI_ButtonManager();
 
-	buttonManager->addButton({ 200, 200, 200, 200 }, "Play");
+	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
+	buttonManager->addButton({ 200, 300, 200, 100 }, "Options");
 	buttonManager->getButton("Play")->pairFunction(testButton);
 
 	pFactory = new PlayerFactory();

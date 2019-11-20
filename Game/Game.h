@@ -10,6 +10,7 @@ namespace T2
 	class ObjectPool;
 	class CollisionManager;
 	class UI_ButtonManager;
+	class TextManager;
 }
 
 class PlayerFactory;
@@ -32,6 +33,7 @@ private:
 	T2::ObjectPool* objPool = nullptr;
 	T2::CollisionManager* colManager = nullptr;
 	T2::UI_ButtonManager* buttonManager = nullptr;
+	T2::TextManager* textManager = nullptr;
 
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
