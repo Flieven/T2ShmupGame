@@ -22,6 +22,7 @@ namespace T2
 
 		UI_Button();
 		UI_Button(SDL_Rect rect, std::string buttonTxT);
+		UI_Button(SDL_Rect rect, std::string buttonTxT, const char* graphic);
 		~UI_Button();
 
 		void Update(float dTime);

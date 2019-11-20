@@ -150,6 +150,30 @@ void T2::ObjectPool::checkCollisions()
 	}
 }
 
+void T2::ObjectPool::checkCollisions(const int& tag, const int& othertag)
+{
+	auto firstList = pool.find(tag);
+	if (firstList == pool.end()) { std::cout << "No list of tag: " << tag << std::endl; }
+	else
+	{
+		auto secondList = pool.find(othertag);
+		if(secondList == pool.end()) { std::cout << "No list of tag: " << othertag << std::endl; }
+		else
+		{
+			for (auto& it : firstList->second)
+			{
+				if (it->active)
+				{
+					for (auto& otherit : secondList->second)
+					{
+						colManager->checkCollision(it, otherit);
+					}
+				}
+			}
+		}
+	}
+}
+
 void T2::ObjectPool::checkCollisions(T2::Object* col, const int& tag)
 {
 	auto it = pool.find(tag);

@@ -20,6 +20,17 @@ T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT)
 	textManager = ServiceLocator<T2::TextManager>::getService();
 }
 
+T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT, const char* graphic)
+{
+	Obj_rect = rect;
+	buttonText = buttonTxT;
+	drawManager = ServiceLocator<DrawManager>::getService();
+	inputManager = ServiceLocator<T2::Input>::getService();
+	textManager = ServiceLocator<T2::TextManager>::getService();
+
+	sprite = drawManager->LoadTexture(graphic, rect.x, rect.y, rect.w, rect.h, 1);
+}
+
 T2::UI_Button::~UI_Button()
 {
 }
