@@ -13,6 +13,7 @@ namespace T2
 		bool active = false;
 		Transform transform;
 		SDL_Rect Obj_Rect = { 0,0,0,0 };
+		SDL_FRect fRect;
 		int tag = 0;
 
 		Object();

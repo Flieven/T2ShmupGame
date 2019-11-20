@@ -35,8 +35,10 @@ private:
 	T2::UI_ButtonManager* buttonManager = nullptr;
 	T2::TextManager* textManager = nullptr;
 
+	BackgroundFactory* bgFactory = nullptr;
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
+	Background* background = nullptr;
 	Player* player = nullptr;
 	TestEnemy* enemy = nullptr;
 

@@ -1,0 +1,63 @@
+#include "Player.h"
+
+#include "GameConfig.h"
+#include <ServiceLocator.h>
+#include <DrawManager.h>
+#include <Sprite.h>
+#include <InputManager.h>
+
+Player::Player()
+{
+	inputManager = ServiceLocator<T2::Input>::getService();
+	setupPlayer();
+}
+
+Player::~Player()
+{
+}
+
+void Player::setupPlayer()
+{
+	movementSpeed = 0.1;
+	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
+}
+
+void Player::updateObject()
+{
+	Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w, sprite->getSource(0).h };
+	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
+}
+
+void Player::Update(float dTime)
+{
+	if(active)
+	{ 
+		checkInput();
+		updateObject();
+		UpdateColliders();
+		Draw();
+	}
+}
+
+bool Player::checkInput()
+{
+	keyDown = false;
+	if (inputManager->isKeyDown(SDL_SCANCODE_W)) { transform.Position.y -= movementSpeed; keyDown = true; }
+	else if (inputManager->isKeyDown(SDL_SCANCODE_S)) { transform.Position.y += movementSpeed; keyDown = true; }
+
+	if (inputManager->isKeyDown(SDL_SCANCODE_A)) { transform.Position.x -= movementSpeed; keyDown = true; }
+	else if (inputManager->isKeyDown(SDL_SCANCODE_D)) { transform.Position.x += movementSpeed; keyDown = true; }
+
+	return keyDown;
+}
+
+void Player::Draw()
+{
+	drawManager->Render(sprite, Obj_Rect);
+	drawManager->DebugRender(collider->rectangle);
+}
+
+void Player::onCollision(Collision* other)
+{
+	std::cout << "Player collided with something!" << std::endl;
+}

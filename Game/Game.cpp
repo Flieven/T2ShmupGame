@@ -14,14 +14,22 @@
 
 #include "ConcreteFactories.h"
 #include "Player.h"
+#include "Background.h"
 
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
 #include "Game.h"
 
+
+// UI BUTTONS
 void testButton()
 {
-	std::cout << "Button Clicked!" << std::endl;
+	std::cout << "Button Clicked!" << std::endl;	
+}
+
+void quitButtonTest()
+{	
+	SDL_Quit();
 }
 
 bool ShmupGame::Initialize()
@@ -52,19 +60,27 @@ bool ShmupGame::Initialize()
 	objPool = new T2::ObjectPool();
 	ServiceLocator<T2::ObjectPool>::setService(objPool);
 
+
 	buttonManager = new T2::UI_ButtonManager();
 
 	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
 	buttonManager->addButton({ 200, 300, 200, 100 }, "Options");
 	buttonManager->getButton("Play")->pairFunction(testButton);
 
+	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
+	buttonManager->getButton("Quit")->pairFunction(quitButtonTest);
+
+	bgFactory = new BackgroundFactory();
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
+
+	factoryManager->addFactory(backgroundTag, bgFactory);
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
 
-	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
-	enemy = dynamic_cast<TestEnemy*>(objPool->getObject(enemyTag));
+	objPool->getObject(backgroundTag);
+	objPool->getObject(playerTag);	
+	objPool->getObject(enemyTag);
 
 	return true;
 }
@@ -104,9 +120,6 @@ void ShmupGame::Run()
 		EventHandler();
 
 		buttonManager->Update(deltaTime);
-
-		objPool->checkCollisions(player, enemyTag);
-
 		drawManager->Present();
 	}
 }

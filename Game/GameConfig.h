@@ -7,12 +7,21 @@ USE THIS .h FILE TO CREATE STATIC VARIABLES USED IN OTHER AREAS OF CODE.
 ESSENTIALLY ALL FILEPATHS IN ASSETS, WINDOW SIZES, PLAYER SIZE, ETC.
 */
 
+
+
 // ===== WINDOW SETTINGS =====
 static const char* windowTitle = "ShmupGame";
-static int windowWidth = 640;
-static int windowHeight = 480;
+static int windowWidth = 600;
+static int windowHeight = 900;
 
 static SDL_Color backgroundColor = { 30, 30, 60, 255 };
+// ===========================
+
+// ===== BACKGROUND SETTINGS =====
+static int backgroundWidth = 600;
+static int backgroundHeight = 900;
+static const int backgroundTag = 0;
+static const char* backgroundSprite = "../Assets/Sprites/BgTest.png";
 // ===========================
 
 // ===== PLAYER SETTINGS =====
@@ -30,6 +39,8 @@ static int enemyHeight = 23;
 static const int enemyTag = 2;
 static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===========================
+
+
 
 // ===== UPGRADE SETTINGS =====
 // ============================
