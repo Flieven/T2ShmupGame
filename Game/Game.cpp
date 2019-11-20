@@ -8,14 +8,20 @@
 #include <FactoryManager.h>
 #include <ObjectPool.h>
 #include <CollisionManager.h>
+#include <UI_ButtonManager.h>
+#include <UI_Button.h>
 
 #include "ConcreteFactories.h"
 #include "Player.h"
-#include "Background.h"
 
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
 #include "Game.h"
+
+void testButton()
+{
+	std::cout << "Button Clicked!" << std::endl;
+}
 
 bool ShmupGame::Initialize()
 {
@@ -38,21 +44,23 @@ bool ShmupGame::Initialize()
 	ServiceLocator<T2::Input>::setService(inputManager);
 	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
-	ServiceLocator<T2::ObjectPool>::setService(objPool);
 	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
-	objPool = new T2::ObjectPool();	
+	objPool = new T2::ObjectPool();
+	ServiceLocator<T2::ObjectPool>::setService(objPool);
+
+	buttonManager = new T2::UI_ButtonManager();
+
+	buttonManager->addButton({ 200, 200, 200, 200 }, "Play");
+	buttonManager->getButton("Play")->pairFunction(testButton);
 
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
-	bgFactory = new BackgroundFactory();
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
-	factoryManager->addFactory(backgroundTag, bgFactory);
 
 	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
 	enemy = dynamic_cast<TestEnemy*>(objPool->getObject(enemyTag));
-	background = dynamic_cast<Background*>(objPool->getObject(backgroundTag));
 
 	return true;
 }
@@ -90,6 +98,8 @@ void ShmupGame::Run()
 		drawManager->Clear();
 		objPool->Update(deltaTime);
 		EventHandler();
+
+		buttonManager->Update(deltaTime);
 
 		objPool->checkCollisions(player, enemyTag);
 

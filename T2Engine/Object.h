@@ -12,9 +12,8 @@ namespace T2
 	public:
 		bool active = false;
 		Transform transform;
-		SDL_Rect Obj_Rect;
-		SDL_FRect fRect;
-		
+		SDL_Rect Obj_Rect = { 0,0,0,0 };
+		int tag = 0;
 
 		Object();
 		virtual ~Object();
@@ -22,6 +21,8 @@ namespace T2
 		virtual void Reset();
 		virtual void Update(float dTime);
 		virtual void Draw();
-		virtual void onCOllision(Collision* other);
+		virtual void onCollision(int other);
+		virtual void setupTextures(const char* texture) = 0;
+		virtual void setupObject(SDL_Rect rect) = 0;
 	};
 }

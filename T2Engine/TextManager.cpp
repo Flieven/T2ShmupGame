@@ -1,9 +1,10 @@
 #include "TextManager.h"
+#include "EngineConfig.h"
 
 T2::TextManager::TextManager(std::string message)
 {
 	text = message;
-	//font = TTF_OpenFont( /*FontPath*/, 24);
+	//font = TTF_OpenFont( font, 24);
 
 	SDL_assert(font != nullptr);
 

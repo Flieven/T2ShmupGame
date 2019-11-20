@@ -18,14 +18,14 @@ T2::FactoryManager::~FactoryManager()
 	factoryList.clear();
 }
 
-void T2::FactoryManager::addFactory(const std::string& tag, AFactory* factory)
+void T2::FactoryManager::addFactory(const int tag, AFactory* factory)
 {
 	auto it = factoryList.find(tag);
-	if (it == factoryList.end()) { factoryList.insert(std::pair<std::string, AFactory*>(tag, factory)); }
+	if (it == factoryList.end()) { factoryList.insert(std::pair<int, AFactory*>(tag, factory)); }
 	else { std::cout << "WARNING: There is already a factory that uses the tag: " << tag << std::endl; }
 }
 
-T2::Object* T2::FactoryManager::useFactory(const std::string& tag)
+T2::Object* T2::FactoryManager::useFactory(const int tag)
 {
 	std::cout << "creating new: " << tag << std::endl;
 	auto it = factoryList.find(tag);
@@ -38,7 +38,7 @@ T2::Object* T2::FactoryManager::useFactory(const std::string& tag)
 	}
 }
 
-void T2::FactoryManager::removeFactory(const std::string& tag)
+void T2::FactoryManager::removeFactory(const int tag)
 {
 	auto it = factoryList.find(tag);
 	if (it == factoryList.end()) { std::cout << "WARNING: There is no factory to remove that uses the tag: " << tag << std::endl; }

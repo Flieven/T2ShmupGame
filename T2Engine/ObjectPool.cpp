@@ -14,7 +14,7 @@ T2::ObjectPool::~ObjectPool()
 {
 }
 
-void T2::ObjectPool::addNewPool(const std::string& tag)
+void T2::ObjectPool::addNewPool(const int& tag)
 {
 	auto it = pool.find(tag);
 	if (it == pool.end())
@@ -24,7 +24,7 @@ void T2::ObjectPool::addNewPool(const std::string& tag)
 	else { std::cout << "WARNING: Pool already exists!" << std::endl; }
 }
 
-T2::Object* T2::ObjectPool::getObject(const std::string& tag)
+T2::Object* T2::ObjectPool::getObject(const int& tag)
 {
 	Object* returnVal = nullptr;
 	auto it = pool.find(tag);
@@ -56,7 +56,7 @@ T2::Object* T2::ObjectPool::getObject(const std::string& tag)
 	return returnVal;
 }
 
-T2::Object* T2::ObjectPool::getRandomObject(const std::string& tag)
+T2::Object* T2::ObjectPool::getRandomObject(const int& tag)
 {
 	Object* returnVal = nullptr;
 	auto it = pool.find(tag);
@@ -92,7 +92,17 @@ T2::Object* T2::ObjectPool::getRandomObject(const std::string& tag)
 	return returnVal;
 }
 
-void T2::ObjectPool::addObjectToPool(T2::Object* obj, const std::string& tag)
+T2::Object* T2::ObjectPool::getSpecificObject(const int& tag, int index)
+{
+	auto it = pool.find(tag);
+	if (it == pool.end()) { std::cout << "No pool for the tag: " << tag << " found!" << std::endl; }
+	else
+	{
+		return it->second[index];
+	}
+}
+
+void T2::ObjectPool::addObjectToPool(T2::Object* obj, const int& tag)
 {
 	auto it = pool.find(tag);
 	if (it == pool.end()) { std::cout << "No pool for the tag: " << tag << " found!" << std::endl; }
@@ -116,7 +126,7 @@ void T2::ObjectPool::Update(float dTime)
 	}
 }
 
-void T2::ObjectPool::checkCollisions(T2::Collision* col, const std::string& tag)
+void T2::ObjectPool::checkCollisions(T2::Object* col, const int& tag)
 {
 	auto it = pool.find(tag);
 	if (it == pool.end()) { std::cout << "Tag: " << tag << " No such pool found!" << std::endl; }
@@ -130,5 +140,4 @@ void T2::ObjectPool::checkCollisions(T2::Collision* col, const std::string& tag)
 			}
 		}
 	}
-
 }

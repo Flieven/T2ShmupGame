@@ -20,6 +20,7 @@ void Player::setupPlayer()
 {
 	movementSpeed = 0.1;
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
+	tag = playerTag;
 }
 
 void Player::updateObject()
@@ -30,13 +31,10 @@ void Player::updateObject()
 
 void Player::Update(float dTime)
 {
-	if(active)
-	{ 
-		checkInput();
-		updateObject();
-		UpdateColliders();
-		Draw();
-	}
+	checkInput();
+	updateObject();
+	UpdateColliders();
+	Draw();
 }
 
 bool Player::checkInput()
@@ -57,7 +55,21 @@ void Player::Draw()
 	drawManager->DebugRender(collider->rectangle);
 }
 
-void Player::onCollision(Collision* other)
+void Player::onCollision(int other)
 {
-	std::cout << "Player collided with something!" << std::endl;
+	switch (other)
+	{
+	case enemyTag: std::cout << "Player col Enemy" << std::endl;
+	}
+}
+
+//IMPLEMENT THESE WITH OBJECT POOL SO THAT WE CAN MAKE THE CLOUDY BOIS
+void Player::setupTextures(const char* texture)
+{
+	textureList.push_back(texture);
+}
+
+void Player::setupObject(SDL_Rect rect)
+{
+	Obj_Rect = rect;
 }
