@@ -8,7 +8,8 @@
 
 Background::Background()
 {
-	sprite = drawManager->LoadTexture(backgroundSprite, 1, 1, backgroundWidth, backgroundHeight, 1);	
+
+	sprite = drawManager->LoadTexture(backgroundSprite, 1, 1, backgroundWidth, backgroundHeight, 1);
 }
 
 Background::~Background()
@@ -20,13 +21,12 @@ void Background::Update(float dTime)
 {	
 	Draw();	
 	
-
+	movementSpeed = 0.03f;
 	float xScale = 1;
 	float yScale = 1;
-	float scrollSpeed = 0.03f;
 
-	fRect.y += scrollSpeed;
-	y2 += scrollSpeed;
+	fRect.y += movementSpeed;
+	y2 += movementSpeed;
 
 	fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
 	if (fRect.y > windowHeight) { fRect.y -= windowHeight * 2; }	
@@ -47,6 +47,7 @@ void Background::onCollision(Collision* other)
 
 void Background::setupTextures(const char* texture)
 {
+	
 }
 
 void Background::setupObject(SDL_Rect rect)

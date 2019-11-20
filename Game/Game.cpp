@@ -19,9 +19,16 @@
 #include "StaticIncluder.h"			
 #include "Game.h"
 
+
+// UI BUTTONS
 void testButton()
 {
-	std::cout << "Button Clicked!" << std::endl;
+	std::cout << "Button Clicked!" << std::endl;	
+}
+
+void quitButtonTest()
+{	
+	SDL_Quit();
 }
 
 bool ShmupGame::Initialize()
@@ -50,21 +57,26 @@ bool ShmupGame::Initialize()
 	objPool = new T2::ObjectPool();
 	ServiceLocator<T2::ObjectPool>::setService(objPool);
 
+
 	buttonManager = new T2::UI_ButtonManager();
 
 	buttonManager->addButton({ 200, 200, 200, 200 }, "Play");
 	buttonManager->getButton("Play")->pairFunction(testButton);
 
+	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
+	buttonManager->getButton("Quit")->pairFunction(quitButtonTest);
+
+	bgFactory = new BackgroundFactory();
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
-	bgFactory = new BackgroundFactory();
+
+	factoryManager->addFactory(backgroundTag, bgFactory);
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
-	factoryManager->addFactory(backgroundTag, bgFactory);
 
-	objPool->getObject(playerTag);
-	objPool->getObject(enemyTag);
 	objPool->getObject(backgroundTag);
+	objPool->getObject(playerTag);	
+	objPool->getObject(enemyTag);
 
 	return true;
 }
@@ -104,7 +116,6 @@ void ShmupGame::Run()
 		EventHandler();
 
 		buttonManager->Update(deltaTime);
-
 		drawManager->Present();
 	}
 }

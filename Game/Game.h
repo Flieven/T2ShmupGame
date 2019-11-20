@@ -33,12 +33,12 @@ private:
 	T2::CollisionManager* colManager = nullptr;
 	T2::UI_ButtonManager* buttonManager = nullptr;
 
+	BackgroundFactory* bgFactory = nullptr;
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
-	BackgroundFactory* bgFactory = nullptr;
+	Background* background = nullptr;
 	Player* player = nullptr;
 	TestEnemy* enemy = nullptr;
-	Background* background = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;

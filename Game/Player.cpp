@@ -18,9 +18,9 @@ Player::~Player()
 
 void Player::setupPlayer()
 {
-	movementSpeed = 0.1;
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
-	tag = playerTag;
+	movementSpeed = 0.1;
+	//tag = playerTag;
 }
 
 void Player::updateObject()
