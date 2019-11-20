@@ -10,5 +10,6 @@ public:
 
 	void Update(float dTime);
 	void Draw();
+
 	void onCollision(Collision* other);
 };
