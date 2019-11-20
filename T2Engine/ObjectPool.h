@@ -39,22 +39,34 @@ namespace T2
 {
 	class Object;
 	class FactoryManager;
+	class CollisionManager;
+	class Collision;
 
 	class ObjectPool
 	{
 	private:
 
-		std::map<std::string, std::vector<Object*>> pool;
+		std::map<int, std::vector<Object*>> pool;
 
 		FactoryManager* factoryManager;
+		CollisionManager* colManager;
 
 	public:
 		ObjectPool();
 		~ObjectPool();
 
-		void addNewPool(const std::string& tag);
+		void addNewPool(const int& tag);
 
-		T2::Object* getObject(const std::string& tag);
+		T2::Object* getObject(const int& tag);
+		T2::Object* getRandomObject(const int& tag);
+		T2::Object* getSpecificObject(const int& tag, int index);
+		void addObjectToPool(T2::Object* obj, const int& tag);
+
+		void Update(float dTime);
+
+		void checkCollisions();
+		void checkCollisions(const int& tag, const int& othertag);
+		void checkCollisions(T2::Object* col, const int& tag);
 
 	};
 }

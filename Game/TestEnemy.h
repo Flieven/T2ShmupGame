@@ -10,6 +10,9 @@ public:
 
 	void Update(float dTime);
 	void Draw();
+	void onCollision(int other);
 
-	void onCollision(Collision* other);
+	// Inherited via Entity
+	virtual void setupTextures(const char* texture) override;
+	virtual void setupObject(SDL_Rect rect) override;
 };

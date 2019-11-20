@@ -5,10 +5,10 @@ void T2::DrawManager::InitWindow(int width, int height, const char* title)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING) == 0)
 	{
-		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN);
-		if (window)
+		window = SDL_CreateWindow(title, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, width, height, SDL_WINDOW_SHOWN | SDL_WINDOW_BORDERLESS);
+		if (!window)
 		{
-			// window created
+			std::cout << "Window creation error" << SDL_GetError;
 		}
 
 		renderer = SDL_CreateRenderer(window, -1, 0);
@@ -17,10 +17,6 @@ void T2::DrawManager::InitWindow(int width, int height, const char* title)
 			SDL_SetRenderDrawColor(renderer, 30, 30, 60, 255);
 		}
 	}
-
-	/*SDL_Surface* tempSurface = IMG_Load("../Assets/Sprites/CampFire.PNG");
-	fireTexture = SDL_CreateTextureFromSurface(renderer, tempSurface);
-	SDL_FreeSurface(tempSurface);*/ // using LoadTexture function istället...
 }
 
 void T2::DrawManager::Update()
@@ -30,6 +26,12 @@ void T2::DrawManager::Update()
 void T2::DrawManager::Render(Sprite* sprite, SDL_Rect rect)
 {	
 	SDL_RenderCopy(renderer, sprite->getTexture() , &sprite->getSource(0), &rect);
+}
+
+void T2::DrawManager::Render(Sprite* sprite, SDL_FRect fRect)
+{
+	SDL_RenderCopyF(renderer, sprite->getTexture(), &sprite->getSource(0), &fRect);
+	
 }
 
 void T2::DrawManager::DebugRender(SDL_Rect deugRect)
@@ -50,6 +52,11 @@ void T2::DrawManager::Shutdown()
 void T2::DrawManager::Clear() { SDL_RenderClear(renderer); }
 
 void T2::DrawManager::Present() { SDL_RenderPresent(renderer); }
+
+SDL_Renderer* T2::DrawManager::getRenderer()
+{
+	return renderer;
+}
 
 T2::Sprite* T2::DrawManager::LoadTexture(const char* texture, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames)
 {

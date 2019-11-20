@@ -5,16 +5,32 @@
 
 #include <InputManager.h>
 #include <DrawManager.h>
+#include <TextManager.h>
 #include <FactoryManager.h>
 #include <ObjectPool.h>
 #include <CollisionManager.h>
+#include <UI_ButtonManager.h>
+#include <UI_Button.h>
 
 #include "ConcreteFactories.h"
 #include "Player.h"
+#include "Background.h"
 
 #include "GameConfig.h"
 #include "StaticIncluder.h"			
 #include "Game.h"
+
+
+// UI BUTTONS
+void testButton()
+{
+	std::cout << "Button Clicked!" << std::endl;	
+}
+
+void quitButtonTest()
+{	
+	SDL_Quit();
+}
 
 bool ShmupGame::Initialize()
 {
@@ -25,30 +41,46 @@ bool ShmupGame::Initialize()
 	assert(TTF_Init() == 0 && "TTF_Init Failed to Initialize");;
 
 	inputManager = new T2::Input();
+	ServiceLocator<T2::Input>::setService(inputManager);
 	inputManager->initialize();
 
 	drawManager = new T2::DrawManager();
+	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
 
+	textManager = new T2::TextManager();
+	ServiceLocator<T2::TextManager>::setService(textManager);
+	
 	factoryManager = new T2::FactoryManager();
-
-	colManager = new T2::CollisionManager();
-
-	ServiceLocator<T2::Input>::setService(inputManager);
-	ServiceLocator<T2::DrawManager>::setService(drawManager);
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
-	ServiceLocator<T2::ObjectPool>::setService(objPool);
+	
+	colManager = new T2::CollisionManager();
 	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
 	objPool = new T2::ObjectPool();
+	ServiceLocator<T2::ObjectPool>::setService(objPool);
 
+
+	buttonManager = new T2::UI_ButtonManager();
+
+	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
+	buttonManager->addButton({ 200, 300, 200, 100 }, "Options");
+	buttonManager->getButton("Play")->pairFunction(testButton);
+
+	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
+	buttonManager->getButton("Quit")->pairFunction(quitButtonTest);
+
+	bgFactory = new BackgroundFactory();
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
+
+	factoryManager->addFactory(backgroundTag, bgFactory);
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
 
-	player = dynamic_cast<Player*>(objPool->getObject(playerTag));
-	enemy = dynamic_cast<TestEnemy*>(objPool->getObject(enemyTag));
+	objPool->getObject(backgroundTag);
+	objPool->getObject(playerTag);	
+	objPool->getObject(enemyTag);
 
 	return true;
 }
@@ -84,15 +116,12 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		drawManager->Clear();
-		player->Update(deltaTime);
-		enemy->Update(deltaTime);
+		objPool->Update(deltaTime);
 		EventHandler();
 
-		if(colManager->checkCollision(player->collider, enemy->collider))
-		{
-			std::cout << "Collision" << std::endl;
-		}
+		objPool->checkCollisions();
 
+		buttonManager->Update(deltaTime);
 		drawManager->Present();
 	}
 }

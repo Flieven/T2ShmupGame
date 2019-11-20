@@ -16,3 +16,11 @@ void T2::Entity::UpdateColliders()
 	collider->bounds.up = collider->rectangle.y;
 	collider->bounds.down = collider->rectangle.y + collider->rectangle.h;
 }
+
+void T2::Entity::setupTextures(const char* texture)
+{
+}
+
+void T2::Entity::setupObject(SDL_Rect rect)
+{
+}

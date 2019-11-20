@@ -25,17 +25,17 @@ namespace T2
 	{
 	private:
 
-		std::map <std::string, AFactory*> factoryList;
+		std::map <int, AFactory*> factoryList;
 
 	public:
 		FactoryManager();
 		~FactoryManager();
 
-		void addFactory(const std::string& tag, AFactory* factory);
+		void addFactory(const int tag, AFactory* factory);
 		
-		T2::Object* useFactory(const std::string& tag);
+		T2::Object* useFactory(const int tag);
 
-		void removeFactory(const std::string& tag);
+		void removeFactory(const int tag);
 
 	};
 }

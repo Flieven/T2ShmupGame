@@ -85,6 +85,18 @@
     <Filter Include="Source Files\System\Managers\FactoryManager">
       <UniqueIdentifier>{1ca5702e-5d66-4bf4-a92b-12c3484a2cec}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\System\Managers\UIManager">
+      <UniqueIdentifier>{1d1fa538-2989-4040-9a1a-70ac3a35ccd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\System\Managers\UIManager\UIComponents">
+      <UniqueIdentifier>{5ea22665-7ea8-4c6a-bbf8-4d68724f25c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Managers\UIManager">
+      <UniqueIdentifier>{c712dfc7-734c-47e9-a5c7-ca35465bba6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\System\Managers\UIManager\UIComponents">
+      <UniqueIdentifier>{8eeea3f9-11b6-428a-84f1-893f603594b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineEntry.h">
@@ -158,6 +170,12 @@
     </ClCompile>
     <ClCompile Include="FactoryManager.cpp">
       <Filter>Source Files\System\Managers\FactoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_ButtonManager.cpp">
+      <Filter>Source Files\System\Managers\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UI_Button.cpp">
+      <Filter>Source Files\System\Managers\UIManager\UIComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -235,6 +253,12 @@
     </ClInclude>
     <ClInclude Include="AFactory.h">
       <Filter>Header Files\System\Managers\FactoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_ButtonManager.h">
+      <Filter>Header Files\System\Managers\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UI_Button.h">
+      <Filter>Header Files\System\Managers\UIManager\UIComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

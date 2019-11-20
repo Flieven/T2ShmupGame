@@ -20,6 +20,6 @@ void T2::Object::Draw()
 {
 }
 
-void T2::Object::onCOllision(Collision* other)
+void T2::Object::onCollision(int other)
 {
 }
