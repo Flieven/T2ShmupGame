@@ -53,6 +53,11 @@ void T2::DrawManager::Clear() { SDL_RenderClear(renderer); }
 
 void T2::DrawManager::Present() { SDL_RenderPresent(renderer); }
 
+SDL_Renderer* T2::DrawManager::getRenderer()
+{
+	return renderer;
+}
+
 T2::Sprite* T2::DrawManager::LoadTexture(const char* texture, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames)
 {
 	auto it = textures.find(texture);

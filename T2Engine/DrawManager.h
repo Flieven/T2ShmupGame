@@ -27,6 +27,8 @@ namespace T2
 		void Clear();
 		void Present();
 
+		SDL_Renderer* getRenderer();
+
 		// Load textures
 		Sprite* LoadTexture(const char* fileName, unsigned int x, unsigned int y, unsigned int w, unsigned int h, unsigned int frames);
 
