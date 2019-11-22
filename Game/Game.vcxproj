@@ -98,10 +98,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="TestEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ConcreteFactories.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="GameConfig.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="TestEnemy.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\T2Engine\T2Engine.vcxproj">

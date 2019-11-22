@@ -1,6 +1,16 @@
 #include "CollisionManager.h"
 
-bool CollisionManager::checkCollision(Collider* objectA, Collider* objectB)
+#include "Object.h"
+
+T2::CollisionManager::CollisionManager()
+{
+}
+
+T2::CollisionManager::~CollisionManager()
+{
+}
+
+bool T2::CollisionManager::checkCollision(T2::Collider* objectA, T2::Collider* objectB)
 {
 	if (objectA->bounds.right < objectB->bounds.left ||
 		objectB->bounds.right < objectA->bounds.left ||
@@ -12,12 +22,12 @@ bool CollisionManager::checkCollision(Collider* objectA, Collider* objectB)
 	return true;
 }
 
-bool CollisionManager::checkCollision(Collision* objectA, Collision* objectB)
+bool T2::CollisionManager::checkCollision(T2::Object* objectA, T2::Object* objectB)
 {
-	if (CollisionManager::checkCollision(objectA->collider, objectB->collider))
+	if (T2::CollisionManager::checkCollision(objectA->collider, objectB->collider))
 	{
-		objectA->onCollision(objectB);
-		objectB->onCollision(objectB);
+		objectA->onCollision(objectB->tag);
+		objectB->onCollision(objectA->tag);
 		return true;
 	}
 	return false;

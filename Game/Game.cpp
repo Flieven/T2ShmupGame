@@ -5,9 +5,41 @@
 
 #include <InputManager.h>
 #include <DrawManager.h>
+#include <TextManager.h>
+#include <FactoryManager.h>
+#include <ObjectPool.h>
+#include <CollisionManager.h>
+#include <UI_ButtonManager.h>
+#include <UI_Button.h>
 
+#include "ConcreteFactories.h"
+#include "Player.h"
+#include "Background.h"
+#include "Bullet.h"
+
+#include "GameConfig.h"
 #include "StaticIncluder.h"			
 #include "Game.h"
+
+
+// UI BUTTONS
+void btnPlay()
+{
+	std::cout << "Play" << std::endl;
+}
+
+void btnOptions()
+{
+	std::cout << "Options" << std::endl;
+}
+
+
+
+void btnQuit()
+{	
+	// Fixa så man kör shutdown etc ...
+	SDL_Quit();
+}
 
 bool ShmupGame::Initialize()
 {
@@ -18,13 +50,58 @@ bool ShmupGame::Initialize()
 	assert(TTF_Init() == 0 && "TTF_Init Failed to Initialize");;
 
 	inputManager = new T2::Input();
+	ServiceLocator<T2::Input>::setService(inputManager);
 	inputManager->initialize();
 
 	drawManager = new T2::DrawManager();
-	drawManager->InitWindow(640, 480);
-
-	ServiceLocator<T2::Input>::setService(inputManager);
 	ServiceLocator<T2::DrawManager>::setService(drawManager);
+	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
+
+	textManager = new T2::TextManager();
+	ServiceLocator<T2::TextManager>::setService(textManager);
+	
+	factoryManager = new T2::FactoryManager();
+	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
+	
+	colManager = new T2::CollisionManager();
+	ServiceLocator<T2::CollisionManager>::setService(colManager);
+
+	objPool = new T2::ObjectPool();
+	ServiceLocator<T2::ObjectPool>::setService(objPool);
+
+	buttonManager = new T2::UI_ButtonManager();
+
+	
+
+	// Button create
+	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
+	buttonManager->getButton("Play")->pairFunction(btnPlay);
+	
+	buttonManager->addButton({ 200, 500, 200, 100 }, "Options");
+	buttonManager->getButton("Options")->pairFunction(btnOptions);
+
+	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
+	buttonManager->getButton("Quit")->pairFunction(btnQuit);
+
+
+	
+
+	bgFactory = new BackgroundFactory();
+	pFactory = new PlayerFactory();
+	eFactory = new EnemyFactory();
+	bFactory = new BulletFactory();
+
+	factoryManager->addFactory(backgroundTag, bgFactory);
+	factoryManager->addFactory(playerTag, pFactory);
+	factoryManager->addFactory(enemyTag, eFactory);
+	factoryManager->addFactory(bulletTag, bFactory);
+
+
+
+	objPool->getObject(backgroundTag);
+	objPool->getObject(playerTag);	
+	objPool->getObject(enemyTag);
+	objPool->getObject(bulletTag);
 
 	return true;
 }
@@ -32,6 +109,12 @@ bool ShmupGame::Initialize()
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
+
+	delete pFactory;
+	pFactory = nullptr;
+
+	delete factoryManager;
+	factoryManager = nullptr;
 
 	drawManager->Shutdown();
 	delete drawManager;
@@ -52,10 +135,15 @@ void ShmupGame::Run()
 {
 	while (isRunning)
 	{
-		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
+		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
+		drawManager->Clear();
+		objPool->Update(deltaTime);
 		EventHandler();
-		drawManager->Render();
-		// Yoda rave
+
+		objPool->checkCollisions();
+
+		buttonManager->Update(deltaTime);
+		drawManager->Present();
 	}
 }
 
@@ -68,4 +156,10 @@ void ShmupGame::EventHandler()
 		if (event.type == SDL_QUIT) { isRunning = false; }
 		else { inputManager->handleEvent(event); }
 	}
+}
+
+void ShmupGame::CalcDeltaTime()
+{
+	deltaTime = 0.001f * (SDL_GetTicks() - lastTick);
+	lastTick = SDL_GetTicks();
 }

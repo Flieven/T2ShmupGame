@@ -3,18 +3,20 @@
 #include "Collider.h"
 #include "Collision.h"
 
-
-class Collider;
-class Collision;
-
-class CollisionManager
+namespace T2
 {
-public:
-	CollisionManager();
-	~CollisionManager();
+	class Collider;
+	class Object;
 
-	static bool checkCollision(Collider* objectA, Collider* objectB);
-	static bool checkCollision(Collision* objectA, Collision* objectB);
+	class CollisionManager
+	{
+	public:
+		CollisionManager();
+		~CollisionManager();
 
-};
+		static bool checkCollision(T2::Collider* objectA, T2::Collider* objectB);
+		static bool checkCollision(T2::Object* objectA, T2::Object* objectB);
+
+	};
+}
 

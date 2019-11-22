@@ -2,15 +2,17 @@
 
 #include "Collider.h"
 
-class Collision
+namespace T2
 {
-public:
+	class Collision
+	{
+	public:
 
-	Collision();
-	Collision(Collider* col);
-	virtual ~Collision();
-	virtual void onCollision(Collision* other) = 0;
-	Collider* collider = nullptr;
-
-};
+		Collision();
+		Collision(Collider* col);
+		virtual ~Collision();
+		virtual void onCollision(int other) = 0;
+		Collider* collider = nullptr;
+	};
+}
 
