@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "TestEnemy.h"
 #include "Background.h"
+#include "Bullet.h"
 
 namespace T2 { class AFactory; }
 
@@ -34,4 +35,13 @@ public:
 	~BackgroundFactory() {}
 
 	T2::Object* createObject() { return new Background(); }
+};
+
+class BulletFactory : public T2::AFactory
+{
+public:
+	BulletFactory() {}
+	~BulletFactory() {}
+
+	T2::Object* createObject() { return new Bullet(); }
 };

@@ -17,6 +17,7 @@ class PlayerFactory;
 class EnemyFactory;
 class Player;
 class TestEnemy;
+class Bullet;
 
 class ShmupGame : public T2::Engine
 {
@@ -38,9 +39,11 @@ private:
 	BackgroundFactory* bgFactory = nullptr;
 	PlayerFactory* pFactory = nullptr;
 	EnemyFactory* eFactory = nullptr;
+	BulletFactory* bFactory = nullptr;
 	Background* background = nullptr;
 	Player* player = nullptr;
 	TestEnemy* enemy = nullptr;
+	Bullet* bullet = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;
@@ -57,4 +60,4 @@ public:
 
 T2::Engine* T2::createEngine() { return new ShmupGame(); }
 
-void testButton();
+void btnPlay();
