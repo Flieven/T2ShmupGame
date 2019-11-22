@@ -29,3 +29,7 @@
 *.exe
 *.out
 *.app
+.vs/slnx.sqlite
+.vs/T2Engine/v16/Browse.VC.opendb
+.vs/T2Engine/v16/Solution.VC.db-shm
+.vs/T2Engine/v16/Solution.VC.db-wal
