@@ -1,23 +1,23 @@
 #include "AbstractState.h"
 
-AbstractState::AbstractState()
+T2::AbstractState::AbstractState()
 {
 }
 
-AbstractState::~AbstractState()
+T2::AbstractState::~AbstractState()
 {
 }
 
-void AbstractState::Enter()
+void T2::AbstractState::Enter()
 {
 }
 
-void AbstractState::Run(float deltaTime)
+void T2::AbstractState::Run(float deltaTime)
 {
 	//Text Feedback
 	std::cout << "Run.." << std::endl;
 }
 
-void AbstractState::Exit()
+void T2::AbstractState::Exit()
 {
 }

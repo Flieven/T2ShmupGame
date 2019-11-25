@@ -11,13 +11,8 @@ namespace T2
 	class CollisionManager;
 	class UI_ButtonManager;
 	class TextManager;
+	class FSM;
 }
-
-class PlayerFactory;
-class EnemyFactory;
-class Player;
-class TestEnemy;
-class Bullet;
 
 class ShmupGame : public T2::Engine
 {
@@ -35,15 +30,7 @@ private:
 	T2::CollisionManager* colManager = nullptr;
 	T2::UI_ButtonManager* buttonManager = nullptr;
 	T2::TextManager* textManager = nullptr;
-
-	BackgroundFactory* bgFactory = nullptr;
-	PlayerFactory* pFactory = nullptr;
-	EnemyFactory* eFactory = nullptr;
-	BulletFactory* bFactory = nullptr;
-	Background* background = nullptr;
-	Player* player = nullptr;
-	TestEnemy* enemy = nullptr;
-	Bullet* bullet = nullptr;
+	T2::FSM* stateManager = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;
@@ -59,5 +46,3 @@ public:
 };
 
 T2::Engine* T2::createEngine() { return new ShmupGame(); }
-
-void btnPlay();

@@ -3,6 +3,7 @@
 #include <EngineEntry.h>
 #include <ServiceLocator.h>
 
+#include <StateManager.h>
 #include <InputManager.h>
 #include <DrawManager.h>
 #include <TextManager.h>
@@ -21,25 +22,8 @@
 #include "StaticIncluder.h"			
 #include "Game.h"
 
-
-// UI BUTTONS
-void btnPlay()
-{
-	std::cout << "Play" << std::endl;
-}
-
-void btnOptions()
-{
-	std::cout << "Options" << std::endl;
-}
-
-
-
-void btnQuit()
-{	
-	// Fixa så man kör shutdown etc ...
-	SDL_Quit();
-}
+#include "GameState.h"
+#include "MainMenuState.h"
 
 bool ShmupGame::Initialize()
 {
@@ -70,38 +54,24 @@ bool ShmupGame::Initialize()
 	ServiceLocator<T2::ObjectPool>::setService(objPool);
 
 	buttonManager = new T2::UI_ButtonManager();
+	ServiceLocator<T2::UI_ButtonManager>::setService(buttonManager);
 
-	
+	stateManager = new T2::FSM();
+	ServiceLocator<T2::FSM>::setService(stateManager);
 
-	// Button create
-	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
-	buttonManager->getButton("Play")->pairFunction(btnPlay);
-	
-	buttonManager->addButton({ 200, 500, 200, 100 }, "Options");
-	buttonManager->getButton("Options")->pairFunction(btnOptions);
+	// Factory adds
+	factoryManager->addFactory(backgroundTag, new BackgroundFactory());
+	factoryManager->addFactory(playerTag,new PlayerFactory());
+	factoryManager->addFactory(enemyTag, new EnemyFactory());
+	factoryManager->addFactory(bulletTag,new BulletFactory());
 
-	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
-	buttonManager->getButton("Quit")->pairFunction(btnQuit);
+	// State adds
+	stateManager->addState("Game", new GameState("Game"));
+	stateManager->addState("MainMenu", new MainMenuState("MainMenu"));
 
+	stateManager->changeState("MainMenu");
 
-	
-
-	bgFactory = new BackgroundFactory();
-	pFactory = new PlayerFactory();
-	eFactory = new EnemyFactory();
-	bFactory = new BulletFactory();
-
-	factoryManager->addFactory(backgroundTag, bgFactory);
-	factoryManager->addFactory(playerTag, pFactory);
-	factoryManager->addFactory(enemyTag, eFactory);
-	factoryManager->addFactory(bulletTag, bFactory);
-
-
-
-	objPool->getObject(backgroundTag);
-	objPool->getObject(playerTag);	
-	objPool->getObject(enemyTag);
-	objPool->getObject(bulletTag);
+	std::cout << "Start State: " << stateManager->currentState->stateName << std::endl;
 
 	return true;
 }
@@ -109,9 +79,6 @@ bool ShmupGame::Initialize()
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
-
-	delete pFactory;
-	pFactory = nullptr;
 
 	delete factoryManager;
 	factoryManager = nullptr;
@@ -137,12 +104,8 @@ void ShmupGame::Run()
 	{
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
 		drawManager->Clear();
-		objPool->Update(deltaTime);
+		stateManager->updateState(deltaTime);
 		EventHandler();
-
-		objPool->checkCollisions();
-
-		buttonManager->Update(deltaTime);
 		drawManager->Present();
 	}
 }

@@ -25,6 +25,12 @@
     <Filter Include="Source Files\Objects/Entities">
       <UniqueIdentifier>{671f820e-ab8b-4470-90c0-c70217c84b96}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\States">
+      <UniqueIdentifier>{df404de8-af93-4e5d-ac66-9267f5577b7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\States">
+      <UniqueIdentifier>{3ee048b0-6d83-4cca-a970-8df99529b912}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Game.cpp">
@@ -41,6 +47,12 @@
     </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Source Files\Objects/Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GameState.cpp">
+      <Filter>Source Files\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainMenuState.cpp">
+      <Filter>Source Files\States</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +76,12 @@
     </ClInclude>
     <ClInclude Include="Bullet.h">
       <Filter>Header Files\Objects/Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GameState.h">
+      <Filter>Header Files\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainMenuState.h">
+      <Filter>Header Files\States</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
