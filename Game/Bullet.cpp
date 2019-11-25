@@ -8,25 +8,19 @@
 Bullet::Bullet()
 {
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
-	movementSpeed = 0.03f;	
+	movementSpeed = 0.2f;	
 }
 
-	bool pewPew = false;
 Bullet::~Bullet()
 {
 
 }
 
 void Bullet::Update(float dTime)
-{
-	float xScale = 1;
-	float yScale = 1;
-	Draw();
-	
-	if (pewPew)
+{	
+	if (active)
 	{
 		fRect.y += movementSpeed;
-		fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
 	}
 }
 
@@ -37,7 +31,11 @@ void Bullet::Draw()
 
 void Bullet::Fire()
 {
-	pewPew = true;
+	float xScale = 1;
+	float yScale = 1;
+	fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };	
+	Draw();
+	
 }
 
 void Bullet::onCollision(Collision* other)
@@ -52,5 +50,5 @@ void Bullet::setupTextures(const char* texture)
 
 void Bullet::setupObject(SDL_Rect rect)
 {
-
+	
 }

@@ -63,6 +63,8 @@ bool Player::checkInput()
 		//objPool->getObject(bulletTag);
 		Bullet bullet;
 		bullet.Fire();
+		
+		
 	}
 
 	return keyDown;
