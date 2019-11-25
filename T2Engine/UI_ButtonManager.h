@@ -19,7 +19,7 @@ namespace T2
 		~UI_ButtonManager();
 
 
-		void addButton(SDL_Rect buttonRect, const std::string& buttonTxt);
+		void addButton(SDL_Rect buttonRect, const std::string& buttonTxt, int fontSize);
 		T2::UI_Button* getButton(const std::string& buttonTxt);
 		void Update(float dTime);
 		void removeButton(const std::string& buttonTxt);

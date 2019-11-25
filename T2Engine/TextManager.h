@@ -20,8 +20,9 @@ namespace T2
 		TextManager();
 		~TextManager();
 
-		void Update(float dTime, std::string message, SDL_Rect rect);
+		void Update(float dTime, std::string message, SDL_Rect rect, SDL_Color textColor);
 		void Draw(SDL_Rect rect);
+		void configText(int fSize, SDL_Color fColor, const char* fFile);
 
 	protected:
 

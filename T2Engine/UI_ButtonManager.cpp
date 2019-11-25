@@ -13,10 +13,10 @@ T2::UI_ButtonManager::~UI_ButtonManager()
 {
 }
 
-void T2::UI_ButtonManager::addButton(SDL_Rect buttonRect, const std::string& buttonTxt)
+void T2::UI_ButtonManager::addButton(SDL_Rect buttonRect, const std::string& buttonTxt, int fontSize)
 {
 	auto it = buttons.find(buttonTxt);
-	if (it == buttons.end()) { buttons.insert({ buttonTxt, new UI_Button(buttonRect, buttonTxt) }); }
+	if (it == buttons.end()) { buttons.insert({ buttonTxt, new UI_Button(buttonRect, buttonTxt, fontSize) }); }
 	else { std::cout << "Button already exists with text: " << buttonTxt << std::endl; }
 }
 

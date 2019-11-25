@@ -47,10 +47,14 @@ T2::Object* T2::ObjectPool::getObject(const int& tag)
 			returnVal->active = true;
 			break;
 		}
-		else if (i == it->second.size())
-		{
-			it->second.push_back(factoryManager->useFactory(tag));
-		}
+	}
+
+	if (returnVal == nullptr
+)
+	{
+		it->second.push_back(factoryManager->useFactory(tag));
+		returnVal = it->second[it->second.size()-1];
+		returnVal->active = true;
 	}
 
 	return returnVal;

@@ -9,6 +9,7 @@
 namespace T2 { class AFactory; }
 
 class Player;
+class Bullet;
 
 class PlayerFactory : public T2::AFactory
 {

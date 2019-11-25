@@ -11,19 +11,21 @@ T2::UI_Button::UI_Button()
 {
 }
 
-T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT)
+T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT, int size)
 {
 	Obj_rect = rect;
 	buttonText = buttonTxT;
+	fontSize = size;
 	drawManager = ServiceLocator<DrawManager>::getService();
 	inputManager = ServiceLocator<T2::Input>::getService();
 	textManager = ServiceLocator<T2::TextManager>::getService();
 }
 
-T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT, const char* graphic)
+T2::UI_Button::UI_Button(SDL_Rect rect, std::string buttonTxT, const char* graphic, int size)
 {
 	Obj_rect = rect;
 	buttonText = buttonTxT;
+	fontSize = size;
 	drawManager = ServiceLocator<DrawManager>::getService();
 	inputManager = ServiceLocator<T2::Input>::getService();
 	textManager = ServiceLocator<T2::TextManager>::getService();
@@ -46,7 +48,7 @@ void T2::UI_Button::Update(float dTime)
 		onClick();
 	}
 	Draw();
-	textManager->Update(dTime, buttonText, Obj_rect);
+	textManager->Update(dTime, buttonText, Obj_rect, fontColor);
 }
 
 void T2::UI_Button::pairFunction(std::function<void()> func)

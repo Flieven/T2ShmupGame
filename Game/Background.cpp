@@ -9,6 +9,7 @@
 Background::Background()
 {
 	sprite = drawManager->LoadTexture(backgroundSprite, 1, 1, backgroundWidth, backgroundHeight, 1);
+	//cloud = drawManager->LoadTexture(cloudSprite, 1, 1, cloudWidth, cloudHeight, 1);
 }
 
 Background::~Background()
