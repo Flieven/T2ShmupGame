@@ -8,11 +8,14 @@ namespace T2
 	class ObjectPool;
 }
 
+class BulletFactory;
+
 class Player : public T2::Entity
 {
 	
 
 private:
+
 	bool keyDown = false;
 	
 	void setupPlayer();
@@ -24,8 +27,11 @@ public:
 	Player();
 	~Player();
 
-	T2::Input* inputManager;
-	T2::ObjectPool* objPool;
+	T2::Input* inputManager = nullptr;
+	T2::ObjectPool* objPool = nullptr;
+
+
+	BulletFactory* bFactory = nullptr;
 
 	void Update(float dTime);
 	bool checkInput();
