@@ -1,24 +1,28 @@
 #pragma once
-#include "AbstractState.h"
 #include "StaticIncluder.h"
 
 #include <map>
 
 //Finite State Machine
-class FSM
+namespace T2 //Allt inom "T2Engine" skall vara i ett "T2" namespace.
 {
-public:
-	
-	std::map<std::string, AbstractState*> states;
-	AbstractState* currentState;
+	class AbstractState; // Forward Declaration: "This is a thing we will use, but we don't need to know exactly what it does".
 
-	FSM();
-	~FSM();
+	class FSM
+	{
+	public:
 
-	void addState(std::string key, AbstractState* state);
-	void changeState(std::string key);
-	void updateState(float deltaTime);
+		std::map<std::string, T2::AbstractState*> states;
+		T2::AbstractState* currentState = nullptr;
 
-	//Remove state?
-};
+		FSM();
+		~FSM();
+
+		void addState(std::string key, AbstractState* state);
+		void changeState(std::string key);
+		void updateState(float deltaTime);
+
+		//Remove state?
+	};
+}
 

@@ -3,6 +3,7 @@
 #include <EngineEntry.h>
 #include <ServiceLocator.h>
 
+#include <StateManager.h>
 #include <InputManager.h>
 #include <DrawManager.h>
 #include <TextManager.h>
@@ -21,25 +22,8 @@
 #include "StaticIncluder.h"			
 #include "Game.h"
 
-
-// UI BUTTONS
-void btnPlay()
-{
-	std::cout << "Play" << std::endl;
-}
-
-void btnOptions()
-{
-	std::cout << "Options" << std::endl;
-}
-
-
-
-void btnQuit()
-{
-	// Fixa så man kör shutdown etc ...
-	SDL_Quit();
-}
+#include "GameState.h"
+#include "MainMenuState.h"
 
 bool ShmupGame::Initialize()
 {
@@ -55,14 +39,14 @@ bool ShmupGame::Initialize()
 
 	drawManager = new T2::DrawManager();
 	ServiceLocator<T2::DrawManager>::setService(drawManager);
-	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);
+	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
 
 	textManager = new T2::TextManager();
 	ServiceLocator<T2::TextManager>::setService(textManager);
-
+	
 	factoryManager = new T2::FactoryManager();
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
-
+	
 	colManager = new T2::CollisionManager();
 	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
@@ -70,46 +54,32 @@ bool ShmupGame::Initialize()
 	ServiceLocator<T2::ObjectPool>::setService(objPool);
 
 	buttonManager = new T2::UI_ButtonManager();
+	ServiceLocator<T2::UI_ButtonManager>::setService(buttonManager);
 
+	stateManager = new T2::FSM();
+	ServiceLocator<T2::FSM>::setService(stateManager);
 
+	// Factory adds
+	factoryManager->addFactory(backgroundTag, new BackgroundFactory());
+	factoryManager->addFactory(playerTag,new PlayerFactory());
+	factoryManager->addFactory(enemyTag, new EnemyFactory());
+	factoryManager->addFactory(bulletTag,new BulletFactory());
 
-	// Button create
-	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
-	buttonManager->getButton("Play")->pairFunction(btnPlay);
+	// State adds
+	stateManager->addState("Game", new GameState("Game"));
+	stateManager->addState("MainMenu", new MainMenuState("MainMenu"));
 
-	buttonManager->addButton({ 200, 500, 200, 100 }, "Options");
-	buttonManager->getButton("Options")->pairFunction(btnOptions);
+	stateManager->changeState("MainMenu");
 
-	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
-	buttonManager->getButton("Quit")->pairFunction(btnQuit);
+	std::cout << "Start State: " << stateManager->currentState->stateName << std::endl;
 
-
-
-
-	bgFactory = new BackgroundFactory();
-	pFactory = new PlayerFactory();
-	eFactory = new EnemyFactory();
-	bFactory = new BulletFactory();
-
-	factoryManager->addFactory(bulletTag, bFactory);
-	factoryManager->addFactory(backgroundTag, bgFactory);
-	factoryManager->addFactory(playerTag, pFactory);
-	factoryManager->addFactory(enemyTag, eFactory);
-
-	objPool->addNewPool(bulletTag);
-	objPool->getObject(backgroundTag);
-	objPool->getObject(playerTag);
-	objPool->getObject(enemyTag);
-
+	std::cout << "===== Engine Intialization completed =====" << std::endl;
 	return true;
 }
 
 void ShmupGame::Shutdown()
 {
 	std::cout << "===== Yeet Engine =====" << std::endl;
-
-	delete pFactory;
-	pFactory = nullptr;
 
 	delete factoryManager;
 	factoryManager = nullptr;
@@ -133,14 +103,10 @@ void ShmupGame::Run()
 {
 	while (isRunning)
 	{
-		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
+		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
 		drawManager->Clear();
-		objPool->Update(deltaTime);
+		stateManager->updateState(deltaTime);
 		EventHandler();
-
-		objPool->checkCollisions();
-
-		buttonManager->Update(deltaTime);
 		drawManager->Present();
 	}
 }

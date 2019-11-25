@@ -26,6 +26,7 @@ namespace T2
 		~UI_Button();
 
 		void Update(float dTime);
+
 		void pairFunction(std::function<void()> func);
 
 		std::function<void()> onClick;

@@ -1,35 +1,43 @@
 #include "StateManager.h"
+#include "AbstractState.h"
+#include <string>
 
-FSM::FSM()
+T2::FSM::FSM() : currentState(nullptr)
 {
 }
 
-FSM::~FSM()
+T2::FSM::~FSM()
 {
 }
 
-void FSM::addState(std::string key, AbstractState* state)
+void T2::FSM::addState(std::string key, AbstractState* state)
 {
 	auto it = states.find(key);
 	if (it != states.end()) {}
 	else { states.insert(std::pair<std::string, AbstractState*>(key, state));  }
 }
 
-void FSM::changeState(std::string key)
+void T2::FSM::changeState(std::string key)
 {
 	auto state = states.find(key);
-	if (state != states.end() && state->first != currentState->stateName)
+	if (currentState != nullptr)
 	{
-		if (currentState != nullptr) { currentState->Exit(); }
+		if (state != states.end() && state->first != currentState->stateName)
+		{
+			if (currentState != nullptr) { currentState->Exit(); }
 
+			currentState = state->second;
+			currentState->Enter();
+		}
+	}
+	else
+	{
 		currentState = state->second;
-		currentState->stateName = state->first;
 		currentState->Enter();
 	}
-
 }
 
-void FSM::updateState(float deltaTime)
+void T2::FSM::updateState(float deltaTime)
 {
 	if (currentState != nullptr) { currentState->Run(deltaTime); }
 }
