@@ -36,5 +36,11 @@ namespace T2
 			float res = std::sqrt(Pow1 + Pow2);
 			return res;
 		}
+
+		void setPosition(Vector2D position)
+		{
+			this->Position.x = position.x;
+			this->Position.y = position.y;
+		}
 	};
 }

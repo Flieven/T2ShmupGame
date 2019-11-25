@@ -67,10 +67,10 @@ bool Player::checkInput()
 	}
 
 	// fire bullet
-	if (inputManager->isKeyDown(SDL_SCANCODE_LCTRL))
+	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL))
 	{
-		std::cout << "ctrl pressed" << std::endl;
-		objPool->getObject(bulletTag);
+		objPool->getObject(bulletTag)->transform.setPosition(transform.Position);
+		keyDown = true;
 	}
 
 	return keyDown;

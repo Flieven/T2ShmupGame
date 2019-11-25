@@ -44,16 +44,19 @@ T2::Object* T2::ObjectPool::getObject(const int& tag)
 		if (!it->second[i]->active)
 		{
 			returnVal = it->second[i];
+			returnVal->active = true;
 			break;
-		}
-		else if (i == it->second.size())
-		{
-			it->second.push_back(factoryManager->useFactory(tag));
-			returnVal = it->second[it->second.size()];
 		}
 	}
 
-	returnVal->active = true;
+	if (returnVal == nullptr
+)
+	{
+		it->second.push_back(factoryManager->useFactory(tag));
+		returnVal = it->second[it->second.size()-1];
+		returnVal->active = true;
+	}
+
 	return returnVal;
 }
 

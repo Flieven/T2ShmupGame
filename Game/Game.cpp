@@ -61,9 +61,9 @@ bool ShmupGame::Initialize()
 
 	// Factory adds
 	factoryManager->addFactory(backgroundTag, new BackgroundFactory());
-	factoryManager->addFactory(playerTag,new PlayerFactory());
+	factoryManager->addFactory(playerTag, new PlayerFactory());
 	factoryManager->addFactory(enemyTag, new EnemyFactory());
-	factoryManager->addFactory(bulletTag,new BulletFactory());
+	factoryManager->addFactory(bulletTag, new BulletFactory());
 
 	// State adds
 	stateManager->addState("Game", new GameState("Game"));
@@ -106,6 +106,7 @@ void ShmupGame::Run()
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
 		drawManager->Clear();
 		stateManager->updateState(deltaTime);
+		inputManager->Update();
 		EventHandler();
 		drawManager->Present();
 	}

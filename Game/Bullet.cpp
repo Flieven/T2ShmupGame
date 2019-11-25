@@ -9,10 +9,8 @@
 Bullet::Bullet()
 {
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
-	movementSpeed = 0.3f;
-
+	movementSpeed = 0.1f;
 }
-
 
 Bullet::~Bullet()
 {
@@ -21,13 +19,12 @@ Bullet::~Bullet()
 
 void Bullet::Update(float dTime)
 {
-
 	if (active)
 	{
 		OutsideWindow();
 		Draw();
-		fRect.y += movementSpeed;
-		fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
+		transform.Position.y += movementSpeed;
+		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
 	}
 }
 

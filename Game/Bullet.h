@@ -1,14 +1,10 @@
 #pragma once
-#include "Player.h"
-
 #include <Entity.h>
 
 
 class Bullet : public T2::Entity
 {
 private:
-	Entity* home = nullptr;
-
 	float xScale = 1;
 	float yScale = 1;
 
