@@ -1,6 +1,5 @@
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.pdb
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.idb
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\sprite.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\soundclip.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\objectpool.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\object.obj
@@ -20,13 +19,14 @@ c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\collision.o
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\collider.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\audiomanager.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\afactory.obj
+c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\abstractstate.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\ui_buttonmanager.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\ui_button.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\timer.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\textmanager.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.obj
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\statemanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\abstractstate.obj
+c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\sprite.obj
 c:\users\ebba.taberman\desktop\shmup\binaries\debug-x64\t2engine\t2engine.lib
 c:\users\ebba.taberman\desktop\shmup\binaries\debug-x64\t2engine\t2engine.pdb
 c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.command.1.tlog
