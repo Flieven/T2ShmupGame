@@ -1,4 +1,16 @@
 #pragma once
+/*
+T2Engine produced by:
+(*) Ebba Taberman	  (*)
+(*) Richard Nordström (*)
+(*) Leon Andersson	  (*)
+
+Supervisor: 
+(*) Krister Cederlund (*)
+
+@ FutureGames - ChangeMaker Educations (2019)
+*/
+
 
 namespace T2
 {

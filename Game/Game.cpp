@@ -73,6 +73,7 @@ bool ShmupGame::Initialize()
 
 	std::cout << "Start State: " << stateManager->currentState->stateName << std::endl;
 
+	std::cout << "===== Engine Intialization completed =====" << std::endl;
 	return true;
 }
 
