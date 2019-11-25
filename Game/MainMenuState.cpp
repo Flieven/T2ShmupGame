@@ -24,13 +24,13 @@ MainMenuState::~MainMenuState()
 
 void MainMenuState::Enter()
 {
-	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
+	buttonManager->addButton({ 200, 200, 200, 100 }, "Play", 102);
 	buttonManager->getButton("Play")->pairFunction(std::bind(&MainMenuState::btnPlay, this));
 
-	buttonManager->addButton({ 200, 500, 200, 100 }, "Options");
+	buttonManager->addButton({ 200, 500, 200, 100 }, "Options", 102);
 	buttonManager->getButton("Options")->pairFunction(std::bind(&MainMenuState::btnOptions, this));
 
-	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit");
+	buttonManager->addButton({ windowWidth - 50, (windowHeight + 10) - windowHeight, 40, 40 }, "Quit", 86);
 	buttonManager->getButton("Quit")->pairFunction(std::bind(&MainMenuState::btnQuit, this));
 }
 
