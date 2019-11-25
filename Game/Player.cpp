@@ -1,8 +1,7 @@
 #include "Player.h"
 #include "Bullet.h"
-#include "GameConfig.h"
-#include "ConcreteFactories.h"
 
+#include "GameConfig.h"
 #include <ServiceLocator.h>
 #include <DrawManager.h>
 #include <Sprite.h>
@@ -11,9 +10,9 @@
 
 Player::Player()
 {
-	inputManager = ServiceLocator<T2::Input>::getService();
-	objPool = ServiceLocator<T2::ObjectPool>::getService();
 
+	inputManager = ServiceLocator<T2::Input>::getService();
+	objPool = ServiceLocator<T2::ObjectPool>::getService();	
 	setupPlayer();
 }
 
@@ -24,8 +23,8 @@ Player::~Player()
 void Player::setupPlayer()
 {
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
-	movementSpeed = 0.1f;
-
+	movementSpeed = 0.1;
+	//tag = playerTag;
 }
 
 void Player::updateObject()
@@ -46,31 +45,22 @@ bool Player::checkInput()
 {
 	// movement
 	keyDown = false;
-	if (inputManager->isKeyDown(SDL_SCANCODE_W) || inputManager->isKeyDown(SDL_SCANCODE_UP))
-	{
-		transform.Position.y -= movementSpeed; keyDown = true;
-	}
+	if (inputManager->isKeyDown(SDL_SCANCODE_W) ||inputManager->isKeyDown(SDL_SCANCODE_UP))
+	{ transform.Position.y -= movementSpeed; keyDown = true; }
 
 	else if (inputManager->isKeyDown(SDL_SCANCODE_S) || inputManager->isKeyDown(SDL_SCANCODE_DOWN))
-	{
-		transform.Position.y += movementSpeed; keyDown = true;
-	}
+	{ transform.Position.y += movementSpeed; keyDown = true; }
 
 	if (inputManager->isKeyDown(SDL_SCANCODE_A) || inputManager->isKeyDown(SDL_SCANCODE_LEFT))
-	{
-		transform.Position.x -= movementSpeed; keyDown = true;
-	}
+	{ transform.Position.x -= movementSpeed; keyDown = true; }
 
 	else if (inputManager->isKeyDown(SDL_SCANCODE_D) || inputManager->isKeyDown(SDL_SCANCODE_RIGHT))
-	{
-		transform.Position.x += movementSpeed; keyDown = true;
-	}
+	{ transform.Position.x += movementSpeed; keyDown = true; }
 
 	// fire bullet
-	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL))
-	{
-		objPool->getObject(bulletTag)->transform.setPosition(transform.Position);
-		keyDown = true;
+	if (inputManager->isKeyDown(SDL_SCANCODE_LCTRL) || inputManager->isKeyDown(SDL_SCANCODE_RCTRL))
+	{ 		
+		objPool->getObject(bulletTag);
 	}
 
 	return keyDown;

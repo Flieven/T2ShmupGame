@@ -13,6 +13,7 @@ TestEnemy::TestEnemy()
 	Obj_Rect = { 100, 100, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 	tag = enemyTag;
+	movementSpeed = 1;
 }
 
 TestEnemy::~TestEnemy()
