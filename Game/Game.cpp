@@ -36,7 +36,7 @@ void btnOptions()
 
 
 void btnQuit()
-{	
+{
 	// Fixa så man kör shutdown etc ...
 	SDL_Quit();
 }
@@ -55,14 +55,14 @@ bool ShmupGame::Initialize()
 
 	drawManager = new T2::DrawManager();
 	ServiceLocator<T2::DrawManager>::setService(drawManager);
-	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);	
+	drawManager->InitWindow(windowWidth, windowHeight, windowTitle);
 
 	textManager = new T2::TextManager();
 	ServiceLocator<T2::TextManager>::setService(textManager);
-	
+
 	factoryManager = new T2::FactoryManager();
 	ServiceLocator<T2::FactoryManager>::setService(factoryManager);
-	
+
 	colManager = new T2::CollisionManager();
 	ServiceLocator<T2::CollisionManager>::setService(colManager);
 
@@ -71,12 +71,12 @@ bool ShmupGame::Initialize()
 
 	buttonManager = new T2::UI_ButtonManager();
 
-	
+
 
 	// Button create
 	buttonManager->addButton({ 200, 200, 200, 100 }, "Play");
 	buttonManager->getButton("Play")->pairFunction(btnPlay);
-	
+
 	buttonManager->addButton({ 200, 500, 200, 100 }, "Options");
 	buttonManager->getButton("Options")->pairFunction(btnOptions);
 
@@ -84,24 +84,22 @@ bool ShmupGame::Initialize()
 	buttonManager->getButton("Quit")->pairFunction(btnQuit);
 
 
-	
+
 
 	bgFactory = new BackgroundFactory();
 	pFactory = new PlayerFactory();
 	eFactory = new EnemyFactory();
 	bFactory = new BulletFactory();
 
+	factoryManager->addFactory(bulletTag, bFactory);
 	factoryManager->addFactory(backgroundTag, bgFactory);
 	factoryManager->addFactory(playerTag, pFactory);
 	factoryManager->addFactory(enemyTag, eFactory);
-	factoryManager->addFactory(bulletTag, bFactory);
 
-
-
+	objPool->addNewPool(bulletTag);
 	objPool->getObject(backgroundTag);
-	objPool->getObject(playerTag);	
+	objPool->getObject(playerTag);
 	objPool->getObject(enemyTag);
-	objPool->getObject(bulletTag);
 
 	return true;
 }
@@ -135,7 +133,7 @@ void ShmupGame::Run()
 {
 	while (isRunning)
 	{
-		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
+		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE)) { isRunning = false; }
 		drawManager->Clear();
 		objPool->Update(deltaTime);
 		EventHandler();

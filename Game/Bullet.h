@@ -1,17 +1,26 @@
 #pragma once
+#include "Player.h"
 
 #include <Entity.h>
 
+
 class Bullet : public T2::Entity
 {
+private:
+	Entity* home = nullptr;
+
+	float xScale = 1;
+	float yScale = 1;
+
 public:
 	Bullet();
 	~Bullet();
 		
 	void Update(float dTime);
 	void Draw();
-	void Fire();
 	void onCollision(Collision* other);
+	void OutsideWindow();
+
 
 	virtual void setupTextures(const char* texture) override;
 

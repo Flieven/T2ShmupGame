@@ -15,6 +15,7 @@ namespace T2
 
 class PlayerFactory;
 class EnemyFactory;
+class BulletFactory;
 class Player;
 class TestEnemy;
 class Bullet;
