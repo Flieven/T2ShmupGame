@@ -23,7 +23,7 @@ void Bullet::Update(float dTime)
 	{
 		OutsideWindow();
 		Draw();
-		transform.Position.y += movementSpeed;
+		transform.Position.y -= movementSpeed;
 		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
 	}
 }
