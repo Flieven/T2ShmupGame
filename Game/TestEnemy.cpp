@@ -10,8 +10,7 @@
 
 TestEnemy::TestEnemy()
 {	
-	health = 100;
-	transform.Position = { windowWidth * 0.5f, 0 };
+	transform.Position = { 100, 100 };
 
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
 	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
@@ -39,10 +38,6 @@ void TestEnemy::Update(float dTime)
 		UpdateColliders();
 		stateMachine->updateState(dTime);
 		collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
-		if (health <= 0)
-		{
-			active = false;
-		}
 	}
 }
 
@@ -57,9 +52,7 @@ void TestEnemy::onCollision(int other)
 	switch (other)
 	{
 	case playerTag:; break;
-	case bulletTag:
-		health -= 10;		
-		break;
+	case bulletTag:; break;
 	case enemyTag:; break;
 	}
 }

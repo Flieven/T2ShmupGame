@@ -13,7 +13,7 @@ Player::Player()
 {
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();
-	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
+
 	setupPlayer();
 }
 
@@ -25,6 +25,7 @@ void Player::setupPlayer()
 {
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
 	movementSpeed = 0.1f;
+
 }
 
 void Player::updateObject()
