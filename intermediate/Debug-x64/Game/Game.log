@@ -1,2 +1,13 @@
-﻿  TestEnemy.cpp
-  Game.vcxproj -> C:\DEV\YodaShmupSDL\binaries\Debug-x64\Game\Game.exe
+﻿  Background.cpp
+  Bullet.cpp
+C:\DEV\T2 Shmup\Game\Background.cpp(18,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\DEV\T2 Shmup\Game\Bullet.cpp(37,1): error C2511: 'void Bullet::onCollision(T2::Collision *)': overloaded member function not found in 'Bullet'
+  Game.cpp
+C:\DEV\T2 Shmup\Game\Bullet.h(9): message : see declaration of 'Bullet'
+  GameState.cpp
+  MainMenuState.cpp
+  Player.cpp
+C:\DEV\T2 Shmup\Game\Game.cpp(134,25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+  TestEnemy.cpp
+  Generating Code...
+C:\DEV\T2 Shmup\Game\Player.cpp(26,21): warning C4305: '=': truncation from 'double' to 'float'
