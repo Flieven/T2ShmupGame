@@ -1,37 +1,38 @@
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.pdb
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.idb
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\soundclip.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\objectpool.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\object.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\musicclip.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\mousemanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\keyboardmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\iobject.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\inputmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\idrawable.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\factorymanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\errorlogger.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\entity.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\engineentry.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\drawmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\collisionmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\collision.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\collider.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\audiomanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\afactory.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\abstractstate.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\ui_buttonmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\ui_button.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\timer.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\textmanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\statemanager.obj
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\sprite.obj
-c:\users\ebba.taberman\desktop\shmup\binaries\debug-x64\t2engine\t2engine.lib
-c:\users\ebba.taberman\desktop\shmup\binaries\debug-x64\t2engine\t2engine.pdb
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.command.1.tlog
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.read.1.tlog
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.write.1.tlog
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib-link.read.1.tlog
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib-link.write.1.tlog
-c:\users\ebba.taberman\desktop\shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib.command.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.pdb
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.idb
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\soundclip.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\objectpool.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\object.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\musicclip.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\mousemanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\keyboardmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\iobject.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\inputmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\idrawable.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\factorymanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\errorlogger.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\entity.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\engineentry.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\drawmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\collisionmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\collision.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\collider.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\audiomanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\afactory.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\abstractstate.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\ui_buttonmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\ui_button.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\timer.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\textmanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\statemanager.obj
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\sprite.obj
+c:\dev\t2 shmup\binaries\debug-x64\t2engine\t2engine.lib
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\objectpool.obj.enc
+c:\dev\t2 shmup\binaries\debug-x64\t2engine\t2engine.pdb
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.command.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.read.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\cl.write.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib-link.read.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib-link.write.1.tlog
+c:\dev\t2 shmup\intermediate\debug-x64\t2engine\t2engine.tlog\lib.command.1.tlog

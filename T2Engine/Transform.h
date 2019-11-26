@@ -8,13 +8,13 @@ namespace T2
 	{
 	protected:
 
+
+	public:
 		struct Vector2D
 		{
 			float x = 0.0f;
 			float y = 0.0f;
 		};		
-
-	public:
 
 		Vector2D Position;
 		Vector2D Scale;

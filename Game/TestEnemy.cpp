@@ -9,6 +9,7 @@
 
 TestEnemy::TestEnemy()
 {	
+	health = 100;
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
 	Obj_Rect = { 100, 100, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
@@ -25,6 +26,10 @@ void TestEnemy::Update(float dTime)
 	{
 		Draw();
 		UpdateColliders();
+		if (health <= 0)
+		{
+			active = false;
+		}
 	}
 }
 
@@ -36,7 +41,13 @@ void TestEnemy::Draw()
 
 void TestEnemy::onCollision(int other)
 {
-
+	switch (other)
+	{
+	case bulletTag:
+		health -= 10;
+		std::cout << health << std::endl;
+		break;
+	}
 }
 
 void TestEnemy::setupTextures(const char* texture)
