@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <iostream>
 
 namespace T2
 {
@@ -29,18 +30,26 @@ namespace T2
 		Vector2D right = { 1.0f, 0.0f };
 		//=====================
 
-		float Distance(Vector2D other)
+		float Distance(const Vector2D& other)
 		{
-			float Pow1 = std::pow(Position.x, other.x);
-			float Pow2 = std::pow(Position.y, other.y);
-			float res = std::sqrt(Pow1 + Pow2);
-			return res;
+			return std::sqrt(((Position.x - other.x) * (Position.x - other.x)) + ((Position.y - other.y) * (Position.y - other.y)));
 		}
 
-		void setPosition(Vector2D position)
+		void setPosition(const Vector2D& position)
 		{
 			this->Position.x = position.x;
 			this->Position.y = position.y;
 		}
+
+		Vector2D lerp(const Vector2D& origin, const Vector2D& target, float time)
+		{
+			float X = (origin.x + time * (target.x - origin.x));
+			float Y = (origin.y + time * (target.y - origin.y));
+
+			Vector2D XY{ X, Y };
+
+			return XY;
+		}
+
 	};
 }
