@@ -49,8 +49,7 @@ T2::Object* T2::ObjectPool::getObject(const int& tag)
 		}
 	}
 
-	if (returnVal == nullptr
-)
+	if (returnVal == nullptr)
 	{
 		it->second.push_back(factoryManager->useFactory(tag));
 		returnVal = it->second[it->second.size()-1];
@@ -87,10 +86,13 @@ T2::Object* T2::ObjectPool::getRandomObject(const int& tag)
 				break;
 			}
 		}
-		else if (i == it->second.size())
-		{
-			it->second.push_back(factoryManager->useFactory(tag));
-		}
+	}
+
+	if (returnVal == nullptr)
+	{
+		it->second.push_back(factoryManager->useFactory(tag));
+		returnVal = it->second[it->second.size() - 1];
+		returnVal->active = true;
 	}
 
 	return returnVal;
@@ -102,7 +104,11 @@ T2::Object* T2::ObjectPool::getSpecificObject(const int& tag, int index)
 	if (it == pool.end()) { std::cout << "No pool for the tag: " << tag << " found!" << std::endl; }
 	else
 	{
-		return it->second[index];
+		if(it->second[index])
+		{
+			return it->second[index];
+		}
+		else { std::cout << "No index: " << index << " found in pool " << tag << std::endl; }
 	}
 }
 
