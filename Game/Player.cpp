@@ -58,9 +58,9 @@ bool Player::checkInput()
 	{ transform.Position.x += movementSpeed; keyDown = true; }
 
 	// fire bullet
-	if (inputManager->isKeyDown(SDL_SCANCODE_LCTRL) || inputManager->isKeyDown(SDL_SCANCODE_RCTRL))
-	{ 		
-		objPool->getObject(bulletTag);
+	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDown(SDL_SCANCODE_RCTRL))
+	{
+		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position);
 	}
 
 	return keyDown;

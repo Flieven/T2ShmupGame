@@ -7,7 +7,10 @@
 
 Bullet::Bullet()
 {
+	transform.Scale.x = 1;
+	transform.Scale.y = 1;
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
+	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	movementSpeed = 0.2f;	
 }
 
@@ -20,22 +23,35 @@ void Bullet::Update(float dTime)
 {	
 	if (active)
 	{
+		UpdateColliders();
 		Draw();
-		fRect.y += movementSpeed;
-		float xScale = 1;
-		float yScale = 1;
-		fRect = { fRect.x, fRect.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
+
+		transform.Position.y -= movementSpeed;		
+		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
+		collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	}
 }
 
 void Bullet::Draw()
 {
 	drawManager->Render(sprite, fRect);
+	drawManager->DebugRender(collider->rectangle);
 }
 
-void Bullet::onCollision(Collision* other)
+void Bullet::onCollision(int other)
 {
+	switch (other)
+	{
+	case enemyTag: std::cout << "bullet hit Enemy" << std::endl;
+	}
+}
 
+void Bullet::ResetBullet(T2::Transform::Vector2D vector2d)
+{
+	transform.Position = vector2d;
+	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
+	UpdateColliders();
+	active = true;
 }
 
 void Bullet::setupTextures(const char* texture)

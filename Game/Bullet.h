@@ -20,7 +20,6 @@ public:
 	void Draw();
 	void onCollision(int other);
 	void OutsideWindow();
-	// reset bullet, transform.position active = true;
 	void ResetBullet(T2::Transform::Vector2D vector2d);
 
 
