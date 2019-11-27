@@ -1,7 +1,0 @@
-﻿  Clouds.cpp
-C:\DEV\T2_SDL_Shmup\Game\Clouds.cpp(24,99): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\DEV\T2_SDL_Shmup\Game\Clouds.cpp(24,66): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\DEV\T2_SDL_Shmup\Game\Clouds.cpp(32,21): warning C4305: '=': truncation from 'double' to 'float'
-C:\DEV\T2_SDL_Shmup\Game\Clouds.cpp(35,100): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-C:\DEV\T2_SDL_Shmup\Game\Clouds.cpp(35,67): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-  Game.vcxproj -> C:\DEV\T2_SDL_Shmup\binaries\Debug-x64\Game\Game.exe

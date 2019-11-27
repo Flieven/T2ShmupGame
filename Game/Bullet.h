@@ -20,7 +20,7 @@ public:
 	void Draw();
 	void onCollision(int other);
 	void OutsideWindow();
-	void ResetBullet(T2::Transform::Vector2D vector2d);
+	void ResetBullet(T2::Transform::Vector2D vector2d, T2::Transform::Vector2D movDir, int givenTag);
 
 
 	virtual void setupTextures(const char* texture) override;

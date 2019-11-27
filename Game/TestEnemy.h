@@ -18,7 +18,7 @@ public:
 	void Draw();
 	void onCollision(int other);
 
-	ABPattern* gunPattern = nullptr;
+	ABPattern* gunPattern = nullptr; 
 
 	// Inherited via Entity
 	virtual void setupTextures(const char* texture) override;
