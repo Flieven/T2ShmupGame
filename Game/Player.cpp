@@ -24,13 +24,14 @@ void Player::setupPlayer()
 {
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
 	movementSpeed = 0.1;
-	//tag = playerTag;
 }
 
 void Player::updateObject()
 {
 	Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w, sprite->getSource(0).h };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
+	
+	
 }
 
 void Player::Update(float dTime)

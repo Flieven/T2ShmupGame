@@ -52,6 +52,7 @@ static int enemyHeight = 23;
 //static std::string enemyTag = "Enemy";
 static const int enemyTag = 4;
 static const char* enemySprite = "../Assets/Sprites/CampFire.png";
+static const char* hpSprite = "../Assets/Sprites/hpSprite.png";
 // ===========================
 
 

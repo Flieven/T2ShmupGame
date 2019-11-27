@@ -38,8 +38,8 @@ void TestEnemy::Update(float dTime)
 {
 	if(active)
 	{
-		Draw();
 		UpdateColliders();
+		Draw();
 		stateMachine->updateState(dTime);
 		collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 	}
@@ -55,14 +55,20 @@ void TestEnemy::onCollision(int other)
 {
 	switch (other)
 	{
-	case playerTag:; break;
-	case bulletTag:; break;
-	case enemyTag:; break;
+	case playerTag:
+		std::cout << "bullet hit enemy" << std::endl;
+		break;
+	case bulletTag:
+		std::cout << "bullet hit enemy" << std::endl;
+		break;
+	case enemyTag:
+		
+		break;
 	}
 }
 
 void TestEnemy::setupTextures(const char* texture)
-{
+{	
 }
 
 void TestEnemy::setupObject(SDL_Rect rect)
