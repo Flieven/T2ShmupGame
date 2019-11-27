@@ -1,6 +1,8 @@
 #include "TestEnemy.h"
 
 #include "GameConfig.h"
+#include "ABulletPattern.h"
+
 #include <ServiceLocator.h>
 #include <DrawManager.h>
 #include <StateManager.h>
@@ -10,6 +12,8 @@
 
 TestEnemy::TestEnemy()
 {	
+	gunPattern = new ABPattern(3, false, 1.0f);
+
 	transform.Position = { 100, 100 };
 
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);

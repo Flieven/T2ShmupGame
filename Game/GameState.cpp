@@ -4,6 +4,8 @@
 #include "ServiceLocator.h"
 #include "ObjectPool.h"
 
+#include "Object.h"
+
 GameState::GameState()
 {
 }
@@ -21,9 +23,9 @@ GameState::~GameState()
 void GameState::Enter()
 {
 	//INITIALIZE THINGS HERE
-	objPool->getObject(backgroundTag);
-	objPool->getObject(playerTag);
-	objPool->getObject(enemyTag);
+	objPool->getObject(backgroundTag)->active = true;
+	objPool->getObject(playerTag)->active = true;
+	objPool->getObject(enemyTag)->active = true;
 	objPool->getObject(bulletTag);
 }
 

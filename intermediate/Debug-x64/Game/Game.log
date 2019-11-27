@@ -1,2 +1,3 @@
-﻿  TestEnemy.cpp
+﻿  ABulletPattern.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\ABulletPattern.cpp(43,16): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
   Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe

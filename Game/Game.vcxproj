@@ -98,6 +98,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ABulletPattern.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Game.cpp" />
@@ -107,6 +108,7 @@
     <ClCompile Include="TestEnemy.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ABulletPattern.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="ConcreteFactories.h" />

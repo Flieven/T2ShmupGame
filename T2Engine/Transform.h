@@ -6,16 +6,14 @@
 namespace T2
 {
 	class Transform
-	{
-	protected:
+	{	
+	public:
 
 		struct Vector2D
 		{
 			float x = 0.0f;
 			float y = 0.0f;
-		};		
-
-	public:
+		};
 
 		Vector2D Position;
 		Vector2D Scale;
