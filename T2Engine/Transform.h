@@ -18,6 +18,8 @@ namespace T2
 		Vector2D Position;
 		Vector2D Scale;
 
+		Vector2D movementDirection;
+
 		//===== BASE SETS =====
 		Vector2D zero = { 0.0f, 0.0f };
 		Vector2D one = { 1.0f, 1.0f };

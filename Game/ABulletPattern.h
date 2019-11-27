@@ -25,5 +25,6 @@ public:
 
 	void setupGun();
 	void spawnBullets();
+	void rotateGun(int barrel);
 
 };

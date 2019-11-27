@@ -1,9 +1,12 @@
 #include "ABulletPattern.h"
 #include "ServiceLocator.h"
+#include "GameConfig.h"
+#include "Bullet.h"
 
 #define _USE_MATH_DEFINES
 #include <math.h>
 
+#include <ObjectPool.h>
 #include <iostream>
 
 ABPattern::ABPattern()
@@ -50,4 +53,18 @@ void ABPattern::setupGun()
 
 void ABPattern::spawnBullets()
 {
+	for (int i = 0; i < barrels.size(); i++)
+	{
+		if (spinning) { rotateGun(i); }
+		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->transform.movementDirection = { barrels[i].x, barrels[i].y };
+	}
+}
+
+void ABPattern::rotateGun(int barrel)
+{
+	float sinCalc = sin(10);
+	float cosCalc = cos(10);
+
+	barrels[barrel].x = ((barrels[barrel].x * cosCalc) - (barrels[barrel].y * sinCalc));
+	barrels[barrel].y = ((barrels[barrel].y * cosCalc) - (barrels[barrel].x * sinCalc));
 }
