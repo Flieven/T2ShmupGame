@@ -10,7 +10,7 @@
 
 Player::Player()
 {
-
+	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
 	setupPlayer();
@@ -58,9 +58,10 @@ bool Player::checkInput()
 	{ transform.Position.x += movementSpeed; keyDown = true; }
 
 	// fire bullet
-	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDown(SDL_SCANCODE_RCTRL))
+	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDownOnce(SDL_SCANCODE_RCTRL))
 	{
 		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position);
+		keyDown = true;
 	}
 
 	return keyDown;

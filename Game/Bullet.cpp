@@ -42,7 +42,9 @@ void Bullet::onCollision(int other)
 {
 	switch (other)
 	{
-	case enemyTag: std::cout << "bullet hit Enemy" << std::endl;
+	case enemyTag:
+		active = false;
+		break;
 	}
 }
 
