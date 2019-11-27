@@ -26,7 +26,7 @@ void Bullet::Update(float dTime)
 		UpdateColliders();
 		Draw();
 
-		transform.Position.y -= movementSpeed;		
+		transform.Position = { (transform.Position.x + (transform.movementDirection.x * movementSpeed)), (transform.Position.y - (transform.movementDirection.y * movementSpeed)) };
 		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
 		collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	}
@@ -48,9 +48,12 @@ void Bullet::onCollision(int other)
 	}
 }
 
-void Bullet::ResetBullet(T2::Transform::Vector2D vector2d)
+void Bullet::ResetBullet(T2::Transform::Vector2D vector2d,T2::Transform::Vector2D movDir, int givenTag)
 {
+	tag = givenTag;
+	transform.movementDirection = movDir;
 	transform.Position = vector2d;
+	fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
 	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	UpdateColliders();
 	active = true;

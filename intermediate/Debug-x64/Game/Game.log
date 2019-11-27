@@ -1,5 +1,2 @@
-﻿  Bullet.cpp
-  Player.cpp
-  Generating Code...
-C:\DEV\T2Shmup\Game\Player.cpp(26,21): warning C4305: '=': truncation from 'double' to 'float'
-  Game.vcxproj -> C:\DEV\T2Shmup\binaries\Debug-x64\Game\Game.exe
+﻿  TestEnemy.cpp
+  Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe

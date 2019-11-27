@@ -60,7 +60,9 @@ bool Player::checkInput()
 	// fire bullet
 	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDownOnce(SDL_SCANCODE_RCTRL))
 	{
-		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position);
+		std::cout << transform.Position.x << std::endl;
+		std::cout << transform.Position.y << std::endl;
+		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position, transform.up, bulletTag);
 		keyDown = true;
 	}
 

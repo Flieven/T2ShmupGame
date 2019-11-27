@@ -21,13 +21,13 @@ namespace T2
 		Vector2D movementDirection;
 
 		//===== BASE SETS =====
-		Vector2D zero = { 0.0f, 0.0f };
-		Vector2D one = { 1.0f, 1.0f };
+		const Vector2D zero = { 0.0f, 0.0f };
+		const Vector2D one = { 1.0f, 1.0f };
 
-		Vector2D up = { 0.0f, 1.0f };
-		Vector2D down = { 0.0f, -1.0f };
-		Vector2D left = { -1.0f, 0.0f };
-		Vector2D right = { 1.0f, 0.0f };
+		const Vector2D up = { 0.0f, 1.0f };
+		const Vector2D down = { 0.0f, -1.0f };
+		const Vector2D left = { -1.0f, 0.0f };
+		const Vector2D right = { 1.0f, 0.0f };
 		//=====================
 
 		float Distance(const Vector2D& other)

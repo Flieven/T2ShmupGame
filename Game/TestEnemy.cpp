@@ -56,7 +56,7 @@ void TestEnemy::onCollision(int other)
 	switch (other)
 	{
 	case playerTag:; break;
-	case bulletTag:; break;
+	case bulletTag: std::cout << "Enemy Hit! \n"; break;
 	case enemyTag:; break;
 	}
 }
