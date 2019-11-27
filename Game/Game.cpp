@@ -25,6 +25,8 @@
 #include "GameState.h"
 #include "MainMenuState.h"
 
+#include <SDL_mixer.h>
+
 bool ShmupGame::Initialize()
 {
 	std::cout << "===== Initalizing Engine =====" << std::endl;
@@ -110,6 +112,8 @@ void ShmupGame::Run()
 		inputManager->Update();
 		EventHandler();
 		drawManager->Present();
+		
+		
 	}
 }
 

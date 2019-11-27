@@ -1,15 +1,17 @@
 #include "Bullet.h"
+#include <InputManager.h>
 #include "GameConfig.h"
-
 #include <ServiceLocator.h>
 #include <DrawManager.h>
 #include <Sprite.h>
-#include <InputManager.h>
 
 Bullet::Bullet()
 {
+	transform.Scale.x = 1;
+	transform.Scale.y = 1;
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
-	movementSpeed = 0.1f;
+	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
+	movementSpeed = 0.2f;	
 }
 
 Bullet::~Bullet()
@@ -18,41 +20,46 @@ Bullet::~Bullet()
 }
 
 void Bullet::Update(float dTime)
-{
+{	
 	if (active)
 	{
-		OutsideWindow();
+		UpdateColliders();
 		Draw();
-		transform.Position.y += movementSpeed;
-		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * xScale, sprite->getSource(0).h * yScale };
+
+		transform.Position.y -= movementSpeed;		
+		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
+		collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	}
 }
 
 void Bullet::Draw()
 {
 	drawManager->Render(sprite, fRect);
+	drawManager->DebugRender(collider->rectangle);
 }
 
-
-void Bullet::onCollision(Collision* other)
+void Bullet::onCollision(int other)
 {
-
-}
-
-void Bullet::OutsideWindow()
-{
-	if (fRect.y > windowHeight || fRect.y < 0 || fRect.x > windowWidth || fRect.x < 0)
+	switch (other)
 	{
-		active = false;
+	case enemyTag: std::cout << "bullet hit Enemy" << std::endl;
 	}
+}
+
+void Bullet::ResetBullet(T2::Transform::Vector2D vector2d)
+{
+	transform.Position = vector2d;
+	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
+	UpdateColliders();
+	active = true;
 }
 
 void Bullet::setupTextures(const char* texture)
 {
-
+	
 }
 
 void Bullet::setupObject(SDL_Rect rect)
 {
-
+	
 }
