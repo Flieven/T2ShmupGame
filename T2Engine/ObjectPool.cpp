@@ -51,6 +51,7 @@ T2::Object* T2::ObjectPool::getObject(const int& tag)
 	if (returnVal == nullptr)
 	{
 		it->second.push_back(factoryManager->useFactory(tag));
+		std::cout << "Pool size: " << it->second.size() << std::endl;
 		returnVal = it->second[it->second.size()-1];
 	}
 

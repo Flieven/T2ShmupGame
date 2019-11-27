@@ -5,6 +5,7 @@
 #include <StateManager.h>
 
 #include "GameConfig.h"
+#include "ABulletPattern.h"
 
 class ABPattern;
 
@@ -47,12 +48,12 @@ public:
 
 	virtual void Run(float deltaTime) override
 	{
-		if (entity->transform.Distance( { (float)newXPos, (float)newYPos }) > 231)
-		{
-			entity->transform.Position = entity->transform.lerp(entity->transform.Position, { (float)newXPos, (float)newYPos }, deltaTime);
-			entity->Obj_Rect = { (int)entity->transform.Position.x, (int)entity->transform.Position.y, enemyWidth, enemyHeight };
-		}
-		else
+		//if (entity->transform.Distance( { (float)newXPos, (float)newYPos }) > 231)
+		//{
+		//	entity->transform.Position = entity->transform.lerp(entity->transform.Position, { (float)newXPos, (float)newYPos }, deltaTime);
+		//	entity->Obj_Rect = { (int)entity->transform.Position.x, (int)entity->transform.Position.y, enemyWidth, enemyHeight };
+		//}
+		//else
 		{
 			entity->stateMachine->changeState("Attack");
 		}
@@ -72,7 +73,10 @@ public:
 
 	T2::Entity* entity = nullptr;
 
-	virtual void Enter() override { }
-	virtual void Run(float deltaTime) override { entity->stateMachine->changeState("Patrol"); }
+	virtual void Enter() override 
+	{ 
+		dynamic_cast<TestEnemy*>(entity)->gunPattern->spawnBullets(entity->transform.Position); 
+	}
+	virtual void Run(float deltaTime) override {entity->stateMachine->changeState("Patrol"); }
 	virtual void Exit() override { }
 };

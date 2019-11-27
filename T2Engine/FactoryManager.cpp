@@ -27,7 +27,7 @@ void T2::FactoryManager::addFactory(const int tag, AFactory* factory)
 
 T2::Object* T2::FactoryManager::useFactory(const int tag)
 {
-	std::cout << "creating new Object with tag: " << tag << std::endl;
+	//std::cout << "creating new Object with tag: " << tag << std::endl;
 	auto it = factoryList.find(tag);
 	if (it == factoryList.end()) { std::cout << "WARNING: There is no factory that uses the tag: " << tag << std::endl; return nullptr; }
 	else

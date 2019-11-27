@@ -12,7 +12,7 @@
 
 TestEnemy::TestEnemy()
 {	
-	gunPattern = new ABPattern(3, false, 1.0f);
+	gunPattern = new ABPattern(5, true, 1.0f, this);
 
 	transform.Position = { 100, 100 };
 
@@ -41,6 +41,7 @@ void TestEnemy::Update(float dTime)
 		Draw();
 		UpdateColliders();
 		stateMachine->updateState(dTime);
+
 		collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 	}
 }
@@ -56,7 +57,7 @@ void TestEnemy::onCollision(int other)
 	switch (other)
 	{
 	case playerTag:; break;
-	case bulletTag: std::cout << "Enemy Hit! \n"; break;
+	case bulletTag:; break;
 	case enemyTag:; break;
 	}
 }
