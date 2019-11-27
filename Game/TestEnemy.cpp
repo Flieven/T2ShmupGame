@@ -1,19 +1,33 @@
 #include "TestEnemy.h"
 
 #include "GameConfig.h"
+#include "ABulletPattern.h"
+
 #include <ServiceLocator.h>
 #include <DrawManager.h>
+#include <StateManager.h>
 #include <Sprite.h>
 #include <InputManager.h>
 #include <iostream>
 
 TestEnemy::TestEnemy()
 {	
+	gunPattern = new ABPattern(3, false, 1.0f);
+
+	transform.Position = { 100, 100 };
+
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
-	Obj_Rect = { 100, 100, enemyWidth, enemyHeight };
+	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 	tag = enemyTag;
-	movementSpeed = 1;
+	stateMachine = new T2::FSM();
+
+	std::cout << transform.Position.x << std::endl;
+	std::cout << transform.Position.y << std::endl;
+
+	stateMachine->addState("Patrol", new PatrolState(this));
+	stateMachine->addState("Attack", new AttackState(this));
+	stateMachine->changeState("Patrol");
 }
 
 TestEnemy::~TestEnemy()
@@ -26,6 +40,8 @@ void TestEnemy::Update(float dTime)
 	{
 		Draw();
 		UpdateColliders();
+		stateMachine->updateState(dTime);
+		collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 	}
 }
 
@@ -37,7 +53,12 @@ void TestEnemy::Draw()
 
 void TestEnemy::onCollision(int other)
 {
-
+	switch (other)
+	{
+	case playerTag:; break;
+	case bulletTag:; break;
+	case enemyTag:; break;
+	}
 }
 
 void TestEnemy::setupTextures(const char* texture)

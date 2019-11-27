@@ -6,6 +6,8 @@
 
 #include "GameConfig.h"
 
+class ABPattern;
+
 class TestEnemy : public T2::Entity
 {
 public:
@@ -15,6 +17,8 @@ public:
 	void Update(float dTime);
 	void Draw();
 	void onCollision(int other);
+
+	ABPattern* gunPattern = nullptr;
 
 	// Inherited via Entity
 	virtual void setupTextures(const char* texture) override;
@@ -37,12 +41,8 @@ public:
 
 	virtual void Enter() override
 	{
-		std::cout << "Entered Patrol State \n";
 		newXPos = (std::rand() % windowWidth);
 		newYPos = (std::rand() % windowHeight);
-
-		std::cout << newXPos << std::endl;
-		std::cout << newYPos << std::endl;
 	}
 
 	virtual void Run(float deltaTime) override
@@ -72,7 +72,7 @@ public:
 
 	T2::Entity* entity = nullptr;
 
-	virtual void Enter() override { std::cout << "I'm shooting now! \n"; }
+	virtual void Enter() override { }
 	virtual void Run(float deltaTime) override { entity->stateMachine->changeState("Patrol"); }
 	virtual void Exit() override { }
 };

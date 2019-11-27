@@ -75,12 +75,6 @@ T2::Object* T2::ObjectPool::getRandomObject(const int& tag)
 			int randomNum = rand() % 4;
 			if (randomNum % 2 == 0)
 			{
-				returnVal->active = true;
-				break;
-			}
-			else if (i == it->second.size())
-			{
-				returnVal->active = true;
 				break;
 			}
 		}

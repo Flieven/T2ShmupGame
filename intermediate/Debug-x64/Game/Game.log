@@ -1,7 +1,3 @@
-﻿  Bullet.cpp
-C:\DEV\T2 Shmup\Game\Bullet.cpp(37,1): error C2511: 'void Bullet::onCollision(T2::Collision *)': overloaded member function not found in 'Bullet'
-  Game.cpp
-C:\DEV\T2 Shmup\Game\Bullet.h(9): message : see declaration of 'Bullet'
-  TestEnemy.cpp
-  Generating Code...
-C:\DEV\T2 Shmup\Game\Game.cpp(134,25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
+﻿  ABulletPattern.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\ABulletPattern.cpp(43,16): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+  Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe
