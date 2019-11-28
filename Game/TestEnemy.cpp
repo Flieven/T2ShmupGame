@@ -25,8 +25,8 @@ TestEnemy::TestEnemy()
 	tag = enemyTag;
 	stateMachine = new T2::FSM();
 
-	std::cout << transform.Position.x << std::endl;
-	std::cout << transform.Position.y << std::endl;
+	//std::cout << transform.Position.x << std::endl;
+	//std::cout << transform.Position.y << std::endl;
 
 	stateMachine->addState("Patrol", new PatrolState(this));
 	stateMachine->addState("Attack", new AttackState(this));
@@ -92,5 +92,6 @@ void TestEnemy::setupObject(float x, float y)
 void TestEnemy::setupGun(int numGuns, int rot, float delay, bool MoveAndShoot)
 {
 	shootMove = MoveAndShoot;
-	gunPattern = new ABPattern(numGuns, rot, delay, this);
+	if(gunPattern == nullptr) { gunPattern = new ABPattern(numGuns, rot, delay, this); }
+	else { gunPattern->updateGun(numGuns, rot, delay); }
 }
