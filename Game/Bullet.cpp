@@ -10,8 +10,7 @@ Bullet::Bullet()
 	transform.Scale.x = 1;
 	transform.Scale.y = 1;
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
-	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
-	movementSpeed = 500.0f;	
+	movementSpeed = 400.0f;	
 }
 
 Bullet::~Bullet()
@@ -30,7 +29,7 @@ void Bullet::Update(float dTime)
 		transform.Position.x += (movementSpeed * transform.normalize(transform.movementDirection).x * dTime);
 		transform.Position.y += (movementSpeed * transform.normalize(transform.movementDirection).y * dTime);
 		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
-		collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
+		collider->rectangle = { (int)fRect.x, (int)fRect.y, bulletWidth, bulletHeight };
 	}
 }
 
@@ -46,7 +45,7 @@ void Bullet::onCollision(int other)
 	{
 		switch (other)
 		{
-		case playerTag:
+		case playerTag:			
 			active = false;
 			break;
 		}

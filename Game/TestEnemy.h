@@ -88,7 +88,7 @@ public:
 
 	virtual void Enter() override 
 	{ 
-		std::cout << "Firing \n";
+		
 	}
 	virtual void Run(float deltaTime) override 
 	{
