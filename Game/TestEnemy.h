@@ -22,8 +22,8 @@ public:
 	ABPattern* gunPattern = nullptr; 
 	bool shootMove = false;
 
-	void setupObject(float x, float y);
-	void setupGun(int numGuns, int rot, float delay, bool MoveAndShoot);
+	void setupObject(float x, float y, bool MoveAndShoot);
+	void setupGun(int numGuns, int rot, float delay);
 };
 
 
@@ -88,6 +88,7 @@ public:
 
 	virtual void Enter() override 
 	{ 
+		
 	}
 	virtual void Run(float deltaTime) override 
 	{

@@ -37,7 +37,8 @@ static int bulletHeight = 15;
 static const int bulletTag = 2;
 static const int playerBulletTag = 3;
 static const int enemyBulletTag = 4;
-static const char* bulletSprite = "../Assets/Sprites/YodaSmall.png";
+static const char* playerBulletSprite = "../Assets/Sprites/YodaSmall.png";
+static const char* enemyBulletSprite = "../Assets/Sprites/ShewbaccaSmall.png";
 // ===========================
 
 // ===== PLAYER SETTINGS =====

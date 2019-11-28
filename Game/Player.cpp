@@ -14,8 +14,8 @@ Player::Player()
 	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
-	setupPlayer();
 	tag = playerTag;
+	setupPlayer();
 }
 
 Player::~Player()
@@ -26,7 +26,7 @@ void Player::setupPlayer()
 {
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
 	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);
-	movementSpeed = 0.1;
+	movementSpeed = 0.15;
 }
 
 void Player::updateObject()
@@ -96,7 +96,7 @@ void Player::onCollision(int other)
 		health -= 0.01;
 		break;
 	case enemyBulletTag:
-		health -= 10.0;
+		health -= 10;
 		break;
 	}
 }
