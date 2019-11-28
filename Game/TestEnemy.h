@@ -22,8 +22,8 @@ public:
 	ABPattern* gunPattern = nullptr; 
 	bool shootMove = false;
 
-	void setupObject(float x, float y, bool MoveAndShoot);
-	void setupGun(int numGuns, int rot, float delay);
+	void setupObject(float x, float y);
+	void setupGun(int numGuns, int rot, float delay, bool MoveAndShoot);
 };
 
 
@@ -88,7 +88,6 @@ public:
 
 	virtual void Enter() override 
 	{ 
-		std::cout << "Firing \n";
 	}
 	virtual void Run(float deltaTime) override 
 	{

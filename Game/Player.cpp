@@ -15,6 +15,7 @@ Player::Player()
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
 	setupPlayer();
+	tag = playerTag;
 }
 
 Player::~Player()
@@ -95,7 +96,7 @@ void Player::onCollision(int other)
 		health -= 0.01;
 		break;
 	case enemyBulletTag:
-		health -= 0.01;
+		health -= 10.0;
 		break;
 	}
 }

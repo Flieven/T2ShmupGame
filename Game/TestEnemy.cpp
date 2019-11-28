@@ -82,15 +82,15 @@ void TestEnemy::onCollision(int other)
 	}
 }
 
-void TestEnemy::setupObject(float x, float y, bool MoveAndShoot)
+void TestEnemy::setupObject(float x, float y)
 {
 	transform.Position = { x, y };
 	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
-	shootMove = MoveAndShoot;
 }
 
-void TestEnemy::setupGun(int numGuns, int rot, float delay)
+void TestEnemy::setupGun(int numGuns, int rot, float delay, bool MoveAndShoot)
 {
+	shootMove = MoveAndShoot;
 	gunPattern = new ABPattern(numGuns, rot, delay, this);
 }
