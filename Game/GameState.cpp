@@ -5,6 +5,7 @@
 #include "ObjectPool.h"
 
 #include "Object.h"
+#include "TestEnemy.h"
 
 GameState::GameState()
 {
@@ -26,6 +27,12 @@ void GameState::Enter()
 	objPool->getObject(backgroundTag)->active = true;
 	objPool->getObject(playerTag)->active = true;
 	objPool->getObject(enemyTag)->active = true;
+	dynamic_cast<TestEnemy*>(objPool->getSpecificObject(enemyTag, 0))->setupGun(5, 0, 0.0f);
+
+	objPool->getObject(enemyTag)->active = true;
+	dynamic_cast<TestEnemy*>(objPool->getSpecificObject(enemyTag, 1))->setupObject(300, 100, true);
+	dynamic_cast<TestEnemy*>(objPool->getSpecificObject(enemyTag, 1))->setupGun(2, 10, 0.05f);
+
 	objPool->getObject(bulletTag);
 }
 

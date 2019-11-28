@@ -30,6 +30,18 @@ namespace T2
 		const Vector2D right = { 1.0f, 0.0f };
 		//=====================
 
+		float magnitude(const Vector2D& vec)
+		{
+			return sqrt((vec.x * vec.x) + (vec.y * vec.y));
+		}
+
+		Vector2D normalize(const Vector2D& vec)
+		{
+			float X = vec.x / magnitude(vec);
+			float Y = vec.y / magnitude(vec);
+			return { X,Y };
+		}
+
 		float Distance(const Vector2D& other)
 		{
 			return std::sqrt(((Position.x - other.x) * (Position.x - other.x)) + ((Position.y - other.y) * (Position.y - other.y)));

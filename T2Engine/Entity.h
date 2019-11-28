@@ -17,9 +17,5 @@ namespace T2
 		Entity();
 		virtual ~Entity();
 		void UpdateColliders();
-
-		// Inherited via Object
-		virtual void setupTextures(const char* texture) = 0;
-		virtual void setupObject(SDL_Rect rect) = 0;
 	};
 }

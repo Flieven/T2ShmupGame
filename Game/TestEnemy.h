@@ -5,6 +5,7 @@
 #include <StateManager.h>
 
 #include "GameConfig.h"
+#include "ABulletPattern.h"
 
 class ABPattern;
 
@@ -19,10 +20,10 @@ public:
 	void onCollision(int other);
 
 	ABPattern* gunPattern = nullptr; 
+	bool shootMove = false;
 
-	// Inherited via Entity
-	virtual void setupTextures(const char* texture) override;
-	virtual void setupObject(SDL_Rect rect) override;
+	void setupObject(float x, float y, bool MoveAndShoot);
+	void setupGun(int numGuns, int rot, float delay);
 };
 
 
@@ -31,13 +32,13 @@ class PatrolState : public T2::AbstractState, public T2::FSM
 {
 public:
 
-	PatrolState(T2::Entity* ent) : newXPos(0), newYPos(0) { entity = ent; };
+	PatrolState(TestEnemy* ent) : newXPos(0), newYPos(0) { entity = ent; };
 	~PatrolState() {};
 
 	int newXPos;
 	int newYPos;
 
-	T2::Entity* entity = nullptr;
+	TestEnemy* entity = nullptr;
 
 	virtual void Enter() override
 	{
@@ -51,10 +52,23 @@ public:
 		{
 			entity->transform.Position = entity->transform.lerp(entity->transform.Position, { (float)newXPos, (float)newYPos }, deltaTime);
 			entity->Obj_Rect = { (int)entity->transform.Position.x, (int)entity->transform.Position.y, enemyWidth, enemyHeight };
+			
+			if (entity->shootMove)
+			{
+				entity->gunPattern->spawnBullets(deltaTime, entity->transform.Position);
+			}
 		}
 		else
 		{
-			entity->stateMachine->changeState("Attack");
+			if (!entity->shootMove)
+			{
+				entity->stateMachine->changeState("Attack");
+			}
+			else
+			{
+				newXPos = (std::rand() % windowWidth);
+				newYPos = (std::rand() % windowHeight);
+			}
 		}
 	}
 
@@ -67,12 +81,19 @@ public:
 class AttackState : public T2::AbstractState, public T2::FSM
 {
 public:
-	AttackState(T2::Entity* ent) { entity = ent; };
+	AttackState(TestEnemy* ent) { entity = ent; };
 	~AttackState() {};
 
-	T2::Entity* entity = nullptr;
+	TestEnemy* entity = nullptr;
 
-	virtual void Enter() override { }
-	virtual void Run(float deltaTime) override { entity->stateMachine->changeState("Patrol"); }
+	virtual void Enter() override 
+	{ 
+		std::cout << "Firing \n";
+	}
+	virtual void Run(float deltaTime) override 
+	{
+		entity->gunPattern->spawnBullets(deltaTime, entity->transform.Position);
+		entity->stateMachine->changeState("Patrol"); 
+	}
 	virtual void Exit() override { }
 };

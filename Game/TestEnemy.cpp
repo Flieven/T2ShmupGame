@@ -14,8 +14,6 @@ TestEnemy::TestEnemy()
 {	
 	health = 100;
 
-	gunPattern = new ABPattern(3, false, 1.0f);
-
 	transform.Position = { 100, 100 };
 	
 	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);
@@ -75,7 +73,7 @@ void TestEnemy::onCollision(int other)
 	case playerTag:
 		break;
 
-	case bulletTag:
+	case playerBulletTag:
 		health -= 10;
 		break;
 
@@ -84,10 +82,15 @@ void TestEnemy::onCollision(int other)
 	}
 }
 
-void TestEnemy::setupTextures(const char* texture)
+void TestEnemy::setupObject(float x, float y, bool MoveAndShoot)
 {
+	transform.Position = { x, y };
+	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
+	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
+	shootMove = MoveAndShoot;
 }
 
-void TestEnemy::setupObject(SDL_Rect rect)
+void TestEnemy::setupGun(int numGuns, int rot, float delay)
 {
+	gunPattern = new ABPattern(numGuns, rot, delay, this);
 }

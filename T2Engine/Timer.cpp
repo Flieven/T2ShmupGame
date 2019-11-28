@@ -18,7 +18,7 @@ void T2::Timer::setTimer(float target)
 
 void T2::Timer::Update(float dTime)
 {
-	currentTime = dTime;
+	currentTime += dTime;
 
 	if (timerActive && currentTime >= targetTime)
 	{
