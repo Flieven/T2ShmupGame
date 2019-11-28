@@ -1,5 +1,1 @@
-﻿  Player.cpp
-C:\DEV\T2Shmup\Game\Player.cpp(28,21): warning C4305: '=': truncation from 'double' to 'float'
-C:\DEV\T2Shmup\Game\Player.cpp(39,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-C:\DEV\T2Shmup\Game\Player.cpp(97,17): warning C4305: '-=': truncation from 'double' to 'float'
-  Game.vcxproj -> C:\DEV\T2Shmup\binaries\Debug-x64\Game\Game.exe
+﻿  Game.vcxproj -> C:\DEV\T2Shmup\binaries\Debug-x64\Game\Game.exe
