@@ -112,6 +112,7 @@ void ShmupGame::Run()
 {		
 	while (isRunning)
 	{
+		
 		CalcDeltaTime();
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
 		drawManager->Clear();

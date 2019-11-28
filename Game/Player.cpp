@@ -36,7 +36,7 @@ void Player::updateObject()
 
 void Player::Update(float dTime)
 {
-	int hpBarWidth = playerWidth - (playerWidth * 0.01);
+	int hpBarWidth = playerWidth * (health * 0.01);
 	int hpBarHeight = 5;
 
 	checkInput();
@@ -94,7 +94,7 @@ void Player::onCollision(int other)
 	switch (other)
 	{
 	case enemyTag:
-		std::cout << "Player col Enemy" << std::endl;
+		health -= 0.01;
 		break;
 	}
 }
