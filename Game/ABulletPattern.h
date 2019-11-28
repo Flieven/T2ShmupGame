@@ -13,7 +13,7 @@ class ABPattern
 {
 private:
 	int numSpawners = 0;
-	bool spinning = false;
+	int spinDir = 0;
 	float spawnDelay = 0.1f;
 	float currentSpin = 80.0;
 
@@ -25,7 +25,7 @@ private:
 
 public:
 	ABPattern();
-	ABPattern(int spawners, bool spin, float delay, T2::Entity* givenOwner);
+	ABPattern(int spawners, int spin, float delay, T2::Entity* givenOwner);
 	~ABPattern();
 
 	void setupGun();

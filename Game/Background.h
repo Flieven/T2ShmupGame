@@ -15,13 +15,5 @@ public:
 	void onCollision(Collision* other);	
 	
 	SDL_FRect fRect2;
-
-	// Inherited via Entity
-	virtual void setupTextures(const char* texture) override;
-
-	virtual void setupObject(SDL_Rect rect) override;
-	
-	
-
 };
 

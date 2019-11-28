@@ -72,9 +72,7 @@ bool Player::checkInput()
 	// fire bullet
 	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDownOnce(SDL_SCANCODE_RCTRL))
 	{
-		std::cout << transform.Position.x << std::endl;
-		std::cout << transform.Position.y << std::endl;
-		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position, transform.down, bulletTag);
+		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position, transform.down, playerBulletTag);
 		keyDown = true;
 	}
 
@@ -96,16 +94,8 @@ void Player::onCollision(int other)
 	case enemyTag:
 		health -= 0.01;
 		break;
+	case enemyBulletTag:
+		health -= 0.01;
+		break;
 	}
-}
-
-//IMPLEMENT THESE WITH OBJECT POOL SO THAT WE CAN MAKE THE CLOUDY BOIS
-void Player::setupTextures(const char* texture)
-{
-	textureList.push_back(texture);
-}
-
-void Player::setupObject(SDL_Rect rect)
-{
-	Obj_Rect = rect;
 }

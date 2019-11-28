@@ -35,6 +35,8 @@ static const char* cloudSprite = "../Assets/Sprites/Cloud.png";
 static int bulletWidth = 25;
 static int bulletHeight = 15;
 static const int bulletTag = 2;
+static const int playerBulletTag = 3;
+static const int enemyBulletTag = 4;
 static const char* bulletSprite = "../Assets/Sprites/YodaSmall.png";
 // ===========================
 
@@ -42,7 +44,7 @@ static const char* bulletSprite = "../Assets/Sprites/YodaSmall.png";
 static int playerWidth = 25;
 static int playerHeight = 60;
 //static std::string playerTag = "Player";
-static const int playerTag = 3;
+static const int playerTag = 5;
 static const char* playerSprite = "../Assets/Sprites/SDL_Player.png";
 static const char* hpSprite = "../Assets/Sprites/hpsprite_old.png";
 // ===========================
@@ -51,7 +53,7 @@ static const char* hpSprite = "../Assets/Sprites/hpsprite_old.png";
 static int enemyWidth = 87;
 static int enemyHeight = 23;
 //static std::string enemyTag = "Enemy";
-static const int enemyTag = 4;
+static const int enemyTag = 6;
 static const char* enemySprite = "../Assets/Sprites/CampFire.png";
 // ===========================
 

@@ -43,12 +43,3 @@ void Background::Draw()
 void Background::onCollision(Collision* other)
 {
 }
-
-void Background::setupTextures(const char* texture)
-{
-	
-}
-
-void Background::setupObject(SDL_Rect rect)
-{
-}

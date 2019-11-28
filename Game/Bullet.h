@@ -21,12 +21,5 @@ public:
 	void onCollision(int other);
 	void OutsideWindow();
 	void ResetBullet(T2::Transform::Vector2D vector2d, T2::Transform::Vector2D movDir, int givenTag);
-
-
-	virtual void setupTextures(const char* texture) override;
-
-	virtual void setupObject(SDL_Rect rect) override;
-
-
 };
 

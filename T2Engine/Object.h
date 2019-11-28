@@ -24,7 +24,5 @@ namespace T2
 		virtual void Update(float dTime);
 		virtual void Draw();
 		virtual void onCollision(int other);
-		virtual void setupTextures(const char* texture) = 0;
-		virtual void setupObject(SDL_Rect rect) = 0;
 	};
 }

@@ -37,10 +37,4 @@ public:
 	bool checkInput();
 	void Draw();
 	void onCollision(int other);
-
-	// Inherited via Entity
-	virtual void setupTextures(const char* texture) override;
-	virtual void setupObject(SDL_Rect rect) override;
-
-
 };

@@ -42,11 +42,23 @@ void Bullet::Draw()
 
 void Bullet::onCollision(int other)
 {
-	switch (other)
+	if (tag == enemyBulletTag)
 	{
-	case enemyTag:
-		//active = false;
-		break;
+		switch (other)
+		{
+		case playerTag:
+			active = false;
+			break;
+		}
+	}
+	else if (tag == playerBulletTag)
+	{
+		switch (other)
+		{
+		case enemyTag:
+			active = false;
+			break;
+		}
 	}
 }
 
@@ -77,14 +89,4 @@ void Bullet::ResetBullet(T2::Transform::Vector2D vector2d,T2::Transform::Vector2
 	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
 	UpdateColliders();
 	active = true;
-}
-
-void Bullet::setupTextures(const char* texture)
-{
-	
-}
-
-void Bullet::setupObject(SDL_Rect rect)
-{
-	
 }

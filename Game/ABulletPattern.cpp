@@ -16,7 +16,7 @@ ABPattern::ABPattern()
 {
 }
 
-ABPattern::ABPattern(int spawners, bool spin, float delay, T2::Entity* givenOwner)
+ABPattern::ABPattern(int spawners, int spin, float delay, T2::Entity* givenOwner)
 {
 	objPool = ServiceLocator<T2::ObjectPool>::getService();
 	owner = givenOwner;
@@ -24,7 +24,7 @@ ABPattern::ABPattern(int spawners, bool spin, float delay, T2::Entity* givenOwne
 	if (delay > 0) { timer->setTimer(delay); }
 
 	numSpawners = spawners;
-	spinning = spin;
+	spinDir = spin;
 	spawnDelay = delay;
 
 	barrels.reserve(numSpawners);
@@ -69,8 +69,8 @@ void ABPattern::spawnBullets(float dTime, T2::Transform::Vector2D center)
 	{
 		for (int i = 0; i < barrels.size(); i++)
 		{
-			if (spinning) { rotateGun(i, center); }
-			dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet({ owner->transform.Position.x + ((enemyWidth / 2) - (bulletWidth / 2)) , owner->transform.Position.y + ((enemyHeight / 2) - (bulletHeight / 2)) }, barrels[i], bulletTag);
+			if (spinDir != 0) { rotateGun(i, center); }
+			dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet({ owner->transform.Position.x + ((enemyWidth / 2) - (bulletWidth / 2)) , owner->transform.Position.y + ((enemyHeight / 2) - (bulletHeight / 2)) }, barrels[i], enemyBulletTag);
 		}
 		timer->RestartTimer();
 	}
@@ -86,7 +86,7 @@ void ABPattern::rotateGun(int barrel, T2::Transform::Vector2D center)
 	double rad = 150;
 	double angle = 0;
 
-	angle = barrel * (360.0 / numSpawners) + (currentSpin += 10.0);
+	angle = barrel * (360.0 / numSpawners) + (currentSpin += spinDir);
 	float degree = (angle * (M_PI / 180));
 
 	barrels[barrel].x = cos(degree);
