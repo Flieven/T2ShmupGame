@@ -11,10 +11,12 @@ class Bullet : public T2::Entity
 private:
 	float xScale = 1;
 	float yScale = 1;
+	
 
 public:
+	
 	Bullet();
-	~Bullet();
+	~Bullet();	
 		
 	void Update(float dTime);
 	void Draw();

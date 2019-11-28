@@ -10,6 +10,7 @@ namespace T2
 	{
 	protected:
 		Sprite* sprite = nullptr;
+		Sprite* sprite2 = nullptr;
 		Sprite* hpbarSprite = nullptr;
 		DrawManager* drawManager = nullptr;
 

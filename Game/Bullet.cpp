@@ -9,8 +9,10 @@ Bullet::Bullet()
 {
 	transform.Scale.x = 1;
 	transform.Scale.y = 1;
-	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
 	movementSpeed = 400.0f;	
+	
+	sprite = drawManager->LoadTexture(playerBulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
+	sprite2 = drawManager->LoadTexture(enemyBulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
 }
 
 Bullet::~Bullet()
@@ -19,13 +21,13 @@ Bullet::~Bullet()
 }
 
 void Bullet::Update(float dTime)
-{	
+{
+	
 	if (active)
 	{
 		UpdateColliders();
 		Draw();
 		OutsideWindow();
-
 		transform.Position.x += (movementSpeed * transform.normalize(transform.movementDirection).x * dTime);
 		transform.Position.y += (movementSpeed * transform.normalize(transform.movementDirection).y * dTime);
 		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
@@ -35,7 +37,15 @@ void Bullet::Update(float dTime)
 
 void Bullet::Draw()
 {
-	drawManager->Render(sprite, fRect);
+	if (tag == playerBulletTag)
+	{
+		drawManager->Render(sprite, fRect);
+	}
+	else if (tag == enemyBulletTag)
+	{
+		drawManager->Render(sprite2, fRect);
+	}
+
 	drawManager->DebugRender(collider->rectangle);
 }
 
