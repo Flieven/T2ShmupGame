@@ -11,7 +11,7 @@ Bullet::Bullet()
 	transform.Scale.y = 1;
 	sprite = drawManager->LoadTexture(bulletSprite, 1, 1, bulletWidth, bulletHeight, 1);
 	collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
-	movementSpeed = 1000.0f;	
+	movementSpeed = 500.0f;	
 }
 
 Bullet::~Bullet()
@@ -27,22 +27,10 @@ void Bullet::Update(float dTime)
 		Draw();
 		OutsideWindow();
 
-		float XDir = 0;
-		float YDir = 0;
-		if(transform.movementDirection.x < 0) { XDir = -1; }
-		else { XDir = 1; }
-		if (transform.movementDirection.y < 0) { YDir = -1; }
-		else { YDir = 1; }
-
-
-		transform.Position.x += (movementSpeed * sqrt(transform.movementDirection.x * transform.movementDirection.x) * dTime) * XDir;
-		transform.Position.y += (movementSpeed * sqrt(transform.movementDirection.y * transform.movementDirection.y) * dTime) * YDir;
+		transform.Position.x += (movementSpeed * transform.normalize(transform.movementDirection).x * dTime);
+		transform.Position.y += (movementSpeed * transform.normalize(transform.movementDirection).y * dTime);
 		fRect = { transform.Position.x, transform.Position.y, sprite->getSource(0).w * transform.Scale.x, sprite->getSource(0).h * transform.Scale.y };
 		collider->rectangle = { (int)fRect.x, (int)fRect.y, Obj_Rect.w, Obj_Rect.h };
-
-		std::cout << "===== SHOOTING ===== \n";
-		std::cout << movementSpeed * sqrt(transform.movementDirection.x * transform.movementDirection.x) * dTime << std::endl;
-		std::cout << movementSpeed * sqrt(transform.movementDirection.y * transform.movementDirection.y) * dTime << std::endl;
 	}
 }
 

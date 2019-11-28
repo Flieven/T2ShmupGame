@@ -12,7 +12,7 @@
 
 TestEnemy::TestEnemy()
 {	
-	gunPattern = new ABPattern(5, true, 1.0f, this);
+	gunPattern = new ABPattern(2, true, 0.05f, this);
 
 	transform.Position = { 100, 100 };
 

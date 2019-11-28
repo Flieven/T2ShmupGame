@@ -9,6 +9,7 @@
 #include <complex>
 
 #include <ObjectPool.h>
+#include <Timer.h>
 #include <iostream>
 
 ABPattern::ABPattern()
@@ -19,6 +20,8 @@ ABPattern::ABPattern(int spawners, bool spin, float delay, T2::Entity* givenOwne
 {
 	objPool = ServiceLocator<T2::ObjectPool>::getService();
 	owner = givenOwner;
+	timer = new T2::Timer();
+	if (delay > 0) { timer->setTimer(delay); }
 
 	numSpawners = spawners;
 	spinning = spin;
@@ -43,10 +46,10 @@ void ABPattern::setupGun()
 
 	for (int i = 0; i < numSpawners; i++)
 	{
-		angle = i * (360 / numSpawners) + 90;
+		angle = i * (360.0 / numSpawners) + 90.0;
 		float degree = (angle * (M_PI / 180));
-		xPositions[i] = 0 + rad * cos(degree);
-		yPositions[i] = 0 + rad * sin(degree);
+		xPositions[i] = cos(degree);
+		yPositions[i] = sin(degree);
 		//std::cout << "Degree: " << degree << std::endl;
 		//std::cout << "Degree: " << cos(degree) << std::endl;
 		//std::cout << "rad: " << rad << std::endl;
@@ -60,18 +63,32 @@ void ABPattern::setupGun()
 	}
 }
 
-void ABPattern::spawnBullets(T2::Transform::Vector2D center)
+void ABPattern::spawnBullets(float dTime, T2::Transform::Vector2D center)
 {
-	for (int i = 0; i < barrels.size(); i++)
+	if (timer->timerFinished)
 	{
-		if (spinning) { rotateGun(i, center); }
-		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet({ owner->transform.Position.x + ((enemyWidth / 2) - (bulletWidth/2)) , owner->transform.Position.y + ((enemyHeight /2) - (bulletHeight / 2)) }, barrels[i], bulletTag);
+		for (int i = 0; i < barrels.size(); i++)
+		{
+			if (spinning) { rotateGun(i, center); }
+			dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet({ owner->transform.Position.x + ((enemyWidth / 2) - (bulletWidth / 2)) , owner->transform.Position.y + ((enemyHeight / 2) - (bulletHeight / 2)) }, barrels[i], bulletTag);
+		}
+		timer->RestartTimer();
+	}
+	else
+	{
+		timer->Update(dTime);
 	}
 }
 
 //TODO: FIX THIS SHIT.
 void ABPattern::rotateGun(int barrel, T2::Transform::Vector2D center)
 {
-	barrels[barrel].x = cos(M_PI / 18) * (barrels[barrel].x - center.x) - sin(M_PI / 18) * (barrels[barrel].y - center.y) + center.x;
-	barrels[barrel].y = cos(M_PI / 18) * (barrels[barrel].x - center.x) - sin(M_PI / 18) * (barrels[barrel].y - center.y) + center.y;
+	double rad = 150;
+	double angle = 0;
+
+	angle = barrel * (360.0 / numSpawners) + (currentSpin += 10.0);
+	float degree = (angle * (M_PI / 180));
+
+	barrels[barrel].x = cos(degree);
+	barrels[barrel].y = sin(degree);
 }

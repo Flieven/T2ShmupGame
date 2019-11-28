@@ -75,8 +75,11 @@ public:
 
 	virtual void Enter() override 
 	{ 
-		dynamic_cast<TestEnemy*>(entity)->gunPattern->spawnBullets(entity->transform.Position); 
 	}
-	virtual void Run(float deltaTime) override {entity->stateMachine->changeState("Patrol"); }
+	virtual void Run(float deltaTime) override 
+	{
+		dynamic_cast<TestEnemy*>(entity)->gunPattern->spawnBullets(deltaTime, entity->transform.Position);
+		entity->stateMachine->changeState("Patrol"); 
+	}
 	virtual void Exit() override { }
 };
