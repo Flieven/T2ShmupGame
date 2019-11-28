@@ -13,7 +13,7 @@ class TestEnemy : public T2::Entity
 {
 public:
 	TestEnemy();
-	~TestEnemy();
+	~TestEnemy();	
 
 	void Update(float dTime);
 	void Draw();

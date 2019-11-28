@@ -3,6 +3,7 @@
 #include <EngineEntry.h>
 #include <ServiceLocator.h>
 
+#include <AudioManager.h>
 #include <StateManager.h>
 #include <InputManager.h>
 #include <DrawManager.h>
@@ -61,6 +62,12 @@ bool ShmupGame::Initialize()
 	stateManager = new T2::FSM();
 	ServiceLocator<T2::FSM>::setService(stateManager);
 
+	audioManager = new T2::AudioManager();
+	ServiceLocator<T2::AudioManager>::setService(audioManager);	
+
+	// yoda spana på musik
+	audioManager->createMusic("..Assets/Audio/Music/Spffe_-_Shmuppysong_mongoslut.WAV");	
+
 	// Factory adds
 	factoryManager->addFactory(backgroundTag, new BackgroundFactory());
 	factoryManager->addFactory(playerTag, new PlayerFactory());
@@ -102,9 +109,10 @@ void ShmupGame::Shutdown()
 }
 
 void ShmupGame::Run()
-{
+{		
 	while (isRunning)
 	{
+		
 		CalcDeltaTime();
 		if (inputManager->isKeyDown(SDL_SCANCODE_ESCAPE))  { isRunning = false; }
 		drawManager->Clear();

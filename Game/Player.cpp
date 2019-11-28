@@ -10,6 +10,7 @@
 
 Player::Player()
 {
+	health = 100;
 	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
@@ -23,22 +24,33 @@ Player::~Player()
 void Player::setupPlayer()
 {
 	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
+	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);
 	movementSpeed = 0.1;
-	//tag = playerTag;
 }
 
 void Player::updateObject()
 {
 	Obj_Rect = { (int)transform.Position.x , (int)transform.Position.y, sprite->getSource(0).w, sprite->getSource(0).h };
-	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
+	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };	
 }
 
 void Player::Update(float dTime)
 {
+	int hpBarWidth = playerWidth * (health * 0.01);
+	int hpBarHeight = 5;
+
 	checkInput();
 	updateObject();
 	UpdateColliders();
 	Draw();
+
+	if (hpBarWidth <= 0)
+	{
+		active = false;
+		std::cout << "Gaym ovah" << std::endl;
+	}
+
+	hpRect = { (int)transform.Position.x, (int)transform.Position.y - 10, hpBarWidth, hpBarHeight };
 }
 
 bool Player::checkInput()
@@ -73,13 +85,17 @@ void Player::Draw()
 {
 	drawManager->Render(sprite, Obj_Rect);
 	drawManager->DebugRender(collider->rectangle);
+
+	drawManager->Render(hpbarSprite, hpRect);
 }
 
 void Player::onCollision(int other)
 {
 	switch (other)
 	{
-	case enemyTag: std::cout << "Player col Enemy" << std::endl;
+	case enemyTag:
+		health -= 0.01;
+		break;
 	}
 }
 

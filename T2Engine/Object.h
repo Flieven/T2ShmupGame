@@ -14,6 +14,7 @@ namespace T2
 		Transform transform;
 		SDL_Rect Obj_Rect = { 0,0,0,0 };
 		SDL_FRect fRect;
+		SDL_Rect hpRect;
 		int tag = 0;
 
 		Object();
