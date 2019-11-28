@@ -18,8 +18,7 @@ TestEnemy::TestEnemy()
 
 	transform.Position = { 100, 100 };
 	
-	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);		
-	hpRect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight  };
+	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);
 
 	sprite = drawManager->LoadTexture(enemySprite, 1, 1, enemyWidth, enemyHeight, 1);
 	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
@@ -42,7 +41,9 @@ TestEnemy::~TestEnemy()
 
 void TestEnemy::Update(float dTime)
 {
-	int hpBar = enemyWidth * (health * 0.01);
+	int hpBarWidth = enemyWidth * (health * 0.01);
+	int hpBarHeight = 5;
+
 	if(active)
 	{
 		Draw();
@@ -50,13 +51,13 @@ void TestEnemy::Update(float dTime)
 		stateMachine->updateState(dTime);
 		collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
 		
-		if (hpBar <= 0)
+		if (hpBarWidth <= 0)
 		{
 			active = false;
 		}
 	}
 	
-	hpRect = { (int)transform.Position.x, (int)transform.Position.y, (int)hpBar, enemyHeight / 5 };
+	hpRect = { (int)transform.Position.x, (int)transform.Position.y -10, hpBarWidth, hpBarHeight };
 }
 
 void TestEnemy::Draw()

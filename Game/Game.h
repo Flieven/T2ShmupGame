@@ -12,6 +12,7 @@ namespace T2
 	class UI_ButtonManager;
 	class TextManager;
 	class FSM;
+	class AudioManager;
 }
 
 class ShmupGame : public T2::Engine
@@ -31,6 +32,7 @@ private:
 	T2::UI_ButtonManager* buttonManager = nullptr;
 	T2::TextManager* textManager = nullptr;
 	T2::FSM* stateManager = nullptr;
+	T2::AudioManager* audioManager = nullptr;
 
 	float deltaTime = 0.0f;
 	float lastTick = 0.0f;

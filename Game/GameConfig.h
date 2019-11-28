@@ -44,6 +44,7 @@ static int playerHeight = 60;
 //static std::string playerTag = "Player";
 static const int playerTag = 3;
 static const char* playerSprite = "../Assets/Sprites/SDL_Player.png";
+static const char* hpSprite = "../Assets/Sprites/hpsprite_old.png";
 // ===========================
 
 // ===== ENEMY SETTINGS =====
@@ -52,7 +53,6 @@ static int enemyHeight = 23;
 //static std::string enemyTag = "Enemy";
 static const int enemyTag = 4;
 static const char* enemySprite = "../Assets/Sprites/CampFire.png";
-static const char* hpSprite = "../Assets/Sprites/hpsprite_old.png";
 // ===========================
 
 
