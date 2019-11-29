@@ -1,20 +1,2 @@
-﻿  ABulletPattern.cpp
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math_defines.h(22,1): warning C4005: 'M_PI': macro redefinition
-C:\DEV\T2Shmup\External\SDL2\include\SDL_stdinc.h(499): message : see previous definition of 'M_PI'
-C:\DEV\T2Shmup\Game\ABulletPattern.cpp(50,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Background.cpp
-C:\DEV\T2Shmup\Game\ABulletPattern.cpp(90,15): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-  Bullet.cpp
-  Game.cpp
-C:\DEV\T2Shmup\Game\Background.cpp(18,10): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-  GameState.cpp
-  MainMenuState.cpp
-  Player.cpp
-C:\DEV\T2Shmup\Game\Game.cpp(142,25): warning C4244: '=': conversion from 'Uint32' to 'float', possible loss of data
-C:\DEV\T2Shmup\Game\Player.cpp(29,22): warning C4305: '=': truncation from 'double' to 'float'
-C:\DEV\T2Shmup\Game\Player.cpp(40,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  TestEnemy.cpp
-C:\DEV\T2Shmup\Game\Player.cpp(96,17): warning C4305: '-=': truncation from 'double' to 'float'
-  Generating Code...
-C:\DEV\T2Shmup\Game\TestEnemy.cpp(42,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+﻿  Bullet.cpp
   Game.vcxproj -> C:\DEV\T2Shmup\binaries\Debug-x64\Game\Game.exe

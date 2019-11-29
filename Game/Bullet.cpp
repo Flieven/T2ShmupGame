@@ -38,13 +38,9 @@ void Bullet::Update(float dTime)
 void Bullet::Draw()
 {
 	if (tag == playerBulletTag)
-	{
-		drawManager->Render(sprite, fRect);
-	}
+	{ drawManager->Render(sprite, fRect); }
 	else if (tag == enemyBulletTag)
-	{
-		drawManager->Render(sprite2, fRect);
-	}
+	{ drawManager->Render(sprite2, fRect); }
 
 	drawManager->DebugRender(collider->rectangle);
 }
