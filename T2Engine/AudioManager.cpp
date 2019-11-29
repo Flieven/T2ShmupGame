@@ -3,6 +3,8 @@
 #include "SoundClip.h"
 #include "MusicClip.h"
 
+#include <SDL_mixer.h>
+
 bool T2::AudioManager::initialize()
 {
 	return false;

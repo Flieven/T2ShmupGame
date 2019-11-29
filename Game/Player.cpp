@@ -6,8 +6,10 @@
 #include <DrawManager.h>
 #include <Sprite.h>
 #include <InputManager.h>
+#include <AudioManager.h>
 #include <ObjectPool.h>
 #include <Timer.h>
+#include <SoundClip.h>
 
 Player::Player()
 {
@@ -15,6 +17,9 @@ Player::Player()
 	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
+	audioManager = ServiceLocator<T2::AudioManager>::getService();
+
+	shotSound = audioManager->createSound(gunSound);
 	
 	animationTimer = new T2::Timer();
 	animationTimer->setTimer(0.2f);
@@ -79,6 +84,7 @@ bool Player::checkInput()
 	// fire bullet
 	if (inputManager->isKeyDownOnce(SDL_SCANCODE_LCTRL) || inputManager->isKeyDownOnce(SDL_SCANCODE_RCTRL))
 	{
+		shotSound->Play(0);
 		dynamic_cast<Bullet*>(objPool->getObject(bulletTag))->ResetBullet(transform.Position, transform.down, playerBulletTag);
 		keyDown = true;
 	}

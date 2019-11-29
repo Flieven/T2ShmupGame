@@ -8,7 +8,7 @@ namespace T2
 	class Music
 	{
 	private:
-		Mix_Music* currentMusic = nullptr;
+		Mix_Music* currentMusic;
 		std::string musicName;
 
 	public:

@@ -15,7 +15,7 @@ Background::~Background()
 {
 }
 
-float y2 = -windowHeight; // spawn 2 "one screen up"
+float y2 = (float)-windowHeight; // spawn 2 "one screen up"
 void Background::Update(float dTime)
 {	
 	Draw();	

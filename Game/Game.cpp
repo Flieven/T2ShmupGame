@@ -33,7 +33,8 @@ bool ShmupGame::Initialize()
 	std::cout << "===== Initalizing Engine =====" << std::endl;
 	assert(SDL_Init(SDL_INIT_EVERYTHING) == 0 && "SDL_Init Failed to Initalize");
 	assert(IMG_Init(IMG_INIT_PNG) != 0 && "IMG_Init Failed to Initalize");
-	assert(Mix_Init(MIX_INIT_MP3) != 0 && "Mix_Init Failed to Initalize");
+	assert(Mix_Init(MIX_INIT_OGG) != 0 && "Mix_Init Failed to Initalize");
+	assert(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024) != -1 && "Mix_OpenAudio Failed");
 	assert(TTF_Init() == 0 && "TTF_Init Failed to Initialize");;
 
 	inputManager = new T2::Input();
@@ -64,9 +65,6 @@ bool ShmupGame::Initialize()
 
 	audioManager = new T2::AudioManager();
 	ServiceLocator<T2::AudioManager>::setService(audioManager);	
-
-	// yoda spana på musik
-	audioManager->createMusic("..Assets/Audio/Music/Spffe_-_Shmuppysong_mongoslut.WAV");	
 
 	// Factory adds
 	factoryManager->addFactory(backgroundTag, new BackgroundFactory());

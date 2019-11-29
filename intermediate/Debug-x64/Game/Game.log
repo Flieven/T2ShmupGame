@@ -1,7 +1,21 @@
-﻿  GameState.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(36,17): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  ABulletPattern.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\ucrt\corecrt_math_defines.h(22,1): warning C4005:  'M_PI': macro redefinition
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\External\SDL2\include\SDL_stdinc.h(499): message :  see previous definition of 'M_PI'
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\ABulletPattern.cpp(50,16): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+  Background.cpp
+  Bullet.cpp
+  Game.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\ABulletPattern.cpp(90,15): warning C4244:  'initializing': conversion from 'double' to 'float', possible loss of data
+  GameState.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Game.cpp(140,25): warning C4244:  '=': conversion from 'Uint32' to 'float', possible loss of data
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(43,17): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MainMenuState.cpp
+  Player.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(96,36): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(39,22): warning C4305:  '=': truncation from 'double' to 'float'
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(50,17): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
   TestEnemy.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(88,36): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(114,17): warning C4305:  '-=': truncation from 'double' to 'float'
   Generating Code...
 C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\TestEnemy.cpp(42,17): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
   Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe

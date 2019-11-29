@@ -12,6 +12,10 @@
 #include <cstdlib>
 #include <ctime>
 
+#include <MusicClip.h>
+#include <SoundClip.h>
+#include <AudioManager.h>
+
 GameState::GameState()
 {
 }
@@ -20,6 +24,7 @@ GameState::GameState(std::string stateID)
 {
 	stateName = stateID;
 	objPool = ServiceLocator<T2::ObjectPool>::getService();
+	audioManager = ServiceLocator<T2::AudioManager>::getService();
 }
 
 GameState::~GameState()
@@ -32,6 +37,8 @@ void GameState::Enter()
 	objPool->getObject(backgroundTag)->active = true;
 	objPool->getObject(playerTag)->active = true;
 	objPool->addNewPool(enemyTag);
+
+	bgMusic = audioManager->createMusic(bg_Music);
 
 	srand(std::time(NULL));
 
@@ -48,6 +55,7 @@ void GameState::Enter()
 			enemies[i] = dynamic_cast<T2::Entity*>(objPool->getSpecificObject(enemyTag, i)); 
 		} 
 	}
+	bgMusic->Play();
 }
 
 void GameState::Run(float deltaTime)

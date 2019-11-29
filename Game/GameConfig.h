@@ -68,4 +68,6 @@ static SDL_Color debugColor = { 0, 255, 0, 255 };
 // =========================
 
 // ===== MISC SETTINGS =====
+static const std::string bg_Music = "../Assets/Audio/Music/BgSong.ogg";
+static const std::string gunSound = "../Assets/Audio/Sounds/laserSound.ogg";
 // =========================
