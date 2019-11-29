@@ -7,6 +7,7 @@
 #include <Sprite.h>
 #include <InputManager.h>
 #include <ObjectPool.h>
+#include <Timer.h>
 
 Player::Player()
 {
@@ -14,6 +15,10 @@ Player::Player()
 	transform.Position = { windowWidth * 0.5f, windowHeight * 0.8f };
 	inputManager = ServiceLocator<T2::Input>::getService();
 	objPool = ServiceLocator<T2::ObjectPool>::getService();	
+	
+	animationTimer = new T2::Timer();
+	animationTimer->setTimer(0.2f);
+
 	tag = playerTag;
 	setupPlayer();
 }
@@ -24,7 +29,7 @@ Player::~Player()
 
 void Player::setupPlayer()
 {
-	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 1);
+	sprite = drawManager->LoadTexture(playerSprite, 1, 1, playerWidth, playerHeight, 4);
 	hpbarSprite = drawManager->LoadTexture(hpSprite, 1, 1, 10, 10, 1);
 	movementSpeed = 0.15;
 }
@@ -52,6 +57,7 @@ void Player::Update(float dTime)
 	}
 
 	hpRect = { (int)transform.Position.x, (int)transform.Position.y - 10, hpBarWidth, hpBarHeight };
+	animationTimer->Update(dTime);
 }
 
 bool Player::checkInput()
@@ -82,7 +88,13 @@ bool Player::checkInput()
 
 void Player::Draw()
 {
-	drawManager->Render(sprite, Obj_Rect);
+	if(animationTimer->timerFinished)
+	{
+		sprite->currentFrame = drawManager->Animate(sprite, sprite->currentFrame, sprite->currentFrameRect, Obj_Rect, true);
+		animationTimer->RestartTimer();
+	}
+	else { sprite->currentFrame = drawManager->Animate(sprite, sprite->currentFrame, sprite->currentFrameRect, Obj_Rect, false);
+	}
 	drawManager->DebugRender(collider->rectangle);
 
 	drawManager->Render(hpbarSprite, hpRect);

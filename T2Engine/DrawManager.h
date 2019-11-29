@@ -27,6 +27,8 @@ namespace T2
 		void Clear();
 		void Present();
 
+		int Animate(Sprite* sprite, int frame, SDL_Rect& currentFrame, SDL_Rect rect, bool update);
+
 		SDL_Renderer* getRenderer();
 
 		// Load textures

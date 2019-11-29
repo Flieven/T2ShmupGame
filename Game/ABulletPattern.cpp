@@ -57,9 +57,9 @@ void ABPattern::setupGun()
 
 		barrels.push_back(T2::Transform::Vector2D{ (float)xPositions[i], (float)yPositions[i] });
 	
-		std::cout << "===== X/Y POSITIONS ===== \n";
+	/*	std::cout << "===== X/Y POSITIONS ===== \n";
 		std::cout << xPositions[i] << std::endl;
-		std::cout << yPositions[i] << std::endl;
+		std::cout << yPositions[i] << std::endl;*/
 	}
 }
 
@@ -91,4 +91,11 @@ void ABPattern::rotateGun(int barrel, T2::Transform::Vector2D center)
 
 	barrels[barrel].x = cos(degree);
 	barrels[barrel].y = sin(degree);
+}
+
+void ABPattern::updateGun(int barrels, int spin, float delay)
+{
+	numSpawners = barrels;
+	spinDir = spin;
+	spawnDelay = delay;
 }

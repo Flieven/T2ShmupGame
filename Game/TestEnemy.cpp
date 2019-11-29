@@ -25,8 +25,8 @@ TestEnemy::TestEnemy()
 	tag = enemyTag;
 	stateMachine = new T2::FSM();
 
-	std::cout << transform.Position.x << std::endl;
-	std::cout << transform.Position.y << std::endl;
+	//std::cout << transform.Position.x << std::endl;
+	//std::cout << transform.Position.y << std::endl;
 
 	stateMachine->addState("Patrol", new PatrolState(this));
 	stateMachine->addState("Attack", new AttackState(this));
@@ -82,15 +82,16 @@ void TestEnemy::onCollision(int other)
 	}
 }
 
-void TestEnemy::setupObject(float x, float y, bool MoveAndShoot)
+void TestEnemy::setupObject(float x, float y)
 {
 	transform.Position = { x, y };
 	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
-	shootMove = MoveAndShoot;
 }
 
-void TestEnemy::setupGun(int numGuns, int rot, float delay)
+void TestEnemy::setupGun(int numGuns, int rot, float delay, bool MoveAndShoot)
 {
-	gunPattern = new ABPattern(numGuns, rot, delay, this);
+	shootMove = MoveAndShoot;
+	if(gunPattern == nullptr) { gunPattern = new ABPattern(numGuns, rot, delay, this); }
+	else { gunPattern->updateGun(numGuns, rot, delay); }
 }

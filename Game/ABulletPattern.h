@@ -31,5 +31,6 @@ public:
 	void setupGun();
 	void spawnBullets(float dTime, T2::Transform::Vector2D center);
 	void rotateGun(int barrel, T2::Transform::Vector2D center);
+	void updateGun(int barrels, int spin, float delay);
 
 };
