@@ -61,16 +61,16 @@ void GameState::Run(float deltaTime)
 
 void GameState::Exit()
 {
-	objPool->clearPools();
 	//SHUTDOWN THINGS HERE
+	objPool->clearPools();
 }
 
 void GameState::addEnemy()
 {
 	for (int i = 0; i < enemies.size(); i++)
 	{
-		//std::cout << "Enemy: " << i << std::endl;
-		//std::cout << "Active: " << enemies[i]->active << std::endl;
+		std::cout << "Enemy: " << i << std::endl;
+		std::cout << "Active: " << enemies[i]->active << std::endl;
 		if (!enemies[i]->active)
 		{
 			std::cout << " ===== NEW ENEMY ===== \n";
@@ -100,6 +100,8 @@ void GameState::addEnemy()
 
 			dynamic_cast<TestEnemy*>(enemies[i])->setupGun(randGuns, spinDir, delay, randShootMove);
 			enemies[i]->active = true;
+			std::cout << "Enemy: " << i << std::endl;
+			std::cout << "Active: " << enemies[i]->active << std::endl;
 			break;
 		}
 	}

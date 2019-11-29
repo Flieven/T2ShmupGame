@@ -1,5 +1,7 @@
-﻿  Player.cpp
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(34,22): warning C4305:  '=': truncation from 'double' to 'float'
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(45,17): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
-C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\Player.cpp(108,17): warning C4305:  '-=': truncation from 'double' to 'float'
+﻿  GameState.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(36,17): warning C4244:  'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  TestEnemy.cpp
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\GameState.cpp(88,36): warning C4244:  '=': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+C:\Users\Leon.Andersson\source\repos\T2ShmupGame\Game\TestEnemy.cpp(42,17): warning C4244:  'initializing': conversion from 'double' to 'int', possible loss of data
   Game.vcxproj -> C:\Users\Leon.Andersson\source\repos\T2ShmupGame\binaries\Debug-x64\Game\Game.exe

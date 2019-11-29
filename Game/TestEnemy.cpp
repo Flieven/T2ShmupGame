@@ -84,6 +84,7 @@ void TestEnemy::onCollision(int other)
 
 void TestEnemy::setupObject(float x, float y)
 {
+	health = 100;
 	transform.Position = { x, y };
 	Obj_Rect = { (int)transform.Position.x, (int)transform.Position.y, enemyWidth, enemyHeight };
 	collider->rectangle = { Obj_Rect.x, Obj_Rect.y, Obj_Rect.w, Obj_Rect.h };
