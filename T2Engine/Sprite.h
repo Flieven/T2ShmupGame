@@ -12,9 +12,6 @@ namespace T2
 		SDL_Texture* texture = nullptr;
 		std::vector<SDL_Rect> sources;
 
-		SDL_Rect currentFrameRect;
-		int currentFrame = 0;
-
 	public:
 		Sprite(SDL_Texture* tex, int x, int y, int w, int h, int frames);
 		~Sprite();
@@ -24,6 +21,9 @@ namespace T2
 		SDL_Texture* getTexture();
 		int getLength();
 		int getFrame();
+
+		int currentFrame = 0;
+		SDL_Rect currentFrameRect;
 
 	};
 }

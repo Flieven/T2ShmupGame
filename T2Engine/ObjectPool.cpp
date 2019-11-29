@@ -24,6 +24,34 @@ void T2::ObjectPool::addNewPool(const int& tag)
 	else { std::cout << "WARNING: Pool already exists!" << std::endl; }
 }
 
+void T2::ObjectPool::deletePool(const int& tag)
+{
+	auto it = pool.find(tag);
+	if (it == pool.end()) { std::cout << "No Pool to delete." << std::endl; }
+	else
+	{
+		for (int i = 0; i < it->second.size(); i++)
+		{
+			delete it->second[i];
+		}
+		it->second.clear();
+		pool.erase(tag);
+	}
+}
+
+void T2::ObjectPool::clearPools()
+{
+	for (auto& it : pool)
+	{
+		for (int i = 0; i < it.second.size(); i++)
+		{
+			delete it.second[i];
+		}
+		it.second.clear();
+		pool.erase(it.first);
+	}
+}
+
 T2::Object* T2::ObjectPool::getObject(const int& tag)
 {
 	Object* returnVal = nullptr;
@@ -51,7 +79,7 @@ T2::Object* T2::ObjectPool::getObject(const int& tag)
 	if (returnVal == nullptr)
 	{
 		it->second.push_back(factoryManager->useFactory(tag));
-		std::cout << "Pool size: " << it->second.size() << std::endl;
+		//std::cout << "Pool size: " << it->second.size() << std::endl;
 		returnVal = it->second[it->second.size()-1];
 	}
 

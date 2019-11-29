@@ -46,7 +46,7 @@ namespace T2
 	{
 	private:
 
-		std::map<int, std::vector<Object*>> pool;
+		std::map<int, std::vector<T2::Object*>> pool;
 
 		FactoryManager* factoryManager;
 		CollisionManager* colManager;
@@ -56,6 +56,8 @@ namespace T2
 		~ObjectPool();
 
 		void addNewPool(const int& tag);
+		void deletePool(const int& tag);
+		void clearPools();
 
 		T2::Object* getObject(const int& tag);
 		T2::Object* getRandomObject(const int& tag);

@@ -6,6 +6,7 @@ namespace T2
 {
 	class Input;
 	class ObjectPool;
+	class Timer;
 }
 
 class BulletFactory;
@@ -29,6 +30,7 @@ public:
 
 	T2::Input* inputManager = nullptr;
 	T2::ObjectPool* objPool = nullptr;
+	T2::Timer* animationTimer = nullptr;
 
 
 	BulletFactory* bFactory = nullptr;

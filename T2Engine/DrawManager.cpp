@@ -53,6 +53,20 @@ void T2::DrawManager::Clear() { SDL_RenderClear(renderer); }
 
 void T2::DrawManager::Present() { SDL_RenderPresent(renderer); }
 
+int T2::DrawManager::Animate(Sprite* sprite, int frame, SDL_Rect& currentFrame, SDL_Rect rect, bool update)
+{
+	if (frame < sprite->getLength() - 1 && update)
+	{
+		currentFrame = sprite->getSource(frame);
+		frame++;
+	}
+	else if (frame >= sprite->getLength() - 1 && update) { frame = 0; currentFrame = sprite->getSource(frame); }
+
+	SDL_RenderCopy(renderer, sprite->getTexture(), &currentFrame, &rect);
+
+	return frame;
+}
+
 SDL_Renderer* T2::DrawManager::getRenderer()
 {
 	return renderer;
