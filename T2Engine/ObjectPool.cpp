@@ -19,7 +19,7 @@ void T2::ObjectPool::addNewPool(const int& tag)
 	auto it = pool.find(tag);
 	if (it == pool.end())
 	{
-		pool.insert({ tag, std::vector<Object*>() }); //THIS IS BAD DOING COPIES LIKE THIS AND SHOULD BE FIXED. IF ONLY I KNEW HOW...
+		pool.insert({ tag, std::vector<Object*>() });
 	}
 	else { std::cout << "WARNING: Pool already exists!" << std::endl; }
 }
