@@ -20,8 +20,6 @@ namespace T2
 		void addState(std::string key, AbstractState* state);
 		void changeState(std::string key);
 		void updateState(float deltaTime);
-
-		//Remove state?
 	};
 }
 
