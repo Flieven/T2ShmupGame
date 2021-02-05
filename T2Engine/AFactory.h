@@ -2,8 +2,6 @@
 
 /*
 THIS IS AN ABSTRACT FACTORY CLASS!
-
-Fuck me this is annoying to setup...
 */
 
 namespace T2
