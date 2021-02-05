@@ -11,9 +11,6 @@ Result: std::list<std::string, AFactory*>> Factories;
 (*) A Way to add new factories to list ( addFactory(std::string, AFactory* factory) ) <--- CHECK NO DUPLICATE FACTORIES.
 (*) Make factories accessable and return the Object* they create ( createObject(std::string tag) ) <--- ALL FACTORIES WORK WITH SOME CHILD OF OBJECT.h!
 (*) Remove factories from list? ( removeFactory(std::string tag) ) <--- OVERLOAD FOR DECONSTRUCTION OF MANAGER TOO!
-
-NOTES:
-		What the actual fuck am I doing with my life?
 */
 
 namespace T2
