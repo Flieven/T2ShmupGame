@@ -3,10 +3,9 @@
 
 #include <map>
 
-//Finite State Machine
-namespace T2 //Allt inom "T2Engine" skall vara i ett "T2" namespace.
+namespace T2
 {
-	class AbstractState; // Forward Declaration: "This is a thing we will use, but we don't need to know exactly what it does".
+	class AbstractState;
 
 	class FSM
 	{
