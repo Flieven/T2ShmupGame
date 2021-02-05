@@ -8,13 +8,6 @@ T2::FactoryManager::FactoryManager()
 
 T2::FactoryManager::~FactoryManager()
 {
-	//std::map<std::string, AFactory*>::iterator it;
-	//for (it = factoryList.begin(); it != factoryList.end(); it++)
-	//{
-	//	delete it->second;
-	//	it->second = nullptr;
-	//}
-
 	factoryList.clear();
 }
 
